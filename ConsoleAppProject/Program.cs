@@ -22,11 +22,12 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2022-2023! ");
+            Console.WriteLine("    By: Muneef Mumthas - 22206529                 ");
             Console.WriteLine(" =================================================");
             Console.WriteLine();
 
             DistanceConverter converter = new DistanceConverter();
-            //converter.run();
+            converter.Run();
         }
     }
 }
