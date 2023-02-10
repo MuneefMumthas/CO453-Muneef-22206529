@@ -43,7 +43,16 @@ namespace ConsoleAppProject.App01
             // Step 1: Input distance
             Console.WriteLine("Please enter the distance: ");
             input = Console.ReadLine();
-            distance = Convert.ToDouble(input);
+
+            try
+            {
+                distance = Convert.ToDouble(input);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error: Invalid distance entered. Please enter a valid numerical value.");
+                return;
+            }
 
             // Step 2: Conversion process
             switch (fromUnit)
