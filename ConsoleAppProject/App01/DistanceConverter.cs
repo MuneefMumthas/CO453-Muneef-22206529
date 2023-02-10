@@ -23,8 +23,8 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("1. Miles");
             Console.WriteLine("2. Feet");
             Console.WriteLine("3. Meters");
-
-            int fromUnit = Convert.ToInt32(Console.ReadLine());
+            
+            int fromUnit = Convert.ToInt32(GetValidOption());
 
             // Prompt user to select unit to convert to
             Console.WriteLine("Please select the unit to convert to:");
@@ -32,7 +32,7 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("2. Feet");
             Console.WriteLine("3. Meters");
 
-            int toUnit = Convert.ToInt32(Console.ReadLine());
+            int toUnit = Convert.ToInt32(GetValidOption());
 
             if (fromUnit == toUnit)
             {
@@ -95,5 +95,25 @@ namespace ConsoleAppProject.App01
                     break;
             }
         }
+        private int GetValidOption()
+        {
+            int option;
+            string input = Console.ReadLine();
+            try
+            {
+            option = Convert.ToInt32(input);
+            if (option < 1 || option > 3)
+            {
+            throw new Exception();
+            }
+            }
+            catch (Exception)
+            {
+            Console.WriteLine("Error: Invalid option entered. Please enter a number between 1 and 3.");
+            option = GetValidOption();
+            }
+            return option;
+        }
+
     }
 }
