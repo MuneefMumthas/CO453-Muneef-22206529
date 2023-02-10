@@ -44,14 +44,18 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("Please enter the distance: ");
             input = Console.ReadLine();
 
-            try
+            while (true)
             {
-                distance = Convert.ToDouble(input);
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Error: Invalid distance entered. Please enter a valid numerical value.");
-                return;
+                try
+                {
+                    distance = Convert.ToDouble(input);
+                    break;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Error: Invalid distance entered. Please enter a valid numerical value.");
+                    input = Console.ReadLine();
+                }
             }
 
             // Step 2: Conversion process
@@ -94,6 +98,14 @@ namespace ConsoleAppProject.App01
                     }
                     break;
             }
+                    
+                    // Prompt to restart the application
+                    Console.WriteLine("Do you want to restart the application? (y/n)");
+                    string restart = Console.ReadLine();
+                    if (restart.ToLower() == "y")
+                    {
+                    Run();
+                    }
         }
         private int GetValidOption()
         {
