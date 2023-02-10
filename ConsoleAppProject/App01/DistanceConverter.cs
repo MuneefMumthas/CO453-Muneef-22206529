@@ -3,7 +3,7 @@
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// Distance Converter that converts user inputs into prefered units
+    /// Distance Converter that converts user inputs into preferred units
     /// </summary>
     /// <author>
     /// Muneef Mumthas - 22206529
@@ -12,48 +12,48 @@ namespace ConsoleAppProject.App01
     {
         const int MILES_TO_FEET = 5280;
         string input;
-        int miles;
-        int feet;
+        double distance;
+        double result;
 
-
-        public DistanceConverter()
-        {
-            
-        }
         public void Run()
         {
-            //Miles to Feet
-            
-            //step 1 Input Miles
+            // Prompt user to select unit to convert from
+            Console.WriteLine("Please select the unit to convert from:");
+            Console.WriteLine("1. Miles");
+            Console.WriteLine("2. Feet");
 
-            Console.WriteLine("Please enter the number of miles: ");
+            int fromUnit = Convert.ToInt32(Console.ReadLine());
+
+            // Prompt user to select unit to convert to
+            Console.WriteLine("Please select the unit to convert to:");
+            Console.WriteLine("1. Miles");
+            Console.WriteLine("2. Feet");
+
+            int toUnit = Convert.ToInt32(Console.ReadLine());
+
+            // Step 1: Input distance
+            Console.WriteLine("Please enter the distance: ");
             input = Console.ReadLine();
-            miles = Convert.ToInt32(input);
-            Console.WriteLine("Miles entered is: " + miles);
+            distance = Convert.ToDouble(input);
 
-            // step 2 Convertion process
-            
-            feet = miles * MILES_TO_FEET;
-
-            // step 3 Output Feet
-            Console.WriteLine(miles + " miles is " + feet + " feet.");
-
-            //Feet to Miles
-
-            //step 1 Input Feet
-            Console.WriteLine("Please enter the number of feet: ");
-            input = Console.ReadLine();
-            feet = Convert.ToInt32(input);
-            Console.WriteLine("Feet entered is: " + feet);
-
-            // step 2 Convertion process
-            miles = feet / MILES_TO_FEET;
-
-            // step 3 Output Miles
-            Console.WriteLine(feet + " feet is " + miles + " miles.");
-
-
+            // Step 2: Conversion process
+            switch (fromUnit)
+            {
+                case 1: // Miles
+                    if (toUnit == 2)
+                    {
+                        result = distance * MILES_TO_FEET;
+                        Console.WriteLine(distance + " miles is " + result + " feet.");
+                    }
+                    break;
+                case 2: // Feet
+                    if (toUnit == 1)
+                    {
+                        result = distance / MILES_TO_FEET;
+                        Console.WriteLine(distance + " feet is " + result + " miles.");
+                    }
+                    break;
+            }
         }
-
     }
 }
