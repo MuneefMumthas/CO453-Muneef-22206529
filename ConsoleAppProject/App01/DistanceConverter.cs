@@ -31,6 +31,12 @@ namespace ConsoleAppProject.App01
 
             int toUnit = Convert.ToInt32(Console.ReadLine());
 
+            if (fromUnit == toUnit)
+            {
+                Console.WriteLine("Error: You cannot convert the same unit.");
+                return;
+            }
+
             // Step 1: Input distance
             Console.WriteLine("Please enter the distance: ");
             input = Console.ReadLine();
