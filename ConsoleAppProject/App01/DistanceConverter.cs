@@ -99,13 +99,6 @@ namespace ConsoleAppProject.App01
                     break;
             }
                     
-                    // Prompt to restart the application
-                    Console.WriteLine("Do you want to restart the application? (y/n)");
-                    string restart = Console.ReadLine();
-                    if (restart.ToLower() == "y")
-                    {
-                    Run();
-                    }
         }
         private int GetValidOption()
         {

@@ -21,7 +21,7 @@ namespace ConsoleAppProject
 
             Console.WriteLine();
             Console.WriteLine(" =================================================");
-            Console.WriteLine("    BNU CO453 Applications Programming 2023-2024! ");
+            Console.WriteLine("    BNU CO453 Applications Programming 2022-2023! ");
             Console.WriteLine("            Distance Unit converter               ");
             Console.WriteLine("        By: Muneef Mumthas - 22206529             ");
             Console.WriteLine(" =================================================");
