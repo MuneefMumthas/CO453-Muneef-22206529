@@ -10,8 +10,8 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
-        const int MILES_TO_FEET = 5280;
-        const double FEET_TO_METERS = 0.3048;
+        const int MILES_IN_FEET = 5280;
+        const double FEET_IN_METERS = 0.3048;
         string input;
         double distance;
         double result;
@@ -64,36 +64,36 @@ namespace ConsoleAppProject.App01
                 case 1: // Miles
                     if (toUnit == 2)
                     {
-                        result = distance * MILES_TO_FEET;
+                        result = distance * MILES_IN_FEET;
                         Console.WriteLine(distance + " miles is " + result + " feet.");
                     }
                     else if (toUnit == 3)
                     {
-                        result = distance * MILES_TO_FEET * FEET_TO_METERS;
+                        result = distance * MILES_IN_FEET * FEET_IN_METERS;
                         Console.WriteLine(distance + " miles is " + result + " meters.");
                     }
                     break;
                 case 2: // Feet
                     if (toUnit == 1)
                     {
-                        result = distance / MILES_TO_FEET;
+                        result = distance / MILES_IN_FEET;
                         Console.WriteLine(distance + " feet is " + result + " miles.");
                     }
                     else if (toUnit == 3)
                     {
-                        result = distance * FEET_TO_METERS;
+                        result = distance * FEET_IN_METERS;
                         Console.WriteLine(distance + " feet is " + result + " meters.");
                     }
                     break;
                 case 3: // Meters
                     if (toUnit == 1)
                     {
-                        result = distance / MILES_TO_FEET / FEET_TO_METERS;
+                        result = distance / MILES_IN_FEET / FEET_IN_METERS;
                         Console.WriteLine(distance + " meters is " + result + " miles.");
                     }
                     else if (toUnit == 2)
                     {
-                        result = distance / FEET_TO_METERS;
+                        result = distance / FEET_IN_METERS;
                         Console.WriteLine(distance + " meters is " + result + " feet.");
                     }
                     break;
