@@ -73,14 +73,14 @@ namespace ConsoleAppProject.App01
                     {
                         result = distance * MILES_IN_FEET;
                         Console.WriteLine();
-                        Console.WriteLine(distance + " miles is " + result + " feet.");
+                        Console.WriteLine(distance + (distance == 1 ? " mile" : " miles") + " is " + result + (result == 1 ? " foot" : " feet") + ".");
                         Console.WriteLine();
                     }
                     else if (toUnit == 3)
                     {
                         result = distance * MILES_IN_FEET * FEET_IN_METERS;
                         Console.WriteLine();
-                        Console.WriteLine(distance + " miles is " + result + " meters.");
+                        Console.WriteLine(distance + (distance == 1 ? " mile" : " miles") + " is " + result + (result == 1 ? " meter" : " meters") + ".");
                         Console.WriteLine();
                     }
                     break;
@@ -89,14 +89,14 @@ namespace ConsoleAppProject.App01
                     {
                         result = distance / MILES_IN_FEET;
                         Console.WriteLine();
-                        Console.WriteLine(distance + " feet is " + result + " miles.");
+                        Console.WriteLine(distance + (distance == 1 ? " foot" : " feet") + " is " + result + (result == 1 ? " mile" : " miles") + ".");
                         Console.WriteLine();
                     }
                     else if (toUnit == 3)
                     {
                         result = distance * FEET_IN_METERS;
                         Console.WriteLine();
-                        Console.WriteLine(distance + " feet is " + result + " meters.");
+                        Console.WriteLine(distance + (distance == 1 ? " foot" : " feet") + " is " + result + (result == 1 ? " meter" : " meters") + ".");
                         Console.WriteLine();
                     }
                     break;
@@ -105,14 +105,14 @@ namespace ConsoleAppProject.App01
                     {
                         result = distance / MILES_IN_FEET / FEET_IN_METERS;
                         Console.WriteLine();
-                        Console.WriteLine(distance + " meters is " + result + " miles.");
+                        Console.WriteLine(distance + (distance == 1 ? " meter" : " meters") + " is " + result + (result == 1 ? " mile" : " miles") + ".");
                         Console.WriteLine();
                     }
                     else if (toUnit == 2)
                     {
                         result = distance / FEET_IN_METERS;
                         Console.WriteLine();
-                        Console.WriteLine(distance + " meters is " + result + " feet.");
+                        Console.WriteLine(distance + (distance == 1 ? " meter" : " meters") + " is " + result + (result == 1 ? " foot" : " feet") + ".");
                         Console.WriteLine();
                     }
                     break;
