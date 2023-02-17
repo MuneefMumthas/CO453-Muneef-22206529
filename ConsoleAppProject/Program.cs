@@ -31,6 +31,8 @@ namespace ConsoleAppProject
             Console.WriteLine("Which application would you like to run? (1-2)");
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
+            Console.WriteLine();
+            Console.Write("Answer: ");
 
             int appNumber = 0;
             while (appNumber == 0)
@@ -54,7 +56,8 @@ namespace ConsoleAppProject
             Console.WriteLine("             Distance Converter           ");
             Console.WriteLine("       By: Muneef Mumthas - 22206529      ");
             Console.WriteLine(" =========================================");
-                
+            Console.WriteLine();
+
                 DistanceConverter converter = new DistanceConverter();
                 converter.Run();
             }
@@ -66,7 +69,8 @@ namespace ConsoleAppProject
             Console.WriteLine("     Body Mass Index (BMI) Calculator     ");
             Console.WriteLine("      By: Muneef Mumthas - 22206529       ");
             Console.WriteLine(" =========================================");
-              
+            Console.WriteLine();
+
                 BMI bmiCalculator = new BMI();
                 bmiCalculator.Run();
             }

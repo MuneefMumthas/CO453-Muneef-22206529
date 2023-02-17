@@ -18,30 +18,37 @@ namespace ConsoleAppProject.App01
 
         public void Run()
         {
-            // Prompt user to select unit to convert from
+            // Prompts user to select unit to convert from
             Console.WriteLine("Please select the unit to convert from:");
             Console.WriteLine("1. Miles");
             Console.WriteLine("2. Feet");
             Console.WriteLine("3. Meters");
-            
+            Console.WriteLine();
+            Console.Write("Answer: ");
             int fromUnit = Convert.ToInt32(GetValidOption());
+            Console.WriteLine();
 
-            // Prompt user to select unit to convert to
+            // Prompts user to select unit to convert to
             Console.WriteLine("Please select the unit to convert to:");
             Console.WriteLine("1. Miles");
             Console.WriteLine("2. Feet");
             Console.WriteLine("3. Meters");
-
+            Console.WriteLine();
+            Console.Write("Answer: ");
             int toUnit = Convert.ToInt32(GetValidOption());
+            Console.WriteLine();
+            
+            // Error message for selecting same units
 
             if (fromUnit == toUnit)
             {
                 Console.WriteLine("Error: You cannot convert the same unit.");
+                Console.WriteLine();
                 return;
             }
 
-            // Step 1: Input distance
-            Console.WriteLine("Please enter the distance: ");
+            // Prompts user to input distance
+            Console.Write("Please enter the distance: ");
             input = Console.ReadLine();
 
             while (true)
@@ -58,48 +65,61 @@ namespace ConsoleAppProject.App01
                 }
             }
 
-            // Step 2: Conversion process
+            // Conversion process and output
             switch (fromUnit)
             {
-                case 1: // Miles
+                case 1: // Converting From Miles
                     if (toUnit == 2)
                     {
                         result = distance * MILES_IN_FEET;
+                        Console.WriteLine();
                         Console.WriteLine(distance + " miles is " + result + " feet.");
+                        Console.WriteLine();
                     }
                     else if (toUnit == 3)
                     {
                         result = distance * MILES_IN_FEET * FEET_IN_METERS;
+                        Console.WriteLine();
                         Console.WriteLine(distance + " miles is " + result + " meters.");
+                        Console.WriteLine();
                     }
                     break;
-                case 2: // Feet
+                case 2: // Converting From Feet
                     if (toUnit == 1)
                     {
                         result = distance / MILES_IN_FEET;
+                        Console.WriteLine();
                         Console.WriteLine(distance + " feet is " + result + " miles.");
+                        Console.WriteLine();
                     }
                     else if (toUnit == 3)
                     {
                         result = distance * FEET_IN_METERS;
+                        Console.WriteLine();
                         Console.WriteLine(distance + " feet is " + result + " meters.");
+                        Console.WriteLine();
                     }
                     break;
-                case 3: // Meters
+                case 3: // Converting From Meters
                     if (toUnit == 1)
                     {
                         result = distance / MILES_IN_FEET / FEET_IN_METERS;
+                        Console.WriteLine();
                         Console.WriteLine(distance + " meters is " + result + " miles.");
+                        Console.WriteLine();
                     }
                     else if (toUnit == 2)
                     {
                         result = distance / FEET_IN_METERS;
+                        Console.WriteLine();
                         Console.WriteLine(distance + " meters is " + result + " feet.");
+                        Console.WriteLine();
                     }
                     break;
             }
                     
         }
+        // validating/restricting user inputs
         private int GetValidOption()
         {
             int option;
