@@ -12,7 +12,7 @@ namespace ConsoleAppProject
     /// to start App01 to App05 for CO453 CW1
     /// 
     /// This Project has been modified by:
-    /// Muneef Mumthas
+    /// [Your Name Here]
     /// </summary>
     public static class Program
     {
@@ -23,7 +23,7 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2022-2023! ");
-            Console.WriteLine("                App01 to App05                    ");
+            Console.WriteLine("                App01 & App02                     ");
             Console.WriteLine("        By: Muneef Mumthas - 22206529             ");
             Console.WriteLine(" =================================================");
             Console.WriteLine();
@@ -32,21 +32,18 @@ namespace ConsoleAppProject
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
 
-            ConsoleKeyInfo keyPressed;
-            do
-            {
-                keyPressed = Console.ReadKey(true);
-            } while (keyPressed.Key != ConsoleKey.D1 && keyPressed.Key != ConsoleKey.D2);
-
             int appNumber = 0;
-            switch (keyPressed.Key)
+            while (appNumber == 0)
             {
-                case ConsoleKey.D1:
-                    appNumber = 1;
-                    break;
-                case ConsoleKey.D2:
-                    appNumber = 2;
-                    break;
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out int result) && (result == 1 || result == 2))
+                {
+                    appNumber = result;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid input (1-2).");
+                }
             }
 
             if (appNumber == 1)

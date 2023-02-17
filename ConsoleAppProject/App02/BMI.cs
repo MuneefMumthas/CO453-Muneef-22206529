@@ -6,7 +6,7 @@ namespace ConsoleAppProject.App02
     /// This app calculates the Body Mass Index (BMI)
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Muneef Mumthas - 22206529
     /// </author>
     public class BMI
     {
