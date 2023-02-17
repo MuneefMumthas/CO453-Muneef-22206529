@@ -48,11 +48,25 @@ namespace ConsoleAppProject
 
             if (appNumber == 1)
             {
+
+            Console.WriteLine();
+            Console.WriteLine(" =========================================");
+            Console.WriteLine("             Distance Converter           ");
+            Console.WriteLine("       By: Muneef Mumthas - 22206529      ");
+            Console.WriteLine(" =========================================");
+                
                 DistanceConverter converter = new DistanceConverter();
                 converter.Run();
             }
             else if (appNumber == 2)
             {
+            
+            Console.WriteLine();
+            Console.WriteLine(" =========================================");
+            Console.WriteLine("     Body Mass Index (BMI) Calculator     ");
+            Console.WriteLine("      By: Muneef Mumthas - 22206529       ");
+            Console.WriteLine(" =========================================");
+              
                 BMI bmiCalculator = new BMI();
                 bmiCalculator.Run();
             }

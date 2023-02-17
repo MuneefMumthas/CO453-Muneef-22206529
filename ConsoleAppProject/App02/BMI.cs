@@ -16,7 +16,6 @@ namespace ConsoleAppProject.App02
 
         public void Run()
         {
-            Console.WriteLine("BMI Calculator\n");
 
             InputWeight();
             InputHeight();
