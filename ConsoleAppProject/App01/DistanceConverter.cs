@@ -38,14 +38,20 @@ namespace ConsoleAppProject.App01
             int toUnit = Convert.ToInt32(GetValidOption());
             Console.WriteLine();
             
-            // Error message for selecting same units
-
-            if (fromUnit == toUnit)
+            // Error message for selecting the same unit and a prompt to select a different unit to convert to
+            while (fromUnit == toUnit)
             {
-                Console.WriteLine("Error: You cannot convert the same unit.");
-                Console.WriteLine();
-                return;
+            Console.WriteLine("Error: You cannot convert the same unit.");    
+            Console.WriteLine("Please select a different unit to convert to:");
+            Console.WriteLine("1. Miles");
+            Console.WriteLine("2. Feet");
+            Console.WriteLine("3. Meters");
+            Console.WriteLine();
+            Console.Write("Answer: ");
+            toUnit = Convert.ToInt32(GetValidOption());
+            Console.WriteLine();
             }
+
 
             // Prompts user to input distance
             Console.Write("Please enter the distance: ");
