@@ -52,10 +52,10 @@ namespace ConsoleAppProject
             {
 
             Console.WriteLine();
-            Console.WriteLine(" =========================================");
-            Console.WriteLine("             Distance Converter           ");
-            Console.WriteLine("       By: Muneef Mumthas - 22206529      ");
-            Console.WriteLine(" =========================================");
+            Console.WriteLine("=========================================");
+            Console.WriteLine("       App01 - Distance Converter        ");
+            Console.WriteLine("      By: Muneef Mumthas - 22206529      ");
+            Console.WriteLine("=========================================");
             Console.WriteLine();
 
                 DistanceConverter converter = new DistanceConverter();
@@ -65,10 +65,10 @@ namespace ConsoleAppProject
             {
             
             Console.WriteLine();
-            Console.WriteLine(" =========================================");
-            Console.WriteLine("     Body Mass Index (BMI) Calculator     ");
-            Console.WriteLine("      By: Muneef Mumthas - 22206529       ");
-            Console.WriteLine(" =========================================");
+            Console.WriteLine("==================================================");
+            Console.WriteLine("     App02 - Body Mass Index (BMI) Calculator     ");
+            Console.WriteLine("          By: Muneef Mumthas - 22206529           ");
+            Console.WriteLine("==================================================");
             Console.WriteLine();
 
                 BMI bmiCalculator = new BMI();
