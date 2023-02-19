@@ -74,11 +74,6 @@ namespace ConsoleAppProject
                 BMI bmiCalculator = new BMI();
                 bmiCalculator.Run();
             }
-            else
-            {
-                Console.WriteLine("Invalid input. Press any key to exit.");
-                Console.ReadKey();
-            }
         }
     }
 }
