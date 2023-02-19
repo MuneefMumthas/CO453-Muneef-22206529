@@ -28,17 +28,41 @@ namespace ConsoleAppProject.App02
         // Prompts user to enter their weight
         private void InputWeight()
         {
-            Console.Write("Enter your weight in kilograms: ");
-            weight = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine();
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.Write("Enter your weight in kilograms: ");
+                if (double.TryParse(Console.ReadLine(), out double result) && result > 0)
+                {
+                    weight = result;
+                    validInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Error: Invalid input. Please enter a positive number.");
+                }
+                Console.WriteLine();
+            }
         }
 
         // Prompts user to enter their height
         private void InputHeight()
         {
-            Console.Write("Enter your height in meters: ");
-            height = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine();
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.Write("Enter your height in meters: ");
+                if (double.TryParse(Console.ReadLine(), out double result) && result > 0)
+                {
+                    height = result;
+                    validInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Error: Invalid input. Please enter a positive number.");
+                }
+                Console.WriteLine();
+            }
         }
 
         // conversion process
