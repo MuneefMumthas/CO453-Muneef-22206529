@@ -19,7 +19,8 @@ namespace ConsoleAppProject
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-
+            
+    /// General Heading
             Console.WriteLine();
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2022-2023! ");
@@ -28,12 +29,14 @@ namespace ConsoleAppProject
             Console.WriteLine(" =================================================");
             Console.WriteLine();
 
+    /// Prompt to choose the apps
             Console.WriteLine("Which application would you like to run? (1-2)");
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
             Console.WriteLine();
             Console.Write("Answer: ");
 
+    /// Error message for entering invalid input  
             int appNumber = 0;
             while (appNumber == 0)
             {
@@ -48,9 +51,9 @@ namespace ConsoleAppProject
                 }
             }
 
+    /// Run App01 with a subheading  
             if (appNumber == 1)
             {
-
             Console.WriteLine();
             Console.WriteLine("=========================================");
             Console.WriteLine("       App01 - Distance Converter        ");
@@ -61,9 +64,10 @@ namespace ConsoleAppProject
                 DistanceConverter converter = new DistanceConverter();
                 converter.Run();
             }
-            else if (appNumber == 2)
-            {
             
+    /// Run App02 with a subheading  
+            else if (appNumber == 2)
+            {       
             Console.WriteLine();
             Console.WriteLine("==================================================");
             Console.WriteLine("     App02 - Body Mass Index (BMI) Calculator     ");
