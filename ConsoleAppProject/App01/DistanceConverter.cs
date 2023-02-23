@@ -88,14 +88,14 @@ namespace ConsoleAppProject.App01
                     {
                         result = distance * MILES_IN_FEET;
                         Console.WriteLine();
-                        Console.WriteLine($"{distance} {(distance == 1 ? "mile" : "miles")} is {result.ToString(distance % 1 == 0 ? "F0" : "F5")} {(result == 1 ? "foot" : "feet")}.");
+                        Console.WriteLine(distance + (distance == 1 ? " mile" : " miles") + " is " + result + (result == 1 ? " foot" : " feet") + ".");
                         Console.WriteLine();
                     }
                     else if (toUnit == 3)
                     {
                         result = distance * MILES_IN_FEET * FEET_IN_METERS;
                         Console.WriteLine();
-                        Console.WriteLine($"{distance} {(distance == 1 ? "mile" : "miles")} is {result.ToString(distance % 1 == 0 ? "F0" : "F5")} {(result == 1 ? "meter" : "meters")}.");
+                        Console.WriteLine(distance + (distance == 1 ? " mile" : " miles") + " is " + result + (result == 1 ? " meter" : " meters") + ".");
                         Console.WriteLine();
                     }
                     break;
