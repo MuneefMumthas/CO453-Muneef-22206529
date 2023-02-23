@@ -62,11 +62,20 @@ namespace ConsoleAppProject.App01
                 try
                 {
                     distance = Convert.ToDouble(input);
+                    if (distance < 0)
+                    {
+                     throw new Exception("Distance cannot be negative.");
+                    }
                     break;
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Error: Invalid distance entered. Please enter a valid numerical value.");
+                    Console.WriteLine("Error: Invalid input. Please enter a valid numerical value.");
+                    input = Console.ReadLine();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: " + e.Message + " Please enter a positive number: ");
                     input = Console.ReadLine();
                 }
             }
