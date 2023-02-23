@@ -10,11 +10,12 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
-        const int MILES_IN_FEET = 5280;
-        const double FEET_IN_METERS = 0.3048;
-        string input;
-        double distance;
-        double result;
+        public const int MILES_IN_FEET = 5280;
+        public const double FEET_IN_METERS = 0.3048;
+        public int FromUnit { get; private set; }
+        public int ToUnit { get; private set; }
+        public double Distance { get; private set; }
+        public double Result { get; private set; }
 
         public void Run()
         {
@@ -25,7 +26,7 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("3. Meters");
             Console.WriteLine();
             Console.Write("Answer: ");
-            int fromUnit = Convert.ToInt32(GetValidOption());
+            FromUnit = Convert.ToInt32(GetValidOption());
             Console.WriteLine();
 
             // Prompts user to select unit to convert to
@@ -35,11 +36,11 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("3. Meters");
             Console.WriteLine();
             Console.Write("Answer: ");
-            int toUnit = Convert.ToInt32(GetValidOption());
+            ToUnit = Convert.ToInt32(GetValidOption());
             Console.WriteLine();
             
             // Error message for selecting the same unit and a prompt to select a different unit to convert to
-            while (fromUnit == toUnit)
+            while (FromUnit == ToUnit)
             {
             Console.WriteLine("Error: You cannot convert the same unit.");    
             Console.WriteLine("Please select a different unit to convert to:");
@@ -48,21 +49,21 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("3. Meters");
             Console.WriteLine();
             Console.Write("Answer: ");
-            toUnit = Convert.ToInt32(GetValidOption());
+            ToUnit = Convert.ToInt32(GetValidOption());
             Console.WriteLine();
             }
 
 
-            // Prompts user to input distance
-            Console.Write("Please enter the distance: ");
-            input = Console.ReadLine();
+            // Prompts user to input Distance
+            Console.Write("Please enter the Distance: ");
+            string input = Console.ReadLine();
 
             while (true)
             {
                 try
                 {
-                    distance = Convert.ToDouble(input);
-                    if (distance < 0)
+                    Distance = Convert.ToDouble(input);
+                    if (Distance < 0)
                     {
                      throw new Exception("Distance cannot be negative.");
                     }
@@ -81,53 +82,53 @@ namespace ConsoleAppProject.App01
             }
 
             // Conversion process and output
-            switch (fromUnit)
+            switch (FromUnit)
             {
                 case 1: // Converting From Miles
-                    if (toUnit == 2)
+                    if (ToUnit == 2)
                     {
-                        result = distance * MILES_IN_FEET;
+                        Result = Distance * MILES_IN_FEET;
                         Console.WriteLine();
-                        Console.WriteLine(distance + (distance == 1 ? " mile" : " miles") + " is " + result + (result == 1 ? " foot" : " feet") + ".");
+                        Console.WriteLine(Distance + (Distance == 1 ? " mile" : " miles") + " is " + Result + (Result == 1 ? " foot" : " feet") + ".");
                         Console.WriteLine();
                     }
-                    else if (toUnit == 3)
+                    else if (ToUnit == 3)
                     {
-                        result = distance * MILES_IN_FEET * FEET_IN_METERS;
+                        Result = Distance * MILES_IN_FEET * FEET_IN_METERS;
                         Console.WriteLine();
-                        Console.WriteLine(distance + (distance == 1 ? " mile" : " miles") + " is " + result + (result == 1 ? " meter" : " meters") + ".");
+                        Console.WriteLine(Distance + (Distance == 1 ? " mile" : " miles") + " is " + Result + (Result == 1 ? " meter" : " meters") + ".");
                         Console.WriteLine();
                     }
                     break;
                 case 2: // Converting From Feet
-                    if (toUnit == 1)
+                    if (ToUnit == 1)
                     {
-                        result = distance / MILES_IN_FEET;
+                        Result = Distance / MILES_IN_FEET;
                         Console.WriteLine();
-                        Console.WriteLine(distance + (distance == 1 ? " foot" : " feet") + " is " + result + (result == 1 ? " mile" : " miles") + ".");
+                        Console.WriteLine(Distance + (Distance == 1 ? " foot" : " feet") + " is " + Result + (Result == 1 ? " mile" : " miles") + ".");
                         Console.WriteLine();
                     }
-                    else if (toUnit == 3)
+                    else if (ToUnit == 3)
                     {
-                        result = distance * FEET_IN_METERS;
+                        Result = Distance * FEET_IN_METERS;
                         Console.WriteLine();
-                        Console.WriteLine(distance + (distance == 1 ? " foot" : " feet") + " is " + result + (result == 1 ? " meter" : " meters") + ".");
+                        Console.WriteLine(Distance + (Distance == 1 ? " foot" : " feet") + " is " + Result + (Result == 1 ? " meter" : " meters") + ".");
                         Console.WriteLine();
                     }
                     break;
                 case 3: // Converting From Meters
-                    if (toUnit == 1)
+                    if (ToUnit == 1)
                     {
-                        result = distance / MILES_IN_FEET / FEET_IN_METERS;
+                        Result = Distance / MILES_IN_FEET / FEET_IN_METERS;
                         Console.WriteLine();
-                        Console.WriteLine(distance + (distance == 1 ? " meter" : " meters") + " is " + result + (result == 1 ? " mile" : " miles") + ".");
+                        Console.WriteLine(Distance + (Distance == 1 ? " meter" : " meters") + " is " + Result + (Result == 1 ? " mile" : " miles") + ".");
                         Console.WriteLine();
                     }
-                    else if (toUnit == 2)
+                    else if (ToUnit == 2)
                     {
-                        result = distance / FEET_IN_METERS;
+                        Result = Distance / FEET_IN_METERS;
                         Console.WriteLine();
-                        Console.WriteLine(distance + (distance == 1 ? " meter" : " meters") + " is " + result + (result == 1 ? " foot" : " feet") + ".");
+                        Console.WriteLine(Distance + (Distance == 1 ? " meter" : " meters") + " is " + Result + (Result == 1 ? " foot" : " feet") + ".");
                         Console.WriteLine();
                     }
                     break;
