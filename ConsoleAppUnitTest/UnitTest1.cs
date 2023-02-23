@@ -1,31 +1,24 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ConsoleAppProject.App01;
 
-namespace ConsoleApp.UnitTests
+namespace ConsoleApp.Tests
 {
     [TestClass]
-    public class TestDistanceConverter
+    public class App01Test
     {
-        private DistanceConverter distanceconverter;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            distanceconverter = new DistanceConverter();
-        }
-
         [TestMethod]
-        public void TestConvertMilesToFeet()
+        public void TestMilesToFeetConversion()
         {
-            distanceconverter.FromUnit = DistanceUnits.Miles;
-            distanceconverter.ToUnit = DistanceUnits.Feet;
-            distanceconverter.GetDistance = 1;
-            distanceconverter.ConvertDistance();
+            // Arrange
+            DistanceConverter converter = new DistanceConverter();
+            converter.FromUnit = 1; // miles
+            converter.ToUnit = 2; // feet
+            converter.Distance = 1.5;
 
-            double expected = 5280;
-            double actual = distanceconverter.OutputDistance;
+            // Act
+            converter.Run();
 
-            Assert.AreEqual(expected, actual, 0.1);
+            // Assert
+            Assert.AreEqual(7920, converter.Result);
         }
     }
 }
