@@ -12,10 +12,10 @@ namespace ConsoleAppProject.App01
     {
         public const int MILES_IN_FEET = 5280;
         public const double FEET_IN_METERS = 0.3048;
-        public int FromUnit { get; private set; }
-        public int ToUnit { get; private set; }
-        public double Distance { get; private set; }
-        public double Result { get; private set; }
+        public int FromUnit { get; set; }
+        public int ToUnit { get; set; }
+        public double Distance { get; set; }
+        public double Result { get; set; }
 
         public void Run()
         {
