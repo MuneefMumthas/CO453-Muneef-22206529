@@ -176,32 +176,39 @@ namespace ConsoleAppProject.App02
         // Outputs WHO (World Health Organisation) weight status
         private void OutputResult()
         {
-            Console.WriteLine($"Your BMI is {bmi:f2}");
+            Console.Write($"Your BMI is {bmi:f2}, ");
 
             if (bmi < 18.5)
             {
-                Console.WriteLine("You are underweight");
+                Console.Write("You are underweight");
             }
             else if (bmi < 25)
             {
-                Console.WriteLine("You have a normal weight");
+                Console.Write("You have a normal weight");
             }
             else if (bmi < 30)
             {
-                Console.WriteLine("You are overweight");
+                Console.Write("You are overweight");
             }
             else if (bmi < 35)
             {
-                Console.WriteLine("You are Obese Class I");
+                Console.Write("You are Obese Class I");
             }
             else if (bmi < 40)
             {
-                Console.WriteLine("You are Obese Class II");
+                Console.Write("You are Obese Class II");
             }
             else if (bmi >= 40)
             {
-                Console.WriteLine("You are Obese Class III");
+                Console.Write("You are Obese Class III");
             }
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("If you are Black, Asian and Minority Ethnic (BAME) group,");
+            Console.WriteLine("You may have a higher risk!");
+            Console.WriteLine();
+            Console.WriteLine("Adults 23.0 or more are at increased risk");
+            Console.WriteLine("Adults 27.5 or more are at high risk");
             Console.WriteLine();
         }
     }
