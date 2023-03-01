@@ -11,10 +11,10 @@ namespace ConsoleAppProject.App02
     /// </author>
     public class BMI
     {
-        private double weight;
-        private double height;
-        private double bmi;
-        private string units;
+        public double weight;
+        public double height;
+        public double bmi;
+        public string units;
 
         public void Run()
         {
@@ -64,23 +64,51 @@ namespace ConsoleAppProject.App02
             bool validInput = false;
             while (!validInput)
             {
-                Console.Write($"Enter your weight in {(units == "metric" ? "kilograms" : "pounds")}: ");
-                if (double.TryParse(Console.ReadLine(), out double result) && result > 0)
+                Console.Write($"Enter your weight in {(units == "metric" ? "kilograms" : "stones, pounds")}: ");
+        
+                if (units == "metric")
                 {
-                    weight = result;
-                    validInput = true;
+                    if (double.TryParse(Console.ReadLine(), out double result) && result > 0)
+                    {
+                        weight = result;
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Invalid input. Please enter a positive number.");
+                    }
                 }
-                else
+                else // imperial
                 {
-                    Console.WriteLine("Error: Invalid input. Please enter a positive number.");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Enter your weight in stones: ");
+                    if (double.TryParse(Console.ReadLine(), out double stones) && stones >= 0)
+                    {
+                        Console.Write("Enter your weight in pounds: ");
+                        if (double.TryParse(Console.ReadLine(), out double pounds) && pounds >= 0)
+                        {
+                            weight = stones * 14 + pounds;
+                            validInput = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: Invalid input. Please enter a positive integer.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Invalid input. Please enter a positive integer.");
+                    }
                 }
+        
                 Console.WriteLine();
             }
         
             if (units == "imperial")
             {
-            // Convert pounds to kilograms
-                weight *= 0.45359237; 
+                // Convert pounds to kilograms
+                weight *= 0.45359237;
             }
         }
 
@@ -90,23 +118,51 @@ namespace ConsoleAppProject.App02
             bool validInput = false;
             while (!validInput)
             {
-                Console.Write($"Enter your height in {(units == "metric" ? "meters" : "inches")}: ");
-                if (double.TryParse(Console.ReadLine(), out double result) && result > 0)
+                Console.Write($"Enter your height in {(units == "metric" ? "meters" : "feet, inches")}: ");
+
+                if (units == "metric")
                 {
-                    height = result;
-                    validInput = true;
+                    if (double.TryParse(Console.ReadLine(), out double result) && result > 0)
+                    {
+                        height = result;
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Invalid input. Please enter a positive number.");
+                    }
                 }
-                else
+                else // imperial
                 {
-                    Console.WriteLine("Error: Invalid input. Please enter a positive number.");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.Write("Enter your height in feet: ");
+                    if (double.TryParse(Console.ReadLine(), out double feet) && feet >= 0)
+                    {
+                        Console.Write("Enter your height in inches: ");
+                        if (double.TryParse(Console.ReadLine(), out double inches) && inches >= 0)
+                        {
+                            height = feet * 12 + inches;
+                            validInput = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: Invalid input. Please enter a positive integer.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Invalid input. Please enter a positive integer.");
+                    }
                 }
+
                 Console.WriteLine();
             }
         
             if (units == "imperial")
             {
-            // Convert inches to meters
-                height *= 0.0254; 
+                // Convert inches to meters
+                height *= 0.0254;
             }
         }
 
