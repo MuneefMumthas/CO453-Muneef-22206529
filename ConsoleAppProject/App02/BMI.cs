@@ -14,15 +14,37 @@ namespace ConsoleAppProject.App02
         private double weight;
         private double height;
         private double bmi;
+        private string units;
 
         public void Run()
         {
-
+            InputUnits();
             InputWeight();
             InputHeight();
 
             CalculateBMI();
             OutputResult();
+        }
+
+        // Prompts user to select units
+        private void InputUnits()
+        {
+            bool validInput = false;
+            while (!validInput)
+            {
+                Console.Write("Select units (metric or imperial): ");
+                units = Console.ReadLine().ToLower();
+
+                if (units == "metric" || units == "imperial")
+                {
+                    validInput = true;
+                }
+                else
+                {
+                    Console.WriteLine("Error: Invalid input. Please enter 'metric' or 'imperial'.");
+                }
+                Console.WriteLine();
+            }
         }
 
         // Prompts user to enter their weight
@@ -31,7 +53,7 @@ namespace ConsoleAppProject.App02
             bool validInput = false;
             while (!validInput)
             {
-                Console.Write("Enter your weight in kilograms: ");
+                Console.Write($"Enter your weight in {(units == "metric" ? "kilograms" : "pounds")}: ");
                 if (double.TryParse(Console.ReadLine(), out double result) && result > 0)
                 {
                     weight = result;
@@ -43,6 +65,12 @@ namespace ConsoleAppProject.App02
                 }
                 Console.WriteLine();
             }
+        
+            if (units == "imperial")
+            {
+            // Convert pounds to kilograms
+                weight *= 0.45359237; 
+            }
         }
 
         // Prompts user to enter their height
@@ -51,7 +79,7 @@ namespace ConsoleAppProject.App02
             bool validInput = false;
             while (!validInput)
             {
-                Console.Write("Enter your height in meters: ");
+                Console.Write($"Enter your height in {(units == "metric" ? "meters" : "inches")}: ");
                 if (double.TryParse(Console.ReadLine(), out double result) && result > 0)
                 {
                     height = result;
@@ -63,7 +91,14 @@ namespace ConsoleAppProject.App02
                 }
                 Console.WriteLine();
             }
+        
+            if (units == "imperial")
+            {
+            // Convert inches to meters
+                height *= 0.0254; 
+            }
         }
+
 
         // conversion process
         private void CalculateBMI()
