@@ -32,20 +32,31 @@ namespace ConsoleAppProject.App02
             bool validInput = false;
             while (!validInput)
             {
-                Console.Write("Select units (metric or imperial): ");
-                units = Console.ReadLine().ToLower();
-
-                if (units == "metric" || units == "imperial")
+                Console.WriteLine("Select your preferred unit system:");
+                Console.WriteLine("1. Metric");
+                Console.WriteLine("2. Imperial");
+                Console.WriteLine();
+                Console.Write("Answer: ");
+                string choice = Console.ReadLine();
+        
+                if (choice == "1")
                 {
+                    units = "metric";
+                    validInput = true;
+                }
+                else if (choice == "2")
+                {
+                    units = "imperial";
                     validInput = true;
                 }
                 else
                 {
-                    Console.WriteLine("Error: Invalid input. Please enter 'metric' or 'imperial'.");
+                    Console.WriteLine("Error: Invalid input. Please enter 1 or 2.");
                 }
                 Console.WriteLine();
             }
         }
+
 
         // Prompts user to enter their weight
         private void InputWeight()
