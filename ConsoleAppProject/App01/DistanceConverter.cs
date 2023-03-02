@@ -19,6 +19,12 @@ namespace ConsoleAppProject.App01
 
         public void Run()
         {
+            Input();
+            ConvertDistance();
+
+        }
+        public void Input()
+        {
             // Prompts user to select unit to convert from
             Console.WriteLine("Please select the unit to convert from:");
             Console.WriteLine("1. Miles");
@@ -38,7 +44,7 @@ namespace ConsoleAppProject.App01
             Console.Write("Answer: ");
             ToUnit = Convert.ToInt32(GetValidOption());
             Console.WriteLine();
-            
+
             // Error message for selecting the same unit and a prompt to select a different unit to convert to
             while (FromUnit == ToUnit)
             {
@@ -52,7 +58,6 @@ namespace ConsoleAppProject.App01
             ToUnit = Convert.ToInt32(GetValidOption());
             Console.WriteLine();
             }
-
 
             // Prompts user to input Distance
             Console.Write("Please enter the Distance: ");
@@ -80,7 +85,10 @@ namespace ConsoleAppProject.App01
                     input = Console.ReadLine();
                 }
             }
+        }
 
+        public void ConvertDistance()
+        {
             // Conversion process and output
             switch (FromUnit)
             {
@@ -133,7 +141,6 @@ namespace ConsoleAppProject.App01
                     }
                     break;
             }
-                    
         }
         // validating/restricting user inputs
         private int GetValidOption()
