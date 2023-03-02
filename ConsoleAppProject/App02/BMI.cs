@@ -32,6 +32,7 @@ namespace ConsoleAppProject.App02
             bool validInput = false;
             while (!validInput)
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Select your preferred unit system:");
                 Console.WriteLine("1. Metric");
                 Console.WriteLine("2. Imperial");
@@ -51,7 +52,9 @@ namespace ConsoleAppProject.App02
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Error: Invalid input. Please enter 1 or 2.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                 }
                 Console.WriteLine();
             }
@@ -64,6 +67,7 @@ namespace ConsoleAppProject.App02
             bool validInput = false;
             while (!validInput)
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write($"Enter your weight in {(units == "metric" ? "kilograms" : "stones, pounds")}: ");
         
                 if (units == "metric")
@@ -75,16 +79,20 @@ namespace ConsoleAppProject.App02
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Error: Invalid input. Please enter a positive number.");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                     }
                 }
                 else // imperial
                 {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.Write("Enter your weight in stones: ");
                     if (double.TryParse(Console.ReadLine(), out double stones) && stones >= 0)
                     {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("Enter your weight in pounds: ");
                         if (double.TryParse(Console.ReadLine(), out double pounds) && pounds >= 0)
                         {
@@ -93,12 +101,16 @@ namespace ConsoleAppProject.App02
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.WriteLine("Error: Invalid input. Please enter a positive integer.");
+                            Console.ForegroundColor = ConsoleColor.Cyan;
                         }
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Error: Invalid input. Please enter a positive integer.");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                     }
                 }
         
@@ -118,6 +130,7 @@ namespace ConsoleAppProject.App02
             bool validInput = false;
             while (!validInput)
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write($"Enter your height in {(units == "metric" ? "meters" : "feet, inches")}: ");
 
                 if (units == "metric")
@@ -129,16 +142,20 @@ namespace ConsoleAppProject.App02
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Error: Invalid input. Please enter a positive number.");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                     }
                 }
                 else // imperial
                 {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine();
                     Console.WriteLine();
                     Console.Write("Enter your height in feet: ");
                     if (double.TryParse(Console.ReadLine(), out double feet) && feet >= 0)
                     {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write("Enter your height in inches: ");
                         if (double.TryParse(Console.ReadLine(), out double inches) && inches >= 0)
                         {
@@ -147,12 +164,16 @@ namespace ConsoleAppProject.App02
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
                             Console.WriteLine("Error: Invalid input. Please enter a positive integer.");
+                            Console.ForegroundColor = ConsoleColor.Cyan;
                         }
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("Error: Invalid input. Please enter a positive integer.");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                     }
                 }
 
@@ -176,6 +197,7 @@ namespace ConsoleAppProject.App02
         // Outputs WHO (World Health Organisation) weight status
         private void OutputResult()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.Write($"Your BMI is {bmi:f2}, ");
 
             if (bmi < 18.5)
@@ -210,6 +232,7 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("Adults 23.0 or more are at increased risk");
             Console.WriteLine("Adults 27.5 or more are at high risk");
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Cyan;
         }
     }
 }

@@ -18,9 +18,9 @@ namespace ConsoleAppProject
     {
         public static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            
-    /// General Heading
+
+            /// General Heading
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine();
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2022-2023! ");
@@ -29,7 +29,8 @@ namespace ConsoleAppProject
             Console.WriteLine(" =================================================");
             Console.WriteLine();
 
-    /// Prompt to choose the apps
+            /// Prompt to choose the apps
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Which application would you like to run? (1-2)");
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
@@ -47,13 +48,16 @@ namespace ConsoleAppProject
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Please enter a valid input (1-2).");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                 }
             }
 
     /// Run App01 with a subheading  
             if (appNumber == 1)
             {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine();
             Console.WriteLine("=========================================");
             Console.WriteLine("       App01 - Distance Converter        ");
@@ -67,7 +71,8 @@ namespace ConsoleAppProject
             
     /// Run App02 with a subheading  
             else if (appNumber == 2)
-            {       
+            {  
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine();
             Console.WriteLine("==================================================");
             Console.WriteLine("     App02 - Body Mass Index (BMI) Calculator     ");
