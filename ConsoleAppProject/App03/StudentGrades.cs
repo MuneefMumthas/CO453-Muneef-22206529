@@ -62,7 +62,9 @@ namespace ConsoleAppProject.App03
 
         private void OutputMarks()
         {
-            Console.WriteLine("\n\nStudent Marks\n");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\n\nStudents' Marks With Grades\n");
+            Console.ForegroundColor = ConsoleColor.Cyan;
         
             for (int i = 0; i < NumStudents; i++)
             {
@@ -71,18 +73,19 @@ namespace ConsoleAppProject.App03
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write($"{marks[i],3} {ClassifyGrade(marks[i])}");
                 Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("");
                 Console.WriteLine();
             }
         }
 
-
-        private Grades ClassifyGrade(int mark)
+        private string ClassifyGrade(int mark)
         {
-            if (mark >= 70) return Grades.A;
-            else if (mark >= 60) return Grades.B;
-            else if (mark >= 50) return Grades.C;
-            else if (mark >= 40) return Grades.D;
-            else return Grades.F;
+            if (mark >= 70) return "- A (First Class)";
+            else if (mark >= 60) return "- B (Upper Second Class)";
+            else if (mark >= 50) return "- C (Lower Second Class)";
+            else if (mark >= 40) return "- D (Third Class)";
+            else return "- F (Fail)";
         }
+
     }
 }
