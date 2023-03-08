@@ -31,9 +31,10 @@ namespace ConsoleAppProject
 
             /// Prompt to choose the apps
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Which application would you like to run? (1-2)");
+            Console.WriteLine("Which application would you like to run? (1-3)");
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
+            Console.WriteLine("3. Student Grades");
             Console.WriteLine();
             Console.Write("Answer: ");
 
@@ -42,14 +43,14 @@ namespace ConsoleAppProject
             while (appNumber == 0)
             {
                 string input = Console.ReadLine();
-                if (int.TryParse(input, out int result) && (result == 1 || result == 2))
+                if (int.TryParse(input, out int result) && (result == 1 || result == 2 || result == 3))
                 {
                     appNumber = result;
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Please enter a valid input (1-2).");
+                    Console.WriteLine("Please enter a valid input (1-3).");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
             }
@@ -82,6 +83,21 @@ namespace ConsoleAppProject
 
                 BMI bmiCalculator = new BMI();
                 bmiCalculator.Run();
+            }
+    
+    /// Run App02 with a subheading  
+            else if (appNumber == 3)
+            {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine();
+            Console.WriteLine("=========================================");
+            Console.WriteLine("         App03 - Student Grades          ");
+            Console.WriteLine("      By: Muneef Mumthas - 22206529      ");
+            Console.WriteLine("=========================================");
+            Console.WriteLine();
+
+                StudentGrades studentGrades = new StudentGrades();
+                studentGrades.Run();
             }
         }
     }
