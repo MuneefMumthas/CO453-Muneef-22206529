@@ -21,11 +21,13 @@ namespace ConsoleAppProject.App03
             marks = new int[NumStudents];
         }
 
+        // Runs the application
         public void Run()
         {
            prompt();
         }
         
+        // The prompt to choose different options
         private void prompt()
         {
 
@@ -82,6 +84,7 @@ namespace ConsoleAppProject.App03
 
         }
         
+        // Prompt to input marks for each student
         private void InputMarks()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -118,6 +121,7 @@ namespace ConsoleAppProject.App03
             return mark;
         }
 
+        // Method to Output the students' marks with their respective grades
         private void OutputMarks()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -139,6 +143,7 @@ namespace ConsoleAppProject.App03
             prompt();
         }
 
+        // Method to output the statistics of the grades
         private void OutputStatistics()
         {
             int total = 0;
@@ -177,13 +182,58 @@ namespace ConsoleAppProject.App03
             prompt();
         }
 
+        // Method to output the grade profile
         private void OutputGradeProfile()
-        {
+        {        
+            int[] gradeCounts = new int[5];
+            int totalMarks = marks.Length;
+            
+            foreach (int mark in marks)
+            {
+                if (mark >= 70)
+                {
+                    gradeCounts[0]++;
+                }
+                else if (mark >= 60)
+                {
+                    gradeCounts[1]++;
+                }
+                else if (mark >= 50)
+                {
+                    gradeCounts[2]++;
+                }
+                else if (mark >= 40)
+                {
+                    gradeCounts[3]++;
+                }
+                else
+                {
+                    gradeCounts[4]++;
+                }
+            }
+        
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"\n\nGrade Profile\n");
+            
+            // Calculate and display percentage of each grade and number of students
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"A (First Class): {(double)gradeCounts[0]/totalMarks*100:F2}%, {gradeCounts[0]} student{(gradeCounts[0] == 1 ? "" : "s")}");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"B (Upper Second Class): {(double)gradeCounts[1]/totalMarks*100:F2}%, {gradeCounts[1]} student{(gradeCounts[1] == 1 ? "" : "s")}");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"C (Lower Second Class): {(double)gradeCounts[2]/totalMarks*100:F2}%, {gradeCounts[2]} student{(gradeCounts[2] == 1 ? "" : "s")}");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"D (Third Class): {(double)gradeCounts[3]/totalMarks*100:F2}%, {gradeCounts[3]} student{(gradeCounts[3] == 1 ? "" : "s")}");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine($"F (Fail): {(double)gradeCounts[4]/totalMarks*100:F2}%, {gradeCounts[4]} student{(gradeCounts[4] == 1 ? "" : "s")}");
+        
             Console.WriteLine();
             prompt();
         }
+
         
 
+        // Classifying Grades
         private string ClassifyGrade(int mark)
         {
             if (mark >= 70) 
@@ -193,7 +243,7 @@ namespace ConsoleAppProject.App03
             }
             else if (mark >= 60) 
             {
-                Console.ForegroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 return "- B (Upper Second Class)";
             }
             else if (mark >= 50) 
