@@ -23,11 +23,65 @@ namespace ConsoleAppProject.App03
 
         public void Run()
         {
+           prompt();
+        }
+        
+        private void prompt()
+        {
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("1. Input Marks");
+            Console.WriteLine("2. Output Grades");
+            Console.WriteLine("3. Output Statistics");
+            Console.WriteLine("4. Output Grade Profile");
+            Console.WriteLine("5. Quit");
+            Console.WriteLine();
+            Console.Write("Answer: ");
+
+
+        int ChoiceNumber = 0;
+            while (ChoiceNumber == 0)
+        {
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out int choice) && (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5))
+                {
+                    ChoiceNumber = choice;
+                }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("Please enter a valid input (1-5).");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+            }
+        }
+        
+        if (ChoiceNumber == 1)
+        {
             InputMarks();
+        }
+
+        if (ChoiceNumber == 2)
+        {
             OutputMarks();
+        }
+
+        if (ChoiceNumber == 3)
+        {
             OutputStatistics();
         }
 
+        if (ChoiceNumber == 4)
+        {
+            
+        }
+
+        if (ChoiceNumber == 5)
+        {
+            Environment.Exit(0);
+        }
+
+        }
+        
         private void InputMarks()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -36,6 +90,9 @@ namespace ConsoleAppProject.App03
             {
                 marks[i] = InputMark($"Enter mark for student {i + 1}: ");
             }
+            
+            Console.WriteLine();
+            prompt();
         }
 
         private int InputMark(string prompt)
@@ -77,6 +134,9 @@ namespace ConsoleAppProject.App03
                 Console.WriteLine("");
                 Console.WriteLine();
             }
+
+            Console.WriteLine();
+            prompt();
         }
 
         private void OutputStatistics()
@@ -112,6 +172,9 @@ namespace ConsoleAppProject.App03
             Console.Write($"{max,3}");
             Console.WriteLine("");
             Console.ForegroundColor = ConsoleColor.Cyan;
+
+            Console.WriteLine();
+            prompt();
         }
 
         private string ClassifyGrade(int mark)
