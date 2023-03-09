@@ -72,7 +72,7 @@ namespace ConsoleAppProject.App03
 
         if (ChoiceNumber == 4)
         {
-            
+            OutputGradeProfile();
         }
 
         if (ChoiceNumber == 5)
@@ -176,6 +176,13 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
             prompt();
         }
+
+        private void OutputGradeProfile()
+        {
+            Console.WriteLine();
+            prompt();
+        }
+        
 
         private string ClassifyGrade(int mark)
         {
