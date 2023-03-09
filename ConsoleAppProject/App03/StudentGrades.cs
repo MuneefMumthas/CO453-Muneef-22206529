@@ -25,6 +25,7 @@ namespace ConsoleAppProject.App03
         {
             InputMarks();
             OutputMarks();
+            OutputStatistics();
         }
 
         private void InputMarks()
@@ -76,6 +77,41 @@ namespace ConsoleAppProject.App03
                 Console.WriteLine("");
                 Console.WriteLine();
             }
+        }
+
+        private void OutputStatistics()
+        {
+            int total = 0;
+            int min = MaxMark;
+            int max = MinMark;
+
+            foreach (int mark in marks)
+            {
+                total += mark;
+                if (mark < min) min = mark;
+                if (mark > max) max = mark;
+            }
+
+            double mean = (double)total / NumStudents;
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"\n\nStatistics\n");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"Mean Mark: ");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write($"{mean,6:F2}");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"Minimum Mark: ");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write($"{min,3}");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"Maximum Mark: ");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write($"{max,3}");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Cyan;
         }
 
         private string ClassifyGrade(int mark)
