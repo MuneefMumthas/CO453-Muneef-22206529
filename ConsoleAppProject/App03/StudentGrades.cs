@@ -116,11 +116,32 @@ namespace ConsoleAppProject.App03
 
         private string ClassifyGrade(int mark)
         {
-            if (mark >= 70) return "- A (First Class)";
-            else if (mark >= 60) return "- B (Upper Second Class)";
-            else if (mark >= 50) return "- C (Lower Second Class)";
-            else if (mark >= 40) return "- D (Third Class)";
-            else return "- F (Fail)";
+            if (mark >= 70) 
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                return "- A (First Class)";
+            }
+            else if (mark >= 60) 
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                return "- B (Upper Second Class)";
+            }
+            else if (mark >= 50) 
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                return "- C (Lower Second Class)";
+            }
+            else if (mark >= 40) 
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                return "- D (Third Class)";
+            }
+            else 
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                return "- F (Fail)";
+            }
+
         }
 
     }
