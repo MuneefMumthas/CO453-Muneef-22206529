@@ -113,7 +113,7 @@ namespace ConsoleAppProject.App03
                 if (!isValidInput)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine($"Invalid input: {input}. Please enter a valid mark between {MinMark} and {MaxMark}.");
+                    Console.WriteLine($"Invalid input: {input}. Please enter a valid whole number between {MinMark} and {MaxMark} (inclusive).");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
             } while (!isValidInput);
@@ -217,15 +217,15 @@ namespace ConsoleAppProject.App03
             
             // Calculate and display percentage of each grade and number of students
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"A (First Class): {(double)gradeCounts[0]/totalMarks*100:F2}%, {gradeCounts[0]} student{(gradeCounts[0] == 1 ? "" : "s")}");
+            Console.WriteLine($"A (First Class): {(double)gradeCounts[0]/totalMarks*100}%, {gradeCounts[0]} student{(gradeCounts[0] == 1 ? "" : "s")}");
             Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine($"B (Upper Second Class): {(double)gradeCounts[1]/totalMarks*100:F2}%, {gradeCounts[1]} student{(gradeCounts[1] == 1 ? "" : "s")}");
+            Console.WriteLine($"B (Upper Second Class): {(double)gradeCounts[1]/totalMarks*100}%, {gradeCounts[1]} student{(gradeCounts[1] == 1 ? "" : "s")}");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"C (Lower Second Class): {(double)gradeCounts[2]/totalMarks*100:F2}%, {gradeCounts[2]} student{(gradeCounts[2] == 1 ? "" : "s")}");
+            Console.WriteLine($"C (Lower Second Class): {(double)gradeCounts[2]/totalMarks*100}%, {gradeCounts[2]} student{(gradeCounts[2] == 1 ? "" : "s")}");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"D (Third Class): {(double)gradeCounts[3]/totalMarks*100:F2}%, {gradeCounts[3]} student{(gradeCounts[3] == 1 ? "" : "s")}");
+            Console.WriteLine($"D (Third Class): {(double)gradeCounts[3]/totalMarks*100}%, {gradeCounts[3]} student{(gradeCounts[3] == 1 ? "" : "s")}");
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine($"F (Fail): {(double)gradeCounts[4]/totalMarks*100:F2}%, {gradeCounts[4]} student{(gradeCounts[4] == 1 ? "" : "s")}");
+            Console.WriteLine($"F (Fail): {(double)gradeCounts[4]/totalMarks*100}%, {gradeCounts[4]} student{(gradeCounts[4] == 1 ? "" : "s")}");
         
             Console.WriteLine();
             prompt();
