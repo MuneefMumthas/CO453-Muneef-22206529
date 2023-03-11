@@ -10,11 +10,11 @@ namespace ConsoleAppProject.App03
     /// </author>
     public class StudentGrades
     {
-        private const int NumStudents = 10;
-        private const int MinMark = 0;
-        private const int MaxMark = 100;
+        public const int NumStudents = 10;
+        public const int MinMark = 0;
+        public const int MaxMark = 100;
 
-        private int[] marks;
+        public int[] marks;
 
         public StudentGrades()
         {
@@ -28,7 +28,7 @@ namespace ConsoleAppProject.App03
         }
         
         // The prompt to choose different options
-        private void prompt()
+        public void prompt()
         {
 
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -85,7 +85,7 @@ namespace ConsoleAppProject.App03
         }
         
         // Prompt to input marks for each student
-        private void InputMarks()
+        public void InputMarks()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine($"Please enter a mark between {MinMark} and {MaxMark} for each of the {NumStudents} students:");
@@ -98,7 +98,7 @@ namespace ConsoleAppProject.App03
             prompt();
         }
 
-        private int InputMark(string prompt)
+        public int InputMark(string prompt)
         {
             int mark;
             bool isValidInput;
@@ -122,7 +122,7 @@ namespace ConsoleAppProject.App03
         }
 
         // Method to Output the students' marks with their respective grades
-        private void OutputMarks()
+        public void OutputMarks()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\n\nStudents' Marks With Grades\n");
@@ -144,7 +144,7 @@ namespace ConsoleAppProject.App03
         }
 
         // Method to output the statistics of the grades
-        private void OutputStatistics()
+        public void OutputStatistics()
         {
             int total = 0;
             int min = MaxMark;
@@ -183,7 +183,7 @@ namespace ConsoleAppProject.App03
         }
 
         // Method to output the grade profile
-        private void OutputGradeProfile()
+        public void OutputGradeProfile()
         {        
             int[] gradeCounts = new int[5];
             int totalMarks = marks.Length;
@@ -234,7 +234,7 @@ namespace ConsoleAppProject.App03
         
 
         // Classifying Grades
-        private string ClassifyGrade(int mark)
+        public string ClassifyGrade(int mark)
         {
             if (mark >= 70) 
             {
