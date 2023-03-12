@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Text.RegularExpressions;
 namespace ConsoleAppProject.App03
 {
     /// <summary>
@@ -15,10 +15,12 @@ namespace ConsoleAppProject.App03
         public const int MaxMark = 100;
 
         public int[] marks;
+        public string[] names;
 
         public StudentGrades()
         {
             marks = new int[NumStudents];
+            names = new string[NumStudents];
         }
 
         // Runs the application
@@ -88,12 +90,24 @@ namespace ConsoleAppProject.App03
         public void InputMarks()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"Please enter a mark between {MinMark} and {MaxMark} for each of the {NumStudents} students:");
+            Console.WriteLine($"Please enter a name and mark between {MinMark} and {MaxMark} for each of the {NumStudents} students:");
             for (int i = 0; i < NumStudents; i++)
             {
-                marks[i] = InputMark($"Enter mark for student {i + 1}: ");
+                Console.WriteLine("");
+                Console.Write($"Enter name for student {i + 1}: ");
+                string input = Console.ReadLine();
+                if (!Regex.IsMatch(input, @"^[a-zA-Z\s]+$"))
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine($"Invalid input: {input}. Please enter only letters for the name.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    i--;
+                    continue;
+                }
+                names[i] = input;
+                marks[i] = InputMark($"Enter mark for {names[i]}: ");
             }
-            
+        
             Console.WriteLine();
             prompt();
         }
@@ -127,11 +141,11 @@ namespace ConsoleAppProject.App03
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\n\nStudents' Marks With Grades\n");
             Console.ForegroundColor = ConsoleColor.Cyan;
-        
+
             for (int i = 0; i < NumStudents; i++)
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.Write($"Student {i + 1}: ");
+                Console.Write($"Student {i + 1} - {names[i]}: ");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write($"{marks[i],3} {ClassifyGrade(marks[i])}");
                 Console.ForegroundColor = ConsoleColor.Cyan;
