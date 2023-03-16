@@ -85,7 +85,7 @@ namespace ConsoleAppProject
                 bmiCalculator.Run();
             }
     
-    /// Run App02 with a subheading  
+    /// Run App03 with a subheading  
             else if (appNumber == 3)
             {
             Console.ForegroundColor = ConsoleColor.Red;
