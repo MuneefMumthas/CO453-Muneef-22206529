@@ -39,7 +39,10 @@ namespace ConsoleAppProject.App03
         public void prompt()
         {
 
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Select a choice:");
             Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine();
             Console.WriteLine("1. Input Marks");
             Console.WriteLine("2. Output Grades");
             Console.WriteLine("3. Output Statistics");
