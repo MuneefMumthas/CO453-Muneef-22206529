@@ -18,7 +18,7 @@ namespace ConsoleAppTest
             };
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Valid Input
         public void Test_InputMark_With_Valid_Input()
         {
             using (StringReader stringReader = new StringReader("75\n"))
@@ -31,7 +31,7 @@ namespace ConsoleAppTest
             }
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Invalid Input
         public void Test_InputMark_With_Invalid_Input()
         {
             using (StringReader stringReader = new StringReader("abc\n50\n"))
@@ -44,7 +44,7 @@ namespace ConsoleAppTest
             }
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Grade A
         public void Test_ClassifyGrade_With_Mark_Above_70()
         {
             string grade = studentGrades.ClassifyGrade(85);
@@ -52,7 +52,7 @@ namespace ConsoleAppTest
             Assert.AreEqual("- A (First Class)", grade);
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Grade B
         public void Test_ClassifyGrade_With_Mark_Between_60_And_69()
         {
             string grade = studentGrades.ClassifyGrade(65);
@@ -60,7 +60,7 @@ namespace ConsoleAppTest
             Assert.AreEqual("- B (Upper Second Class)", grade);
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Grade C
         public void Test_ClassifyGrade_With_Mark_Between_50_And_59()
         {
             string grade = studentGrades.ClassifyGrade(55);
@@ -68,7 +68,7 @@ namespace ConsoleAppTest
             Assert.AreEqual("- C (Lower Second Class)", grade);
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Grade D
         public void Test_ClassifyGrade_With_Mark_Between_40_And_49()
         {
             string grade = studentGrades.ClassifyGrade(45);
@@ -76,7 +76,7 @@ namespace ConsoleAppTest
             Assert.AreEqual("- D (Third Class)", grade);
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Grade F
         public void Test_ClassifyGrade_With_Mark_Bellow_40()
         {
             string grade = studentGrades.ClassifyGrade(10);
@@ -84,7 +84,7 @@ namespace ConsoleAppTest
             Assert.AreEqual("- F (Fail)", grade);
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Mean Mark
         public void TestMean()
         {
             studentGrades.marks = mar;
@@ -95,7 +95,7 @@ namespace ConsoleAppTest
             Assert.AreEqual(expectedMean, studentGrades.mean);
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Minimum Mark
         public void TestMinimum()
         {
             studentGrades.marks = mar;
@@ -106,7 +106,7 @@ namespace ConsoleAppTest
             Assert.AreEqual(expectedMin, studentGrades.min);
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Maximum Mark
         public void TestMaximum()
         {
             studentGrades.marks = mar;
@@ -117,7 +117,7 @@ namespace ConsoleAppTest
             Assert.AreEqual(expectedMax, studentGrades.max);
         }
 
-        [TestMethod]
+        [TestMethod]//Testing Grade Profile
         public void TestGradeProfile()
         {
             studentGrades.marks = mar;
