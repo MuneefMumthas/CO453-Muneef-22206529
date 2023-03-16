@@ -17,6 +17,12 @@ namespace ConsoleAppProject.App03
         public int[] marks;
         public string[] names;
 
+        public double mean { get; set; }
+        public int min { get; set; }
+        public int max { get; set; }
+
+        public int[] gradeCounts = new int[5];
+
         public StudentGrades()
         {
             marks = new int[NumStudents];
@@ -160,18 +166,10 @@ namespace ConsoleAppProject.App03
         // Method to output the statistics of the grades
         public void OutputStatistics()
         {
-            int total = 0;
-            int min = MaxMark;
-            int max = MinMark;
 
-            foreach (int mark in marks)
-            {
-                total += mark;
-                if (mark < min) min = mark;
-                if (mark > max) max = mark;
-            }
-
-            double mean = (double)total / NumStudents;
+            CalculateMean();
+            CalculateMinimum();
+            CalculateMaximum();
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"\n\nStatistics\n");
@@ -195,13 +193,68 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
             prompt();
         }
+        //Calculate Mean
+        public void CalculateMean()
+        {
+            int total = 0;
+            foreach (int mark in marks)
+            {
+                total += mark;
+            }
+                mean = (double)total / NumStudents;
+        }
+
+        //Calculate Minimum
+        public void CalculateMinimum()
+        {
+            min = MaxMark;
+            foreach (int mark in marks)
+            {
+
+                if (mark < min) min = mark;
+
+            }
+        }
+
+        //Calculate Maximum
+        public void CalculateMaximum()
+        {
+            max = MinMark;
+            foreach (int mark in marks)
+            {
+
+                if (mark > max) max = mark;
+
+            }
+        }
 
         // Method to output the grade profile
         public void OutputGradeProfile()
         {        
-            int[] gradeCounts = new int[5];
             int totalMarks = marks.Length;
+            CalculateGradeProfile();
+        
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"\n\nGrade Profile\n");
             
+            // Calculate and display percentage of each grade and number of students
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"A (First Class): {(double)gradeCounts[0]/totalMarks*100}%, {gradeCounts[0]} student{(gradeCounts[0] == 1 ? "" : "s")}");
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"B (Upper Second Class): {(double)gradeCounts[1]/totalMarks*100}%, {gradeCounts[1]} student{(gradeCounts[1] == 1 ? "" : "s")}");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"C (Lower Second Class): {(double)gradeCounts[2]/totalMarks*100}%, {gradeCounts[2]} student{(gradeCounts[2] == 1 ? "" : "s")}");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"D (Third Class): {(double)gradeCounts[3]/totalMarks*100}%, {gradeCounts[3]} student{(gradeCounts[3] == 1 ? "" : "s")}");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine($"F (Fail): {(double)gradeCounts[4]/totalMarks*100}%, {gradeCounts[4]} student{(gradeCounts[4] == 1 ? "" : "s")}");
+        
+            Console.WriteLine();
+            prompt();
+        }
+
+        public void CalculateGradeProfile()
+        {
             foreach (int mark in marks)
             {
                 if (mark >= 70)
@@ -225,27 +278,7 @@ namespace ConsoleAppProject.App03
                     gradeCounts[4]++;
                 }
             }
-        
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"\n\nGrade Profile\n");
-            
-            // Calculate and display percentage of each grade and number of students
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"A (First Class): {(double)gradeCounts[0]/totalMarks*100}%, {gradeCounts[0]} student{(gradeCounts[0] == 1 ? "" : "s")}");
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine($"B (Upper Second Class): {(double)gradeCounts[1]/totalMarks*100}%, {gradeCounts[1]} student{(gradeCounts[1] == 1 ? "" : "s")}");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"C (Lower Second Class): {(double)gradeCounts[2]/totalMarks*100}%, {gradeCounts[2]} student{(gradeCounts[2] == 1 ? "" : "s")}");
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"D (Third Class): {(double)gradeCounts[3]/totalMarks*100}%, {gradeCounts[3]} student{(gradeCounts[3] == 1 ? "" : "s")}");
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine($"F (Fail): {(double)gradeCounts[4]/totalMarks*100}%, {gradeCounts[4]} student{(gradeCounts[4] == 1 ? "" : "s")}");
-        
-            Console.WriteLine();
-            prompt();
         }
-
-        
 
         // Classifying Grades
         public string ClassifyGrade(int mark)

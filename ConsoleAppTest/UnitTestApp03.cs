@@ -9,6 +9,14 @@ namespace ConsoleAppTest
     public class App03Test
     {
         StudentGrades studentGrades = new StudentGrades();
+        private int[] mar;
+
+        public App03Test()
+        {
+            mar = new int[] { 
+                10,20,30,40,50,60,70,80,90,100
+            };
+        }
 
         [TestMethod]
         public void Test_InputMark_With_Valid_Input()
@@ -74,6 +82,56 @@ namespace ConsoleAppTest
             string grade = studentGrades.ClassifyGrade(10);
 
             Assert.AreEqual("- F (Fail)", grade);
+        }
+
+        [TestMethod]
+        public void TestMean()
+        {
+            studentGrades.marks = mar;
+            double expectedMean = 55.0;
+
+            studentGrades.CalculateMean();
+
+            Assert.AreEqual(expectedMean, studentGrades.mean);
+        }
+
+        [TestMethod]
+        public void TestMinimum()
+        {
+            studentGrades.marks = mar;
+            int expectedMin = 10;
+
+            studentGrades.CalculateMinimum();
+
+            Assert.AreEqual(expectedMin, studentGrades.min);
+        }
+
+        [TestMethod]
+        public void TestMaximum()
+        {
+            studentGrades.marks = mar;
+            int expectedMax = 100;
+
+            studentGrades.CalculateMaximum();
+
+            Assert.AreEqual(expectedMax, studentGrades.max);
+        }
+
+        [TestMethod]
+        public void TestGradeProfile()
+        {
+            studentGrades.marks = mar;
+
+            studentGrades.CalculateGradeProfile();
+
+            bool expectedGradeProfile;
+            expectedGradeProfile = ((studentGrades.gradeCounts[0] == 4) && 
+                                    (studentGrades.gradeCounts[1] == 1) && 
+                                    (studentGrades.gradeCounts[2] == 1) &&
+                                    (studentGrades.gradeCounts[3] == 1) && 
+                                    (studentGrades.gradeCounts[4] == 3));
+
+            Assert.IsTrue(expectedGradeProfile);
         }
     }
 }
