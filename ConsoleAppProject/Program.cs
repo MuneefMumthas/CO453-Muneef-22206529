@@ -1,6 +1,7 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
 using ConsoleAppProject.Helpers;
 using System;
 
@@ -35,6 +36,7 @@ namespace ConsoleAppProject
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
             Console.WriteLine("3. Student Grades");
+            Console.WriteLine("4. Social Network");
             Console.WriteLine();
             Console.Write("Answer: ");
 
@@ -43,14 +45,14 @@ namespace ConsoleAppProject
             while (appNumber == 0)
             {
                 string input = Console.ReadLine();
-                if (int.TryParse(input, out int result) && (result == 1 || result == 2 || result == 3))
+                if (int.TryParse(input, out int result) && (result == 1 || result == 2 || result == 3 || result == 4))
                 {
                     appNumber = result;
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Please enter a valid input (1-3).");
+                    Console.WriteLine("Please enter a valid input (1-4).");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
             }
@@ -98,6 +100,21 @@ namespace ConsoleAppProject
 
                 StudentGrades studentGrades = new StudentGrades();
                 studentGrades.Run();
+            }
+
+    /// Run App04 with a subheading  
+            else if (appNumber == 4)
+            {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine();
+            Console.WriteLine("=========================================");
+            Console.WriteLine("         App04 - Social Network          ");
+            Console.WriteLine("      By: Muneef Mumthas - 22206529      ");
+            Console.WriteLine("=========================================");
+            Console.WriteLine();
+
+                SocialNetwork socialNetwork = new SocialNetwork();
+                socialNetwork.Run();
             }
         }
     }
