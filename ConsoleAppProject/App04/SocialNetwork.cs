@@ -15,6 +15,10 @@ namespace ConsoleAppProject.App04
     {
         public void Run()
         {
+            Choices();
+        }
+        public void Choices()
+        {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Please select a choice (1-8)");
             Console.WriteLine("1. Post a message");
