@@ -13,6 +13,8 @@ namespace ConsoleAppProject.App04
     /// </author>
     public class SocialNetwork
     {
+        private NewsFeed news = new NewsFeed();
+        
         public void Run()
         {
             Choices();
@@ -31,10 +33,62 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("8. Quit");
             Console.WriteLine();
             Console.Write("Answer: ");
-            Console.WriteLine();
-        
+
+            int ChoiceNumber = 0;
+            while (ChoiceNumber == 0)
+            {
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out int choice) && (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5 || choice == 6 || choice == 7 || choice == 8))
+                {
+                    ChoiceNumber = choice;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Please enter a valid input (1-8).");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+            }
+
+            if (ChoiceNumber == 1)
+            {
+                Console.WriteLine();
+                PostMessage();
+            }
+
+            else if (ChoiceNumber == 2)
+            {
+                Console.WriteLine();
+                PostImage();
+            }
+
+            else if (ChoiceNumber == 7)
+            {
+                Console.WriteLine();
+                DisplayAll();
+            }
+
+            else if (ChoiceNumber == 8)
+            {
+                Environment.Exit(0);
+            }
         }
 
+        public void PostMessage()
+        {
+            Choices();
+        }
+
+        public void PostImage()
+        {
+            Choices();
+        }
+
+        public void DisplayAll()
+        {
+            news.Display();
+            Choices();
+        }
 
     }
     
