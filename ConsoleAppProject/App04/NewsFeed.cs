@@ -36,6 +36,21 @@ namespace ConsoleAppProject.App04
         }
 
 
+        // Method to post a message
+        public void PostMessage()
+        {
+            Console.Write("Enter your name: ");
+            string author = Console.ReadLine();
+            Console.WriteLine("");
+
+            Console.Write("Enter your message: ");
+            string message = Console.ReadLine();
+            Console.WriteLine("");
+
+            MessagePost post = new MessagePost(author, message);
+            AddMessagePost(post);
+        }
+
         ///<summary>
         /// Add a text post to the news feed.
         /// 
@@ -44,6 +59,25 @@ namespace ConsoleAppProject.App04
         public void AddMessagePost(MessagePost message)
         {
             posts.Add(message);
+        }
+
+        // Method to post a photo
+        public void PostPhoto()
+        {
+           Console.Write("Enter your name: ");
+           string author = Console.ReadLine();
+           Console.WriteLine("");
+
+           Console.Write("Enter the file name: ");
+           string filename = Console.ReadLine();
+           Console.WriteLine("");
+
+          Console.Write("Enter the photo caption: ");
+          string caption = Console.ReadLine();
+          Console.WriteLine("");
+
+          PhotoPost post = new PhotoPost(author, filename, caption);
+          AddPhotoPost(post);
         }
 
         ///<summary>

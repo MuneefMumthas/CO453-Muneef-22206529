@@ -21,8 +21,11 @@ namespace ConsoleAppProject.App04
         }
         public void Choices()
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Please select a choice (1-8)");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("1. Post a message");
             Console.WriteLine("2. Post an image");
             Console.WriteLine("3. Comment on a post");
@@ -62,6 +65,26 @@ namespace ConsoleAppProject.App04
                 PostImage();
             }
 
+            else if (ChoiceNumber == 3)
+            {
+                Choices();
+            }
+
+            else if (ChoiceNumber == 4)
+            {
+                Choices();
+            }
+
+            else if (ChoiceNumber == 5)
+            {
+                Choices();
+            }
+
+            else if (ChoiceNumber == 6)
+            {
+                Choices();
+            }
+
             else if (ChoiceNumber == 7)
             {
                 Console.WriteLine();
@@ -76,11 +99,17 @@ namespace ConsoleAppProject.App04
 
         public void PostMessage()
         {
+            news.PostMessage();
+            Console.WriteLine("Message posted.");
+            Console.WriteLine("");
             Choices();
         }
 
         public void PostImage()
         {
+            news.PostPhoto();
+            Console.WriteLine("Photo posted.");
+            Console.WriteLine("");
             Choices();
         }
 
