@@ -8,6 +8,8 @@ namespace ConsoleAppProject.App04
     /// </author>
     public class Post
     {
+        private static int nextPostId = 1;
+        public int PostId { get; }
         private int likes;
 
         private readonly List<String> comments;
@@ -18,6 +20,7 @@ namespace ConsoleAppProject.App04
 
         public Post(String author)
         {
+            PostId = nextPostId++;
             this.Username = author;
             Timestamp = DateTime.Now;
 
@@ -61,6 +64,7 @@ namespace ConsoleAppProject.App04
         public virtual void Display()
         {
             Console.WriteLine();
+            Console.WriteLine($"    Post ID: {PostId}");
             Console.WriteLine($"    Author: {Username}");
             Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
             Console.WriteLine();
