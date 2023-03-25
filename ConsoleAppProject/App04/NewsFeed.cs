@@ -90,6 +90,30 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        // Method to Add a comment to the posts
+        public void AddCommentToPost()
+        {
+            Console.Write("Enter post ID to add comment: ");
+            int postId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("");
+
+            Post post = posts.Find(p => p.PostId == postId);
+        
+            if (post != null)
+            {
+                Console.Write($"Enter comment for post {postId}: ");
+                string comment = Console.ReadLine();
+                Console.WriteLine("");
+
+                post.AddComment(comment);
+                Console.WriteLine("Comment added successfully!");
+            }
+            else
+            {
+                Console.WriteLine($"Post with ID {postId} not found!");
+            }
+        }
+        
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
         /// terminal. (To do: replace this later with display in web browser.)

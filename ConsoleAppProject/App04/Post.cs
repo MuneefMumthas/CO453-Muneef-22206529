@@ -49,7 +49,9 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Add a comment to this post.
-        /// </summary>     
+        /// </summary>    
+
+ 
         public void AddComment(String text)
         {
             comments.Add(text);
@@ -84,7 +86,11 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
+                Console.WriteLine($"    {comments.Count} comment(s):");
+                foreach (string comment in comments)
+                {
+                    Console.WriteLine($"        {comment}");
+                }
             }
         }
 

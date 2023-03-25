@@ -67,7 +67,8 @@ namespace ConsoleAppProject.App04
 
             else if (ChoiceNumber == 3)
             {
-                Choices();
+                Console.WriteLine();
+                AddCommentToPost();
             }
 
             else if (ChoiceNumber == 4)
@@ -113,6 +114,12 @@ namespace ConsoleAppProject.App04
             Choices();
         }
 
+        public void AddCommentToPost()
+        {
+            news.AddCommentToPost();
+            Console.WriteLine("");
+            Choices();
+        }
         public void DisplayAll()
         {
             news.Display();
