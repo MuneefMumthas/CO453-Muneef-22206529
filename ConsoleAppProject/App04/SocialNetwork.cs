@@ -135,7 +135,11 @@ namespace ConsoleAppProject.App04
         public void DisplayAll()
         {
             news.Display();
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("");
+            Console.WriteLine("-------------- End of Posts -------------");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Choices();
         }
 
