@@ -114,18 +114,60 @@ namespace ConsoleAppProject.App04
             }
         }
         
+        // Method to delete a post by ID
+        public void DeletePostById()
+        {
+            
+            Console.Write("Enter post ID to delete the post: ");
+            int postId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("");
+
+            Post post = posts.Find(p => p.PostId == postId);
+
+            if (post == null)
+            {
+                Console.WriteLine($"No post found with ID {postId}");
+                return;
+            }
+
+            posts.Remove(post);
+
+            Console.WriteLine("Post deleted successfully!");
+        }
+        
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
         /// terminal. (To do: replace this later with display in web browser.)
         ///</summary>
         public void Display()
         {
+            
+            if (posts.Count == 0)
+            {
+            
+            // Error message if there is no posts
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("=========================================");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("");
+            Console.WriteLine("          No Posts Available :(          ");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("=========================================");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("");
+
+            }
+            else
+            {
             // display all text posts
             foreach (Post post in posts)
             {
                 post.Display();
                 Console.WriteLine();   // empty line between posts
             }
+            }
+            
         }
     }
 

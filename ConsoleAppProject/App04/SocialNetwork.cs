@@ -73,7 +73,8 @@ namespace ConsoleAppProject.App04
 
             else if (ChoiceNumber == 4)
             {
-                Choices();
+                Console.WriteLine();
+                DeletePost();
             }
 
             else if (ChoiceNumber == 5)
@@ -117,6 +118,13 @@ namespace ConsoleAppProject.App04
         public void AddCommentToPost()
         {
             news.AddCommentToPost();
+            Console.WriteLine("");
+            Choices();
+        }
+
+        public void DeletePost()
+        {
+            news.DeletePostById();
             Console.WriteLine("");
             Choices();
         }
