@@ -102,7 +102,9 @@ namespace ConsoleAppProject.App04
         public void PostMessage()
         {
             news.PostMessage();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Message posted.");
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("");
             Choices();
         }
@@ -110,7 +112,9 @@ namespace ConsoleAppProject.App04
         public void PostImage()
         {
             news.PostPhoto();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Photo posted.");
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("");
             Choices();
         }

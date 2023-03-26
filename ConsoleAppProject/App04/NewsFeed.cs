@@ -106,11 +106,15 @@ namespace ConsoleAppProject.App04
                 Console.WriteLine("");
 
                 post.AddComment(comment);
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Comment added successfully!");
+                Console.ForegroundColor = ConsoleColor.Cyan;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"Post with ID {postId} not found!");
+                Console.ForegroundColor = ConsoleColor.Cyan;
             }
         }
         
@@ -126,13 +130,17 @@ namespace ConsoleAppProject.App04
 
             if (post == null)
             {
-                Console.WriteLine($"No post found with ID {postId}");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine($"Post with ID {postId} not found!");
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 return;
             }
 
             posts.Remove(post);
 
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Post deleted successfully!");
+            Console.ForegroundColor = ConsoleColor.Cyan;
         }
         
         ///<summary>
