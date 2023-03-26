@@ -131,6 +131,7 @@ namespace ConsoleAppProject.App04
         public void DisplayAll()
         {
             news.Display();
+            Console.WriteLine("");
             Choices();
         }
 

@@ -33,18 +33,12 @@ namespace ConsoleAppProject.App04
 
         public override void Display()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("=========================================");
-            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("");
             Console.WriteLine($"    Message: {Message}");
 
             base.Display();
 
             Console.WriteLine("");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("=========================================");
-            Console.ForegroundColor = ConsoleColor.Cyan;
         }
     }
 }

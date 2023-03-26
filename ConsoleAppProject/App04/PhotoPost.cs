@@ -39,9 +39,6 @@ namespace ConsoleAppProject.App04
 
         public override void Display()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("=========================================");
-            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("");
             Console.WriteLine($"    Filename: {Filename}");
             Console.WriteLine($"    Caption: {Caption}");
@@ -49,9 +46,6 @@ namespace ConsoleAppProject.App04
             base.Display();
 
             Console.WriteLine("");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("=========================================");
-            Console.ForegroundColor = ConsoleColor.Cyan;
         }
     }
 }

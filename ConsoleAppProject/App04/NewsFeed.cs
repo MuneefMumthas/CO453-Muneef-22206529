@@ -142,6 +142,12 @@ namespace ConsoleAppProject.App04
         public void Display()
         {
             
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("--------------- All Posts ---------------");
+            Console.WriteLine("");
+            Console.WriteLine("=========================================");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+
             if (posts.Count == 0)
             {
             
@@ -164,7 +170,10 @@ namespace ConsoleAppProject.App04
             foreach (Post post in posts)
             {
                 post.Display();
-                Console.WriteLine();   // empty line between posts
+                // line to seperate posts
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("=========================================");
+                Console.ForegroundColor = ConsoleColor.Cyan;
             }
             }
             
