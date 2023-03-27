@@ -85,7 +85,8 @@ namespace ConsoleAppProject.App04
 
             else if (ChoiceNumber == 6)
             {
-                Choices();
+                Console.WriteLine();
+                ShowPostsByAuthor();
             }
 
             else if (ChoiceNumber == 7)
@@ -137,6 +138,13 @@ namespace ConsoleAppProject.App04
         public void LikeOrUnlikePost()
         {
             news.LikeOrUnlikePost();
+            Console.WriteLine("");
+            Choices();
+        }
+
+        public void ShowPostsByAuthor()
+        {
+            news.ShowPostsByAuthor();
             Console.WriteLine("");
             Choices();
         }

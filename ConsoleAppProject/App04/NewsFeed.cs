@@ -204,6 +204,45 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        public void ShowPostsByAuthor()
+        {
+            Console.Write("Enter the author's name: ");
+            string authorName = Console.ReadLine();
+            Console.WriteLine("");
+        
+            bool foundPosts = false;
+        
+            foreach (Post post in posts)
+            {
+                if (post.Username == authorName)
+                {
+                    if (!foundPosts)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("=========================================");
+                        Console.WriteLine("");
+                        Console.WriteLine($"          Posts by {authorName}          ");
+                        Console.WriteLine("");
+                        Console.WriteLine("=========================================");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        foundPosts = true;
+                    }
+                    post.Display();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("=========================================");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    foundPosts = true;
+                }
+            }
+
+            if (!foundPosts)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("No posts found for the given author.");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+            }
+        }
+
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
         /// terminal. (To do: replace this later with display in web browser.)
@@ -221,9 +260,6 @@ namespace ConsoleAppProject.App04
             {
             
             // Error message if there is no posts
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("=========================================");
-            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("");
             Console.WriteLine("          No Posts Available :(          ");
             Console.WriteLine("");
