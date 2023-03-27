@@ -118,7 +118,7 @@ namespace ConsoleAppProject.App04
             }
         }
         
-        // Method to delete a post by ID
+        /// Method to delete a post by ID
         public void DeletePostById()
         {
             
@@ -143,6 +143,67 @@ namespace ConsoleAppProject.App04
             Console.ForegroundColor = ConsoleColor.Cyan;
         }
         
+        // Method to Like or dislike a post
+        public void LikeOrUnlikePost()
+        {
+            Console.Write("Enter the ID of the post you want to like or dislike: ");
+            int postId = int.Parse(Console.ReadLine());
+        
+            // find the post with the matching ID
+            Post post = posts.Find(p => p.PostId == postId);
+        
+            if (post != null)
+            {
+                bool validChoice = false;
+                while (!validChoice)
+                {
+                    // ask user if they want to like or unlike the post
+                    Console.WriteLine("");
+                    Console.WriteLine("Do you want to like or dislike this post?");
+                    Console.WriteLine("");
+                    Console.WriteLine("1. Like");
+                    Console.WriteLine("2. DisLike");
+                    Console.WriteLine("");
+                    Console.Write("Answer: ");
+                    string choice = Console.ReadLine().ToLower();
+                    Console.WriteLine("");
+
+                    if (choice == "1")
+                    {
+                        // record the like
+                        post.Like();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("You have liked this post.");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        validChoice = true;
+                    }
+                    else if (choice == "2")
+                    {
+                        // remove the like
+                        post.Unlike();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("You have disliked this post.");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        validChoice = true;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("Please enter valid input (1 or 2).");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                    }
+                }
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("");
+                Console.WriteLine($"Post with ID {postId} not found!");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                return;
+            }
+        }
+
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
         /// terminal. (To do: replace this later with display in web browser.)

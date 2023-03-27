@@ -79,7 +79,8 @@ namespace ConsoleAppProject.App04
 
             else if (ChoiceNumber == 5)
             {
-                Choices();
+                Console.WriteLine();
+                LikeOrUnlikePost();
             }
 
             else if (ChoiceNumber == 6)
@@ -129,6 +130,13 @@ namespace ConsoleAppProject.App04
         public void DeletePost()
         {
             news.DeletePostById();
+            Console.WriteLine("");
+            Choices();
+        }
+
+        public void LikeOrUnlikePost()
+        {
+            news.LikeOrUnlikePost();
             Console.WriteLine("");
             Choices();
         }
