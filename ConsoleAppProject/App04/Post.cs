@@ -16,8 +16,9 @@ namespace ConsoleAppProject.App04
         // username of the post's author
         public String Username { get; }
 
-        public DateTime Timestamp { get; } 
+        public DateTime Timestamp { get; }
 
+        // Constructor to initialize the post with its properties
         public Post(String author)
         {
             PostId = nextPostId++;
@@ -51,7 +52,6 @@ namespace ConsoleAppProject.App04
         /// Add a comment to this post.
         /// </summary>    
 
- 
         public void AddComment(String text)
         {
             comments.Add(text);
@@ -120,6 +120,6 @@ namespace ConsoleAppProject.App04
             }
         }
     }
-    
+
 
 }

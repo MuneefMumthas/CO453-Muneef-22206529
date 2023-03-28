@@ -25,7 +25,7 @@ namespace ConsoleAppProject.App04
         /// <param name="text">
         /// The text of this post.
         /// </param>
-        public MessagePost(String author, String text): base(author)
+        public MessagePost(String author, String text) : base(author)
         {
             Message = text;
 

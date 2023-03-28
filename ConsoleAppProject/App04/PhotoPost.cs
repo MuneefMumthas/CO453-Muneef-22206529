@@ -15,9 +15,9 @@ namespace ConsoleAppProject.App04
     {
         // the name of the image file
         public String Filename { get; set; }
-        
+
         // a one line image caption
-        public String Caption { get; set; }   
+        public String Caption { get; set; }
 
         ///<summary>
         /// Constructor for objects of class PhotoPost.
@@ -31,7 +31,7 @@ namespace ConsoleAppProject.App04
         /// <param name="filename">
         /// The filename of the image in this post.
         /// </param>
-        public PhotoPost(String author, String filename, String caption): base(author)
+        public PhotoPost(String author, String filename, String caption) : base(author)
         {
             this.Filename = filename;
             this.Caption = caption;

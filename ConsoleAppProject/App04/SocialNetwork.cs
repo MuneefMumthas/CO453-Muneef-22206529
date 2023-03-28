@@ -4,9 +4,9 @@ using System.Collections.Generic;
 namespace ConsoleAppProject.App04
 {
     ///<summary>
-    /// This class stores information about a post in a social network. 
-    /// The main part of the post consists of a (possibly multi-line)
-    /// text message. Other data, such as author and time, are also stored.
+    /// This class represents a social network and allows users to perform 
+    /// various actions such as posting messages and images, 
+    /// commenting, deleting, and liking posts.
     /// </summary>
     /// <author>
     /// Muneef Mumthas - 22206529
@@ -14,14 +14,16 @@ namespace ConsoleAppProject.App04
     public class SocialNetwork
     {
         private NewsFeed news = new NewsFeed();
-        
+
+        /// Method to run the social network program.
         public void Run()
         {
             Choices();
         }
+        /// Method to display the list of available actions
         public void Choices()
         {
-            
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Please select a choice (1-8)");
             Console.WriteLine("");
@@ -53,6 +55,7 @@ namespace ConsoleAppProject.App04
                 }
             }
 
+            // Perform action based on user input
             if (ChoiceNumber == 1)
             {
                 Console.WriteLine();
@@ -80,7 +83,7 @@ namespace ConsoleAppProject.App04
             else if (ChoiceNumber == 5)
             {
                 Console.WriteLine();
-                LikeOrUnlikePost();
+                LikeOrDislikePost();
             }
 
             else if (ChoiceNumber == 6)
@@ -101,6 +104,7 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// Method to post a message
         public void PostMessage()
         {
             news.PostMessage();
@@ -111,6 +115,7 @@ namespace ConsoleAppProject.App04
             Choices();
         }
 
+        /// Method to post an image
         public void PostImage()
         {
             news.PostPhoto();
@@ -121,6 +126,7 @@ namespace ConsoleAppProject.App04
             Choices();
         }
 
+        /// Method to add a comment to a post
         public void AddCommentToPost()
         {
             news.AddCommentToPost();
@@ -128,6 +134,7 @@ namespace ConsoleAppProject.App04
             Choices();
         }
 
+        /// Method to delete a post
         public void DeletePost()
         {
             news.DeletePostById();
@@ -135,19 +142,23 @@ namespace ConsoleAppProject.App04
             Choices();
         }
 
-        public void LikeOrUnlikePost()
+        /// Method to like or Dislike a post
+        public void LikeOrDislikePost()
         {
             news.LikeOrUnlikePost();
             Console.WriteLine("");
             Choices();
         }
 
+        /// Method to filter posts by author
         public void ShowPostsByAuthor()
         {
             news.ShowPostsByAuthor();
             Console.WriteLine("");
             Choices();
         }
+        
+        /// Method to display all available posts
         public void DisplayAll()
         {
             news.Display();
@@ -160,5 +171,5 @@ namespace ConsoleAppProject.App04
         }
 
     }
-    
+
 }

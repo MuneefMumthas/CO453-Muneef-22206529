@@ -64,20 +64,20 @@ namespace ConsoleAppProject.App04
         // Method to post a photo
         public void PostPhoto()
         {
-           Console.Write("Enter your name: ");
-           string author = Console.ReadLine();
-           Console.WriteLine("");
+            Console.Write("Enter your name: ");
+            string author = Console.ReadLine();
+            Console.WriteLine("");
 
-           Console.Write("Enter the file name: ");
-           string filename = Console.ReadLine();
-           Console.WriteLine("");
+            Console.Write("Enter the file name: ");
+            string filename = Console.ReadLine();
+            Console.WriteLine("");
 
-          Console.Write("Enter the photo caption: ");
-          string caption = Console.ReadLine();
-          Console.WriteLine("");
+            Console.Write("Enter the photo caption: ");
+            string caption = Console.ReadLine();
+            Console.WriteLine("");
 
-          PhotoPost post = new PhotoPost(author, filename, caption);
-          AddPhotoPost(post);
+            PhotoPost post = new PhotoPost(author, filename, caption);
+            AddPhotoPost(post);
         }
 
         ///<summary>
@@ -98,7 +98,7 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("");
 
             Post post = posts.Find(p => p.PostId == postId);
-        
+
             if (post != null)
             {
                 Console.Write($"Enter comment for post {postId}: ");
@@ -117,11 +117,11 @@ namespace ConsoleAppProject.App04
                 Console.ForegroundColor = ConsoleColor.Cyan;
             }
         }
-        
+
         /// Method to delete a post by ID
         public void DeletePostById()
         {
-            
+
             Console.Write("Enter post ID to delete the post: ");
             int postId = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("");
@@ -142,16 +142,16 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("Post deleted successfully!");
             Console.ForegroundColor = ConsoleColor.Cyan;
         }
-        
+
         // Method to Like or dislike a post
         public void LikeOrUnlikePost()
         {
             Console.Write("Enter the ID of the post you want to like or dislike: ");
             int postId = int.Parse(Console.ReadLine());
-        
+
             // find the post with the matching ID
             Post post = posts.Find(p => p.PostId == postId);
-        
+
             if (post != null)
             {
                 bool validChoice = false;
@@ -204,14 +204,15 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// Method to filter posts by author
         public void ShowPostsByAuthor()
         {
             Console.Write("Enter the author's name: ");
             string authorName = Console.ReadLine();
             Console.WriteLine("");
-        
+
             bool foundPosts = false;
-        
+
             foreach (Post post in posts)
             {
                 if (post.Username == authorName)
@@ -249,7 +250,7 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void Display()
         {
-            
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("--------------- All Posts ---------------");
             Console.WriteLine("");
@@ -258,30 +259,30 @@ namespace ConsoleAppProject.App04
 
             if (posts.Count == 0)
             {
-            
-            // Error message if there is no posts
-            Console.WriteLine("");
-            Console.WriteLine("          No Posts Available :(          ");
-            Console.WriteLine("");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("=========================================");
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("");
+
+                // Error message if there is no posts
+                Console.WriteLine("");
+                Console.WriteLine("          No Posts Available :(          ");
+                Console.WriteLine("");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("=========================================");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("");
 
             }
             else
             {
-            // display all text posts
-            foreach (Post post in posts)
-            {
-                post.Display();
-                // line to seperate posts
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("=========================================");
-                Console.ForegroundColor = ConsoleColor.Cyan;
+                // display all text posts
+                foreach (Post post in posts)
+                {
+                    post.Display();
+                    // line to seperate posts
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("=========================================");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
             }
-            }
-            
+
         }
     }
 
