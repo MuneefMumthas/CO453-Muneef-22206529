@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace ConsoleAppProject.App04
 {
@@ -39,17 +39,52 @@ namespace ConsoleAppProject.App04
         // Method to post a message
         public void PostMessage()
         {
-            Console.Write("Enter your name: ");
-            string author = Console.ReadLine();
+            string author = "";
+            while (string.IsNullOrWhiteSpace(author))
+            {
+                Console.Write("Enter your name: ");
+                author = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(author))
+                {
+                    /// error message for empyt input
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Name cannot be empty. Please try again.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+                else if (author.Any(char.IsDigit))
+                {
+                    /// error message for numbers in the name
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Name cannot contain numbers. Please try again.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    author = "";
+                }
+            }
+
             Console.WriteLine("");
 
-            Console.Write("Enter your message: ");
-            string message = Console.ReadLine();
+            string message = "";
+            while (string.IsNullOrWhiteSpace(message))
+            {
+                Console.Write("Enter your message: ");
+                message = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(message))
+                {
+                    /// error message for empyt input
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Message cannot be empty. Please try again.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+            }
+
             Console.WriteLine("");
 
             MessagePost post = new MessagePost(author, message);
             AddMessagePost(post);
         }
+
 
         ///<summary>
         /// Add a text post to the news feed.
@@ -64,21 +99,69 @@ namespace ConsoleAppProject.App04
         // Method to post a photo
         public void PostPhoto()
         {
-            Console.Write("Enter your name: ");
-            string author = Console.ReadLine();
+            string author = "";
+            while (string.IsNullOrWhiteSpace(author))
+            {
+                Console.Write("Enter your name: ");
+                author = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(author))
+                {
+                    /// error message for empty input
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Name cannot be empty. Please try again.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+                else if (author.Any(char.IsDigit))
+                {
+                    /// error message for numbers in the name
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Name cannot contain numbers. Please try again.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    author = "";
+                }
+            }
+
             Console.WriteLine("");
 
-            Console.Write("Enter the file name: ");
-            string filename = Console.ReadLine();
+            string filename = "";
+            while (string.IsNullOrWhiteSpace(filename))
+            {
+                Console.Write("Enter the file name: ");
+                filename = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(filename))
+                {
+                    /// error message for empty input
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("File name cannot be empty. Please try again.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+            }
+
             Console.WriteLine("");
 
-            Console.Write("Enter the photo caption: ");
-            string caption = Console.ReadLine();
+            string caption = "";
+            while (string.IsNullOrWhiteSpace(caption))
+            {
+                Console.Write("Enter the photo caption: ");
+                caption = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(caption))
+                {
+                    /// error message for empty input
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Caption cannot be empty. Please try again.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+            }
+
             Console.WriteLine("");
 
             PhotoPost post = new PhotoPost(author, filename, caption);
             AddPhotoPost(post);
         }
+
 
         ///<summary>
         /// Add a photo post to the news feed.
