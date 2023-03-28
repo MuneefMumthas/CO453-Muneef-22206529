@@ -176,16 +176,37 @@ namespace ConsoleAppProject.App04
         // Method to Add a comment to the posts
         public void AddCommentToPost()
         {
-            Console.Write("Enter post ID to add comment: ");
-            int postId = Convert.ToInt32(Console.ReadLine());
+            int postId = 0;
+            while (postId == 0)
+            {
+                Console.Write("Enter post ID to add comment: ");
+                if (!int.TryParse(Console.ReadLine(), out postId) || postId == 0)
+                {
+                    /// error message for invalid input
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Invalid input. Please enter a valid integer.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+            }
             Console.WriteLine("");
 
             Post post = posts.Find(p => p.PostId == postId);
 
             if (post != null)
             {
-                Console.Write($"Enter comment for post {postId}: ");
-                string comment = Console.ReadLine();
+                string comment = "";
+                while (string.IsNullOrWhiteSpace(comment))
+                {
+                    Console.Write($"Enter comment for post {postId}: ");
+                    comment = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(comment))
+                    {
+                        /// error message for empty input for comment
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("Comment cannot be empty. Please try again.");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                    }
+                }
                 Console.WriteLine("");
 
                 post.AddComment(comment);
@@ -195,8 +216,10 @@ namespace ConsoleAppProject.App04
             }
             else
             {
+                /// error message for invalid post ID
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"Post with ID {postId} not found!");
+                Console.WriteLine("Please check the ID and try again.");
                 Console.ForegroundColor = ConsoleColor.Cyan;
             }
         }
@@ -204,26 +227,71 @@ namespace ConsoleAppProject.App04
         /// Method to delete a post by ID
         public void DeletePostById()
         {
-
-            Console.Write("Enter post ID to delete the post: ");
-            int postId = Convert.ToInt32(Console.ReadLine());
+            int postId = 0;
+            while (postId == 0)
+            {
+                Console.Write("Enter post ID to delete the post: ");
+                if (!int.TryParse(Console.ReadLine(), out postId) || postId == 0)
+                {
+                    /// error message for invalid input
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Invalid input. Please enter a valid integer.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+            }
             Console.WriteLine("");
 
             Post post = posts.Find(p => p.PostId == postId);
 
-            if (post == null)
+            if (post != null)
             {
+                string confirmation = "";
+                while (confirmation != "1" && confirmation != "2")
+                {
+                    /// prompt to confirm deletion of the selected post
+                    Console.Write("Are you sure you want to delete this post?");
+                    Console.WriteLine("");
+                    Console.WriteLine("1. Yes");
+                    Console.WriteLine("2. No");
+                    Console.WriteLine("");
+                    Console.Write("Answer: ");
+                    confirmation = Console.ReadLine();
+
+                    if (confirmation != "1" && confirmation != "2")
+                    {
+                        /// error message for invalid selection
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("Invalid input. Please enter either 1 or 2.");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                    }
+                }
+
+                if (confirmation == "1")
+                {
+                    posts.Remove(post);
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("");
+                    Console.WriteLine("Post deleted successfully!");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+                else if (confirmation == "2")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("");
+                    Console.WriteLine("Post deletion canceled as requested.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    return;
+                }
+            }
+            else
+            {
+                /// error message for invalid post ID
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"Post with ID {postId} not found!");
+                Console.WriteLine("Please check the ID and try again.");
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                return;
             }
-
-            posts.Remove(post);
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Post deleted successfully!");
-            Console.ForegroundColor = ConsoleColor.Cyan;
         }
 
         // Method to Like or dislike a post
