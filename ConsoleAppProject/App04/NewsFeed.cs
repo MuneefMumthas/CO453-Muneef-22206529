@@ -297,10 +297,19 @@ namespace ConsoleAppProject.App04
         // Method to Like or dislike a post
         public void LikeOrUnlikePost()
         {
-            Console.Write("Enter the ID of the post you want to like or dislike: ");
-            int postId = int.Parse(Console.ReadLine());
-
-            // find the post with the matching ID
+            int postId = 0;
+            while (postId == 0)
+            {
+                Console.Write("Enter post ID to delete the post: ");
+                if (!int.TryParse(Console.ReadLine(), out postId) || postId == 0)
+                {
+                    /// error message for invalid input
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Invalid input. Please enter a valid integer.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+            }
+            Console.WriteLine("");
             Post post = posts.Find(p => p.PostId == postId);
 
             if (post != null)
@@ -330,7 +339,7 @@ namespace ConsoleAppProject.App04
                     }
                     else if (choice == "2")
                     {
-                        // remove the like
+                        // record the dislike
                         post.Unlike();
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("You have disliked this post.");
@@ -350,6 +359,7 @@ namespace ConsoleAppProject.App04
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("");
                 Console.WriteLine($"Post with ID {postId} not found!");
+                Console.WriteLine("Please check the ID and try again.");
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 return;
             }
@@ -358,8 +368,28 @@ namespace ConsoleAppProject.App04
         /// Method to filter posts by author
         public void ShowPostsByAuthor()
         {
-            Console.Write("Enter the author's name: ");
-            string authorName = Console.ReadLine();
+            string authorName = "";
+            while (string.IsNullOrWhiteSpace(authorName))
+            {
+                Console.Write("Enter the author's name: ");
+                authorName = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(authorName))
+                {
+                    /// error message for empyt input
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Name cannot be empty. Please try again.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                }
+                else if (authorName.Any(char.IsDigit))
+                {
+                    /// error message for numbers in the name
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Name cannot contain numbers. Please try again.");
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    authorName = "";
+                }
+            }
             Console.WriteLine("");
 
             bool foundPosts = false;
@@ -391,6 +421,7 @@ namespace ConsoleAppProject.App04
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("No posts found for the given author.");
+                Console.WriteLine("Please enter the author's name exactly as it appears in the feed.");
                 Console.ForegroundColor = ConsoleColor.Cyan;
             }
         }

@@ -34,7 +34,7 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("4. Delete a post");
             Console.WriteLine("5. Like or dislike a post");
             Console.WriteLine("6. Show posts by an author");
-            Console.WriteLine("7. Show all posts");
+            Console.WriteLine("7. Show all posts (Feed)");
             Console.WriteLine("8. Quit");
             Console.WriteLine();
             Console.Write("Answer: ");

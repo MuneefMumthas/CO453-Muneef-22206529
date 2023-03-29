@@ -11,6 +11,7 @@ namespace ConsoleAppProject.App04
         private static int nextPostId = 1;
         public int PostId { get; }
         private int likes;
+        private int dislikes;
 
         private readonly List<String> comments;
         // username of the post's author
@@ -26,6 +27,7 @@ namespace ConsoleAppProject.App04
             Timestamp = DateTime.Now;
 
             likes = 0;
+            dislikes = 0;
             comments = new List<String>();
         }
 
@@ -42,10 +44,7 @@ namespace ConsoleAppProject.App04
         ///</summary>
         public void Unlike()
         {
-            if (likes > 0)
-            {
-                likes--;
-            }
+            dislikes++;
         }
 
         ///<summary>
@@ -73,7 +72,17 @@ namespace ConsoleAppProject.App04
 
             if (likes > 0)
             {
-                Console.WriteLine($"    Likes:  {likes}  people like this.");
+                Console.WriteLine($"    Likes:  {likes} ");
+            }
+            else
+            {
+                Console.WriteLine();
+            }
+
+            if (dislikes > 0)
+            {
+                Console.WriteLine($"    Dislikes:  {dislikes} ");
+                Console.WriteLine("");
             }
             else
             {
