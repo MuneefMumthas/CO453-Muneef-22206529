@@ -16,10 +16,12 @@ namespace ConsoleAppTest
         }
 
         [TestMethod]
-        public void PostMessage_ShouldAddMessageToNewsFeed()
+        public void TestPostMessage()
         {
-            var author = "John Doe";
+            var author = "Muneef";
             var message = "Hello, world!";
+            socialNetwork.PostMessage();
+
 
         }
     }

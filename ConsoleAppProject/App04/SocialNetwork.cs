@@ -56,51 +56,41 @@ namespace ConsoleAppProject.App04
             }
 
             // Perform action based on user input
-            if (ChoiceNumber == 1)
+            switch (ChoiceNumber)
             {
-                Console.WriteLine();
-                PostMessage();
-            }
-
-            else if (ChoiceNumber == 2)
-            {
-                Console.WriteLine();
-                PostImage();
-            }
-
-            else if (ChoiceNumber == 3)
-            {
-                Console.WriteLine();
-                AddCommentToPost();
-            }
-
-            else if (ChoiceNumber == 4)
-            {
-                Console.WriteLine();
-                DeletePost();
-            }
-
-            else if (ChoiceNumber == 5)
-            {
-                Console.WriteLine();
-                LikeOrDislikePost();
-            }
-
-            else if (ChoiceNumber == 6)
-            {
-                Console.WriteLine();
-                ShowPostsByAuthor();
-            }
-
-            else if (ChoiceNumber == 7)
-            {
-                Console.WriteLine();
-                DisplayAll();
-            }
-
-            else if (ChoiceNumber == 8)
-            {
-                Environment.Exit(0);
+                case 1:
+                    Console.WriteLine();
+                    PostMessage();
+                    break;
+                case 2:
+                    Console.WriteLine();
+                    PostImage();
+                    break;
+                case 3:
+                    Console.WriteLine();
+                    AddCommentToPost();
+                    break;
+                case 4:
+                    Console.WriteLine();
+                    DeletePost();
+                    break;
+                case 5:
+                    Console.WriteLine();
+                    LikeOrDislikePost();
+                    break;
+                case 6:
+                    Console.WriteLine();
+                    ShowPostsByAuthor();
+                    break;
+                case 7:
+                    Console.WriteLine();
+                    DisplayAll();
+                    break;
+                case 8:
+                    Console.WriteLine();
+                    Console.WriteLine("Thank you for using the app :)");
+                    Environment.Exit(0);
+                    break;
             }
         }
 
@@ -157,7 +147,7 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("");
             Choices();
         }
-        
+
         /// Method to display all available posts
         public void DisplayAll()
         {
