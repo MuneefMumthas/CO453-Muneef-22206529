@@ -184,7 +184,7 @@ namespace ConsoleAppProject.App04
                 {
                     /// error message for invalid input
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Invalid input. Please enter a valid integer.");
+                    Console.WriteLine("Invalid input. The ID must be a positive integer.");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
             }
@@ -235,7 +235,7 @@ namespace ConsoleAppProject.App04
                 {
                     /// error message for invalid input
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Invalid input. Please enter a valid integer.");
+                    Console.WriteLine("Invalid input. The ID must be a positive integer.");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
             }
@@ -305,7 +305,7 @@ namespace ConsoleAppProject.App04
                 {
                     /// error message for invalid input
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Invalid input. Please enter a valid integer.");
+                    Console.WriteLine("Invalid input. The ID must be a positive integer.");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
             }
