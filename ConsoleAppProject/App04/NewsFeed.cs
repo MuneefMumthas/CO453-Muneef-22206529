@@ -173,23 +173,28 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
-        // Method to Add a comment to the posts
-        public void AddCommentToPost()
+        // Method to Enter PostId
+        private int GetPostId()
         {
             int postId = 0;
-            while (postId == 0)
+            while (postId <= 0)
             {
-                Console.Write("Enter post ID to add comment: ");
-                if (!int.TryParse(Console.ReadLine(), out postId) || postId == 0)
+                Console.Write("Enter post ID: ");
+                if (!int.TryParse(Console.ReadLine(), out postId) || postId <= 0)
                 {
-                    /// error message for invalid input
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("Invalid input. The ID must be a positive integer.");
                     Console.ForegroundColor = ConsoleColor.Cyan;
                 }
             }
             Console.WriteLine("");
+            return postId;
+        }
 
+        // Method to Add a comment to the posts
+        public void AddCommentToPost()
+        {
+            int postId = GetPostId();
             Post post = posts.Find(p => p.PostId == postId);
 
             if (post != null)
@@ -227,20 +232,7 @@ namespace ConsoleAppProject.App04
         /// Method to delete a post by ID
         public void DeletePostById()
         {
-            int postId = 0;
-            while (postId == 0)
-            {
-                Console.Write("Enter post ID to delete the post: ");
-                if (!int.TryParse(Console.ReadLine(), out postId) || postId == 0)
-                {
-                    /// error message for invalid input
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Invalid input. The ID must be a positive integer.");
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                }
-            }
-            Console.WriteLine("");
-
+            int postId = GetPostId();
             Post post = posts.Find(p => p.PostId == postId);
 
             if (post != null)
@@ -297,19 +289,7 @@ namespace ConsoleAppProject.App04
         // Method to Like or dislike a post
         public void LikeOrUnlikePost()
         {
-            int postId = 0;
-            while (postId == 0)
-            {
-                Console.Write("Enter post ID to delete the post: ");
-                if (!int.TryParse(Console.ReadLine(), out postId) || postId == 0)
-                {
-                    /// error message for invalid input
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
-                    Console.WriteLine("Invalid input. The ID must be a positive integer.");
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                }
-            }
-            Console.WriteLine("");
+            int postId = GetPostId();
             Post post = posts.Find(p => p.PostId == postId);
 
             if (post != null)
