@@ -6,7 +6,7 @@ namespace ConsoleAppProject.App04
     /// <author>
     /// Muneef Mumthas - 22206529
     /// </author>
-    public class Post
+    public class Post : NewsFeed
     {
         private static int nextPostId = 1;
         public int PostId { get; }
@@ -76,7 +76,7 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine();
+                Console.WriteLine($"    No Likes.");
             }
 
             if (dislikes > 0)

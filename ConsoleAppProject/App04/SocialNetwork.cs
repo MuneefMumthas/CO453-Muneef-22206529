@@ -11,7 +11,7 @@ namespace ConsoleAppProject.App04
     /// <author>
     /// Muneef Mumthas - 22206529
     /// </author>
-    public class SocialNetwork
+    public class SocialNetwork : NewsFeed
     {
         private NewsFeed news = new NewsFeed();
 
@@ -30,11 +30,11 @@ namespace ConsoleAppProject.App04
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("1. Post a message");
             Console.WriteLine("2. Post an image");
-            Console.WriteLine("3. Comment on a post");
-            Console.WriteLine("4. Delete a post");
+            Console.WriteLine("3. Show all posts (Feed)");
+            Console.WriteLine("4. Comment on a post");
             Console.WriteLine("5. Like or dislike a post");
             Console.WriteLine("6. Show posts by an author");
-            Console.WriteLine("7. Show all posts (Feed)");
+            Console.WriteLine("7. Delete a post");
             Console.WriteLine("8. Quit");
             Console.WriteLine();
             Console.Write("Answer: ");
@@ -68,11 +68,11 @@ namespace ConsoleAppProject.App04
                     break;
                 case 3:
                     Console.WriteLine();
-                    AddCommentToPost();
+                    DisplayAll();
                     break;
                 case 4:
                     Console.WriteLine();
-                    DeletePost();
+                    AddCommentToPost();
                     break;
                 case 5:
                     Console.WriteLine();
@@ -84,7 +84,7 @@ namespace ConsoleAppProject.App04
                     break;
                 case 7:
                     Console.WriteLine();
-                    DisplayAll();
+                    DeletePost();
                     break;
                 case 8:
                     Console.WriteLine();

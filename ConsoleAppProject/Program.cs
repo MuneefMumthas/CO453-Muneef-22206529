@@ -32,7 +32,7 @@ namespace ConsoleAppProject
 
             /// Prompt to choose the apps
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Which application would you like to run? (1-3)");
+            Console.WriteLine("Which application would you like to run? (1-4)");
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
             Console.WriteLine("3. Student Grades");
