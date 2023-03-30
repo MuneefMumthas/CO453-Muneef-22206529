@@ -11,7 +11,7 @@ namespace ConsoleAppProject.App04
     /// <author>
     /// Muneef Mumthas - 22206529
     /// </author>
-    public class SocialNetwork : NewsFeed
+    public class SocialNetwork
     {
         private NewsFeed news = new NewsFeed();
 

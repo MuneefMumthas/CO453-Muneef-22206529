@@ -6,7 +6,7 @@ namespace ConsoleAppProject.App04
     /// <author>
     /// Muneef Mumthas - 22206529
     /// </author>
-    public class Post : NewsFeed
+    public class Post
     {
         private static int nextPostId = 1;
         public int PostId { get; }
