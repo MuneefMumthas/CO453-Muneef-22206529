@@ -25,7 +25,7 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2022-2023! ");
-            Console.WriteLine("                App01 & App02                     ");
+            Console.WriteLine("                App01 & App04                     ");
             Console.WriteLine("        By: Muneef Mumthas - 22206529             ");
             Console.WriteLine(" =================================================");
             Console.WriteLine();

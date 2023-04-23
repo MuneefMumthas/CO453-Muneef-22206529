@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppProject", "ConsoleAppProject\ConsoleAppProject.csproj", "{C0C498FD-1AE4-4CE0-A050-C1E08874D1C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTest", "ConsoleAppTest\ConsoleAppTest.csproj", "{45BFF44F-9D81-4EBB-9983-AF75BD177818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppTest", "ConsoleAppTest\ConsoleAppTest.csproj", "{45BFF44F-9D81-4EBB-9983-AF75BD177818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGameRPG", "MonoGameRPG\MonoGameRPG.csproj", "{70BA16B1-71F4-4E8C-BFC1-4378B0BD56BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{45BFF44F-9D81-4EBB-9983-AF75BD177818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45BFF44F-9D81-4EBB-9983-AF75BD177818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45BFF44F-9D81-4EBB-9983-AF75BD177818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70BA16B1-71F4-4E8C-BFC1-4378B0BD56BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70BA16B1-71F4-4E8C-BFC1-4378B0BD56BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70BA16B1-71F4-4E8C-BFC1-4378B0BD56BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70BA16B1-71F4-4E8C-BFC1-4378B0BD56BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
