@@ -9,12 +9,14 @@ namespace MonoGameRPG
     /// </author>
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+
+        SpriteFont textFont;
 
         public Game1()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -28,7 +30,8 @@ namespace MonoGameRPG
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            textFont = Content.Load<SpriteFont>("TextFont");
 
             // TODO: use this.Content to load your game content here
         }
