@@ -207,7 +207,27 @@ namespace App05_RPG_Game
 
         private void ShootBullet(string direction)
         {
+            ///<summary>
+            /// This method is used to define the point in player image,
+            /// where the bullet should originate from.
+            /// and calls the MakeBullet function from Bullet class to create the bullet. 
+            ///</summary>
+            
+            Bullet shootBullet = new Bullet();
+            shootBullet.direction = direction;
 
+            if (direction == "up" || direction == "right")
+            {
+                shootBullet.bulletLeft = player.Left + (player.Width - 23);
+                shootBullet.bulletTop = player.Top + (player.Height - 23);
+            }
+            else
+            {
+                shootBullet.bulletLeft = player.Left + (player.Width - 53);
+                shootBullet.bulletTop = player.Top + (player.Height - 53);
+            }
+
+            shootBullet.MakeBullet(this);
         }
 
         private void MakeZombies()
