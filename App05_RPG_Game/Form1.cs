@@ -35,8 +35,8 @@ namespace App05_RPG_Game
         private void MainTimerEvent(object sender, EventArgs e)
         {
             ///<summary>
-            ///restricting player health to not go below zero
-            ///and ending the game when player health is less than 1
+            /// Restricting player health to not go below zero
+            /// and ending the game when player health is less than 1
             ///</summary> 
             if (playerHealth > 1)
             {
@@ -110,6 +110,38 @@ namespace App05_RPG_Game
                 facing = "down";
                 player.Image = Properties.Resources.playerDown;
             }
+            ///<summary>
+            /// Player movement using W,A,S,D Keys
+            /// when W,A,S,D keys are pressed,
+            /// the booleans, facing string, and the player images are changed accordingly.
+            /// </summary>
+            if (e.KeyCode == Keys.A)
+            {
+                goLeft = true;
+                facing = "left";
+                player.Image = Properties.Resources.playerLeft;
+            }
+
+            if (e.KeyCode == Keys.D)
+            {
+                goRight = true;
+                facing = "right";
+                player.Image = Properties.Resources.playerRight;
+            }
+
+            if (e.KeyCode == Keys.W)
+            {
+                goUp = true;
+                facing = "up";
+                player.Image = Properties.Resources.playerUp;
+            }
+
+            if (e.KeyCode == Keys.S)
+            {
+                goDown = true;
+                facing = "down";
+                player.Image = Properties.Resources.playerDown;
+            }
 
         }
 
@@ -137,6 +169,30 @@ namespace App05_RPG_Game
             }
 
             if (e.KeyCode == Keys.Down)
+            {
+                goDown = false;
+            }
+
+            ///<summary>
+            /// When W,A,S,D keys are released,
+            /// the booleans are set to false, so that player stops moving.
+            ///</summary>
+            if (e.KeyCode == Keys.A)
+            {
+                goLeft = false;
+            }
+
+            if (e.KeyCode == Keys.D)
+            {
+                goRight = false;
+            }
+
+            if (e.KeyCode == Keys.W)
+            {
+                goUp = false;
+            }
+
+            if (e.KeyCode == Keys.S)
             {
                 goDown = false;
             }
