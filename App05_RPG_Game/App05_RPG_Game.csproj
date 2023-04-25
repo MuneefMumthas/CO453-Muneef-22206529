@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullet.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +86,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ShooterBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlainBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ammo-Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dead.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zombieDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zombieLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zombieRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zombieUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
