@@ -2,6 +2,10 @@
 {
     partial class Form1
     {
+        /// <author>
+        /// Muneef Mumthas - 22206529
+        /// </author>
+        
         /// <summary>
         /// Required designer variable.
         /// </summary>

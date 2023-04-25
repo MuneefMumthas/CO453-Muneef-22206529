@@ -15,12 +15,13 @@ namespace App05_RPG_Game
     /// </author>
     public partial class Form1 : Form
     {
-        // Variables
+        // Booleans, Constants & Variables
         bool goLeft, goRight, goUp, goDown, gameOver;
         string facing = "up";
         int playerHealth = 100;
         int speed = 10;
         int ammo = 10;
+        int score;
         int zombieSpeed = 3; 
         Random randNum = new Random();
 
@@ -33,16 +34,118 @@ namespace App05_RPG_Game
 
         private void MainTimerEvent(object sender, EventArgs e)
         {
+            ///<summary>
+            ///restricting player health to not go below zero
+            ///and ending the game when player health is less than 1
+            ///</summary> 
+            if (playerHealth > 1)
+            {
+                healthBar.Value = playerHealth;
+            }
+            else
+            {
+                gameOver = true;
+            }
 
+            txtAmmo.Text = "Ammo: " + ammo;
+            txtScore.Text = "Kills: " + score;
+            
+            ///<summary>
+            ///Movement mechanic and boundries for player movement, 
+            ///when booleans are turned on/ when keys are pressed
+            ///</summary>
+            if (goLeft == true && player.Left >0)
+            {
+                player.Left -= speed;
+            }
+
+            if (goRight == true && player.Left + player.Width < this.ClientSize.Width)
+            {
+                player.Left += speed;
+            }
+
+            if (goUp == true && player.Top > 36)
+            {
+                player.Top -= speed;
+            }
+
+            if (goDown == true && player.Top + player.Height < this.ClientSize.Height)
+            {
+                player.Top += speed;
+            }
         }
-
+        
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
+            /// <summary>
+            /// This method is used to give appropriate instructions for movement. 
+            /// when Left, Right, Up, Down keys are pressed,
+            /// the booleans, facing string, and the player images are changed accordingly.
+            /// </summary>
+            
+            if (e.KeyCode == Keys.Left)
+            {
+                goLeft = true;
+                facing = "left";
+                player.Image = Properties.Resources.playerLeft;
+            }
+            
+            if (e.KeyCode == Keys.Right)
+            {
+                goRight = true;
+                facing = "right";
+                player.Image = Properties.Resources.playerRight;
+            }
+
+            if (e.KeyCode == Keys.Up)
+            {
+                goUp = true;
+                facing = "up";
+                player.Image = Properties.Resources.playerUp;
+            }
+
+            if (e.KeyCode == Keys.Down)
+            {
+                goDown = true;
+                facing = "down";
+                player.Image = Properties.Resources.playerDown;
+            }
 
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
+
+            ///<summary>
+            ///This method is used to give appropraite instructions.
+            ///when Left, Right, Up, Down keys are released, 
+            ///the booleans are set to false, so that player stops moving.
+            /// </summary>
+            if (e.KeyCode == Keys.Left)
+            {
+                goLeft = false;
+            }
+
+            if (e.KeyCode == Keys.Right)
+            {
+                goRight = false;
+            }
+
+            if (e.KeyCode == Keys.Up)
+            {
+                goUp = false;
+            }
+
+            if (e.KeyCode == Keys.Down)
+            {
+                goDown = false;
+            }
+            // instruction for when the space is released (Shoots Bullets)
+            if (e.KeyCode == Keys.Space)
+            {
+                ShootBullet(facing);
+
+            }
 
         }
 
