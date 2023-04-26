@@ -45,6 +45,8 @@ namespace App05_RPG_Game
             else
             {
                 gameOver = true;
+                player.Image = Properties.Resources.dead;
+                GameTimer.Stop();
             }
 
             txtAmmo.Text = "Ammo: " + ammo;
@@ -73,6 +75,20 @@ namespace App05_RPG_Game
             {
                 player.Top += speed;
             }
+
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && (string)x.Tag == "ammo")
+                {
+                    if (player.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        this.Controls.Remove(x);
+                        ((PictureBox)x).Dispose();
+                        ammo += 5;
+                    }
+                }
+            }
+
         }
         
         private void KeyIsDown(object sender, KeyEventArgs e)
@@ -196,10 +212,21 @@ namespace App05_RPG_Game
             {
                 goDown = false;
             }
-            // instruction for when the space is released (Shoots Bullets)
-            if (e.KeyCode == Keys.Space)
+            ///<summary>
+            /// when the space bar is released and the ammo count is greater than 0,
+            /// ShootBullet method will be called to shoot bullets.
+            /// and when the ammo count reaches 0, 
+            /// an ammo crate is randomly dropped in the screen.
+            ///</summary>
+            if (e.KeyCode == Keys.Space && ammo > 0)
             {
+                ammo--;
                 ShootBullet(facing);
+
+                if (ammo < 1)
+                {
+                    DropAmmo();
+                }
 
             }
 
@@ -232,7 +259,42 @@ namespace App05_RPG_Game
 
         private void MakeZombies()
         {
+            ///<summary>
+            /// This method is used to create a picturebox to 
+            /// spawn zombies randomly across the screen
+            ///</summary>
 
+            PictureBox zombie = new PictureBox();
+            zombie.Tag = "zombie";
+            zombie.Image = Properties.Resources.zombieDown;
+            zombie.Left = randNum.Next(0, 900);
+            zombie.Top = randNum.Next(0, 800);
+            zombie.SizeMode = PictureBoxSizeMode.AutoSize;
+            zombiesList.Add(zombie);
+            this.Controls.Add(zombie);
+            player.BringToFront();
+
+        }
+
+        private void DropAmmo()
+        {
+            ///<summary>
+            /// This method is used to create a picturebox to 
+            /// spawn ammo within the range, 
+            /// where player can move to access it
+            ///</summary>
+            
+            PictureBox ammo = new PictureBox();
+            ammo.Image = Properties.Resources.ammo_Image;
+            ammo.SizeMode = PictureBoxSizeMode.AutoSize;
+            ammo.BackColor = Color.Transparent;
+            ammo.Left = randNum.Next(10, this.ClientSize.Width - ammo.Width);
+            ammo.Top = randNum.Next(60, this.ClientSize.Height - ammo.Height);
+            ammo.Tag = "ammo";
+            this.Controls.Add(ammo);
+
+            ammo.BringToFront();
+            player.BringToFront();
         }
 
         private void RestartGame()

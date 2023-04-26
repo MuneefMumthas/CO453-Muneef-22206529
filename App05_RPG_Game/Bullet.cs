@@ -74,7 +74,7 @@ namespace App05_RPG_Game
             ///<summary>
             ///Disposing the bullet when it goes past a border without hiting on enemies
             ///</summary>
-            if (bullet.Left < 10 || bullet.Left > 860 || bullet.Top < 10 || bullet.Top > 600)
+            if (bullet.Left < 10 || bullet.Left > 930 || bullet.Top < 10 || bullet.Top > 690)
             {
                 bulletTimer.Stop();
                 bulletTimer.Dispose();
