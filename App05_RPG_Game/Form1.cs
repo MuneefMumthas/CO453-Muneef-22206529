@@ -30,6 +30,7 @@ namespace App05_RPG_Game
         public Form1()
         {
             InitializeComponent();
+            RestartGame();
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
@@ -85,6 +86,61 @@ namespace App05_RPG_Game
                         this.Controls.Remove(x);
                         ((PictureBox)x).Dispose();
                         ammo += 5;
+                    }
+                }
+
+                ///<summary>
+                /// A simple AI is applied for the zombie picture box 
+                /// to chase/follow the player.
+                ///</summary>
+                if (x is PictureBox && (string)x.Tag == "zombie")
+                {
+                    if (x.Left > player.Left)
+                    {
+                        x.Left -= zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zombieLeft;
+                    }
+
+                    if (x.Left < player.Left)
+                    {
+                        x.Left += zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zombieRight;
+                    }
+
+                    if (x.Top > player.Top)
+                    {
+                        x.Top -= zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zombieUp;
+                    }
+
+                    if (x.Left < player.Top)
+                    {
+                        x.Top += zombieSpeed;
+                        ((PictureBox)x).Image = Properties.Resources.zombieDown;
+                    }
+                }
+
+                ///<summary>
+                /// This foreach loop checks if the bullet made contact with a zombie,
+                /// if it is, then it removes the zombie and the bullet from the frame,
+                /// which increases the score by 1.
+                ///</summary>
+                foreach (Control j in this.Controls)
+                {
+                    if (j is PictureBox && (string)j.Tag == "bullet" && x is PictureBox && (string)x.Tag == "zombie")
+                    {
+                        if (x.Bounds.IntersectsWith(j.Bounds))
+                        {
+                            score++;
+
+                            this.Controls.Remove(j);
+                            ((PictureBox)j).Dispose();
+                            this.Controls.Remove(x);
+                            ((PictureBox)x).Dispose();
+                            zombiesList.Remove((PictureBox)x);
+                            MakeZombies();
+
+                        }
                     }
                 }
             }
@@ -291,6 +347,7 @@ namespace App05_RPG_Game
             zombie.Left = randNum.Next(0, 900);
             zombie.Top = randNum.Next(0, 800);
             zombie.SizeMode = PictureBoxSizeMode.AutoSize;
+            zombie.BackColor = Color.Transparent;
             zombiesList.Add(zombie);
             this.Controls.Add(zombie);
             player.BringToFront();
@@ -320,6 +377,36 @@ namespace App05_RPG_Game
 
         private void RestartGame()
         {
+            ///<summary>
+            /// This method is used to restart the game by setting 
+            /// score, player health and ammo count back to default
+            /// This method also re-position the plaayer and remove the zombie.
+            ///</summary>
+            player.Image = Properties.Resources.playerUp;
+
+            foreach (PictureBox i in zombiesList)
+            {
+                this.Controls.Remove(i);
+
+            }
+
+            zombiesList.Clear();
+
+            for (int i = 0; i < 3; i++)
+            {
+                MakeZombies();
+            }
+
+            goUp = false;
+            goDown = false;
+            goRight = false;
+            goLeft = false;
+
+            playerHealth = 100;
+            score = 0;
+            ammo = 10;
+
+            GameTimer.Start();
 
         }
     }
