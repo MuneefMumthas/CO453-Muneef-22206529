@@ -120,5 +120,14 @@
   <ItemGroup>
     <None Include="Resources\zombieUp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuBackgroundResized.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pauseIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pauseIconResized.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

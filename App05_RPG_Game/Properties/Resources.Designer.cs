@@ -73,9 +73,9 @@ namespace App05_RPG_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Background1 {
+        internal static System.Drawing.Bitmap dead {
             get {
-                object obj = ResourceManager.GetObject("Background1", resourceCulture);
+                object obj = ResourceManager.GetObject("dead", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace App05_RPG_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dead {
+        internal static System.Drawing.Bitmap MenuBackgroundResized {
             get {
-                object obj = ResourceManager.GetObject("dead", resourceCulture);
+                object obj = ResourceManager.GetObject("MenuBackgroundResized", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,16 +136,6 @@ namespace App05_RPG_Game.Properties {
         internal static System.Drawing.Bitmap playerUp {
             get {
                 object obj = ResourceManager.GetObject("playerUp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ShooterBackground {
-            get {
-                object obj = ResourceManager.GetObject("ShooterBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

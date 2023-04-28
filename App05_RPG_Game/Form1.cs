@@ -30,9 +30,21 @@ namespace App05_RPG_Game
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            // Closing the menu
+            startMenu.Dispose();
+            // calling methtod to start the game
             RestartGame();
         }
 
+        private void QuitButton_Click(object sender, EventArgs e)
+        {
+            // Close the application
+            Application.Exit();
+        }
         private void MainTimerEvent(object sender, EventArgs e)
         {
             ///<summary>
@@ -67,7 +79,7 @@ namespace App05_RPG_Game
                 player.Left += speed;
             }
 
-            if (goUp == true && player.Top > 36)
+            if (goUp == true && player.Top > 45)
             {
                 player.Top -= speed;
             }

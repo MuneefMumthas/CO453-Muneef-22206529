@@ -118,26 +118,32 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Background1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ShooterBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ShooterBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PlainBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PlainBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ammo-Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ammo-Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="playerDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playerDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="zombieRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zombieRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="playerLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zombieUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zombieUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zombieLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zombieLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuBackgroundResized" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuBackgroundResized.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlainBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlainBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zombieDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zombieDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="playerRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,16 +151,7 @@
   <data name="playerUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="zombieDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zombieDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="zombieLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zombieLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="zombieRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zombieRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="zombieUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zombieUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="playerDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playerDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
