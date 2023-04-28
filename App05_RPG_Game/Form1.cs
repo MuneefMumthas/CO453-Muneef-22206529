@@ -95,68 +95,89 @@ namespace App05_RPG_Game
         {
             /// <summary>
             /// This method is used to give appropriate instructions for movement. 
-            /// when Left, Right, Up, Down keys are pressed,
+            /// when Left, Right, Up, Down arrow keys are pressed,
             /// the booleans, facing string, and the player images are changed accordingly.
             /// </summary>
-            
-            if (e.KeyCode == Keys.Left)
-            {
-                goLeft = true;
-                facing = "left";
-                player.Image = Properties.Resources.playerLeft;
-            }
-            
-            if (e.KeyCode == Keys.Right)
-            {
-                goRight = true;
-                facing = "right";
-                player.Image = Properties.Resources.playerRight;
-            }
 
-            if (e.KeyCode == Keys.Up)
+            switch (e.KeyCode)
             {
-                goUp = true;
-                facing = "up";
-                player.Image = Properties.Resources.playerUp;
-            }
+                case Keys.Left:
+                    goLeft = true;
+                    facing = "left";
+                    player.Image = Properties.Resources.playerLeft;
+                    goRight = false;
+                    goUp = false;
+                    goDown = false;
+                    break;
 
-            if (e.KeyCode == Keys.Down)
-            {
-                goDown = true;
-                facing = "down";
-                player.Image = Properties.Resources.playerDown;
-            }
-            ///<summary>
-            /// Player movement using W,A,S,D Keys
-            /// when W,A,S,D keys are pressed,
-            /// the booleans, facing string, and the player images are changed accordingly.
-            /// </summary>
-            if (e.KeyCode == Keys.A)
-            {
-                goLeft = true;
-                facing = "left";
-                player.Image = Properties.Resources.playerLeft;
-            }
+                case Keys.Right:
+                    goRight = true;
+                    facing = "right";
+                    player.Image = Properties.Resources.playerRight;
+                    goLeft = false;
+                    goUp = false;
+                    goDown = false;
+                    break;
 
-            if (e.KeyCode == Keys.D)
-            {
-                goRight = true;
-                facing = "right";
-                player.Image = Properties.Resources.playerRight;
-            }
+                case Keys.Up:
+                    goUp = true;
+                    facing = "up";
+                    player.Image = Properties.Resources.playerUp;
+                    goLeft = false;
+                    goRight = false;
+                    goDown = false;
+                    break;
 
-            if (e.KeyCode == Keys.W)
-            {
-                goUp = true;
-                facing = "up";
-                player.Image = Properties.Resources.playerUp;
-            }
+                case Keys.Down:
+                    goDown = true;
+                    facing = "down";
+                    player.Image = Properties.Resources.playerDown;
+                    goLeft = false;
+                    goRight = false;
+                    goUp = false;
+                    break;
 
-            if (e.KeyCode == Keys.S)
-            {
-                goDown = true;
-                facing = "down";
-                player.Image = Properties.Resources.playerDown;
+                ///<summary>
+                /// Player movement using W,A,S,D Keys
+                /// when W,A,S,D keys are pressed,
+                /// the booleans, facing string, and the player images are changed accordingly.
+                /// </summary>
+                
+                case Keys.A:
+                    goLeft = true;
+                    facing = "left";
+                    player.Image = Properties.Resources.playerLeft;
+                    goRight = false;
+                    goUp = false;
+                    goDown = false;
+                    break;
+
+                case Keys.D:
+                    goRight = true;
+                    facing = "right";
+                    player.Image = Properties.Resources.playerRight;
+                    goLeft = false;
+                    goUp = false;
+                    goDown = false;
+                    break;
+
+                case Keys.W:
+                    goUp = true;
+                    facing = "up";
+                    player.Image = Properties.Resources.playerUp;
+                    goLeft = false;
+                    goRight = false;
+                    goDown = false;
+                    break;
+
+                case Keys.S:
+                    goDown = true;
+                    facing = "down";
+                    player.Image = Properties.Resources.playerDown;
+                    goLeft = false;
+                    goRight = false;
+                    goUp = false;
+                    break;
             }
 
         }
