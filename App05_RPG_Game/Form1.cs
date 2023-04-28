@@ -16,13 +16,14 @@ namespace App05_RPG_Game
     public partial class Form1 : Form
     {
         // Booleans, Constants & Variables
-        bool goLeft, goRight, goUp, goDown, gameOver;
+        bool goLeft, goRight, goUp, goDown, gameOver, gamePaused;
         string facing = "up";
         int playerHealth = 100;
         int speed = 10;
         int ammo = 10;
         int score;
-        int zombieSpeed = 3; 
+        int zombieSpeed = 3;
+        private int alpha = 0;
         Random randNum = new Random();
 
         List<PictureBox> zombiesList = new List<PictureBox>();
@@ -30,14 +31,23 @@ namespace App05_RPG_Game
         public Form1()
         {
             InitializeComponent();
+            PauseMenu.Hide();
+            newStartMenu.Hide();
+            txtWasted.Hide();
+            txtContinue.Hide();
+
         }
 
+        /// <summary>
+        /// Buttons click method for start menu
+        /// </summary>
         private void StartButton_Click(object sender, EventArgs e)
         {
-            // Closing the menu
+            // Closing the start menu
             startMenu.Dispose();
             // calling methtod to start the game
             RestartGame();
+            
         }
 
         private void QuitButton_Click(object sender, EventArgs e)
@@ -45,6 +55,62 @@ namespace App05_RPG_Game
             // Close the application
             Application.Exit();
         }
+        
+        /// <summary>
+        /// Buttons click method for pause menu
+        /// </summary>
+        private void resumeGame_Click(object sender, EventArgs e)
+        {
+            // Resumes the application
+            
+            goUp = false;
+            goDown = false;
+            goRight = false;
+            goLeft = false;
+            gameOver = false;
+            gamePaused = false;
+            PauseMenu.Hide();
+            GameTimer.Start();
+            this.Focus();
+            
+        }
+
+        private void restartButton_Click(object sender, EventArgs e)
+        {
+            // Closing the pause menu
+            PauseMenu.Hide();
+            // calling the method to restart the game
+            RestartGame();
+            this.Focus();
+        }
+
+        private void QuitGame_Click(object sender, EventArgs e)
+        {
+            // Close the application
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// Buttons click method for new start menu
+        /// </summary>
+        private void NewGame_Click(object sender, EventArgs e)
+        {
+            // Closing the new start menu
+            newStartMenu.Hide();
+            // hiding the "died" texts
+            txtWasted.Hide();
+            txtContinue.Hide();
+            // method to restart the game
+            RestartGame();
+            this.Focus();
+        }
+
+        private void Quit_Click(object sender, EventArgs e)
+        {
+            // Close the application
+            Application.Exit();
+        }
+
         private void MainTimerEvent(object sender, EventArgs e)
         {
             ///<summary>
@@ -60,6 +126,12 @@ namespace App05_RPG_Game
                 gameOver = true;
                 player.Image = Properties.Resources.dead;
                 GameTimer.Stop();
+
+                txtWasted.Show();
+                txtWasted.BringToFront();
+                txtContinue.Show();
+                txtContinue.BringToFront();
+                
             }
 
             txtAmmo.Text = "Ammo: " + ammo;
@@ -181,7 +253,7 @@ namespace App05_RPG_Game
             /// the booleans, facing string, and the player images are changed accordingly.
             /// </summary>
 
-            if (gameOver == true)
+            if (gameOver == true || gamePaused == true)
             {
                 return;
             }
@@ -265,7 +337,7 @@ namespace App05_RPG_Game
                     goUp = false;
                     break;
             }
-
+            
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
@@ -325,7 +397,7 @@ namespace App05_RPG_Game
             /// and when the ammo count reaches 0, 
             /// an ammo crate is randomly dropped in the screen.
             ///</summary>
-            if (e.KeyCode == Keys.Space && ammo > 0 && gameOver == false)
+            if (e.KeyCode == Keys.Space && ammo > 0 && gameOver == false && gamePaused == false)
             {
                 ammo--;
                 ShootBullet(facing);
@@ -336,10 +408,26 @@ namespace App05_RPG_Game
                 }
 
             }
+            ///<summary>
+            /// when the game is not paused and escape key is pressed
+            /// it opens up pause menu
+            ///</summary>
 
+            if (e.KeyCode == Keys.Escape && gamePaused == false)
+            {
+                gamePaused = true;
+                GameTimer.Stop();
+                PauseMenu.Show();
+                PauseMenu.BringToFront();
+                
+            }
+            ///<summary>
+            /// when the game is over and enter key is pressed it opens up new start menu
+            ///</summary> 
             if (e.KeyCode == Keys.Enter && gameOver == true)
             {
-                RestartGame();
+                newStartMenu.Show();
+                newStartMenu.BringToFront();
             }
 
         }
@@ -437,10 +525,14 @@ namespace App05_RPG_Game
             goRight = false;
             goLeft = false;
             gameOver = false;
+            gamePaused = false;
 
             playerHealth = 100;
             score = 0;
             ammo = 10;
+
+            player.Left = 426;
+            player.Top = 534;
 
             GameTimer.Start();
 

@@ -42,8 +42,19 @@
             this.startMenu = new System.Windows.Forms.Panel();
             this.quitButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
+            this.PauseMenu = new System.Windows.Forms.Panel();
+            this.restartButton = new System.Windows.Forms.Button();
+            this.QuitGame = new System.Windows.Forms.Button();
+            this.resumeGame = new System.Windows.Forms.Button();
+            this.txtWasted = new System.Windows.Forms.Label();
+            this.newStartMenu = new System.Windows.Forms.Panel();
+            this.Quit = new System.Windows.Forms.Button();
+            this.StartNewGame = new System.Windows.Forms.Button();
+            this.txtContinue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.startMenu.SuspendLayout();
+            this.PauseMenu.SuspendLayout();
+            this.newStartMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtAmmo
@@ -133,7 +144,7 @@
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(195, 50);
             this.quitButton.TabIndex = 1;
-            this.quitButton.Text = "Quit";
+            this.quitButton.Text = "Quit Game";
             this.quitButton.UseVisualStyleBackColor = false;
             this.quitButton.Click += new System.EventHandler(this.QuitButton_Click);
             // 
@@ -156,6 +167,150 @@
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
+            // PauseMenu
+            // 
+            this.PauseMenu.BackgroundImage = global::App05_RPG_Game.Properties.Resources.MenuBackgroundResized;
+            this.PauseMenu.Controls.Add(this.restartButton);
+            this.PauseMenu.Controls.Add(this.QuitGame);
+            this.PauseMenu.Controls.Add(this.resumeGame);
+            this.PauseMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PauseMenu.Location = new System.Drawing.Point(0, 0);
+            this.PauseMenu.Name = "PauseMenu";
+            this.PauseMenu.Size = new System.Drawing.Size(924, 661);
+            this.PauseMenu.TabIndex = 7;
+            // 
+            // restartButton
+            // 
+            this.restartButton.BackColor = System.Drawing.Color.Transparent;
+            this.restartButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.restartButton.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.restartButton.FlatAppearance.BorderSize = 0;
+            this.restartButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SeaGreen;
+            this.restartButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.restartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.restartButton.Font = new System.Drawing.Font("Pricedown Bl", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restartButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.restartButton.Location = new System.Drawing.Point(336, 292);
+            this.restartButton.Name = "restartButton";
+            this.restartButton.Size = new System.Drawing.Size(250, 50);
+            this.restartButton.TabIndex = 3;
+            this.restartButton.Text = "Start New Game";
+            this.restartButton.UseVisualStyleBackColor = false;
+            this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
+            // 
+            // QuitGame
+            // 
+            this.QuitGame.BackColor = System.Drawing.Color.Transparent;
+            this.QuitGame.Cursor = System.Windows.Forms.Cursors.Default;
+            this.QuitGame.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.QuitGame.FlatAppearance.BorderSize = 0;
+            this.QuitGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SeaGreen;
+            this.QuitGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.QuitGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.QuitGame.Font = new System.Drawing.Font("Pricedown Bl", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QuitGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.QuitGame.Location = new System.Drawing.Point(365, 364);
+            this.QuitGame.Name = "QuitGame";
+            this.QuitGame.Size = new System.Drawing.Size(195, 50);
+            this.QuitGame.TabIndex = 2;
+            this.QuitGame.Text = "Quit Game";
+            this.QuitGame.UseVisualStyleBackColor = false;
+            this.QuitGame.Click += new System.EventHandler(this.QuitGame_Click);
+            // 
+            // resumeGame
+            // 
+            this.resumeGame.BackColor = System.Drawing.Color.Transparent;
+            this.resumeGame.Cursor = System.Windows.Forms.Cursors.Default;
+            this.resumeGame.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.resumeGame.FlatAppearance.BorderSize = 0;
+            this.resumeGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SeaGreen;
+            this.resumeGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.resumeGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resumeGame.Font = new System.Drawing.Font("Pricedown Bl", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resumeGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.resumeGame.Location = new System.Drawing.Point(365, 220);
+            this.resumeGame.Name = "resumeGame";
+            this.resumeGame.Size = new System.Drawing.Size(195, 50);
+            this.resumeGame.TabIndex = 1;
+            this.resumeGame.Text = "Resume Game";
+            this.resumeGame.UseVisualStyleBackColor = false;
+            this.resumeGame.Click += new System.EventHandler(this.resumeGame_Click);
+            // 
+            // txtWasted
+            // 
+            this.txtWasted.AutoSize = true;
+            this.txtWasted.BackColor = System.Drawing.Color.Transparent;
+            this.txtWasted.Font = new System.Drawing.Font("Pricedown Bl", 99.74998F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWasted.ForeColor = System.Drawing.Color.SeaGreen;
+            this.txtWasted.Location = new System.Drawing.Point(189, 160);
+            this.txtWasted.Name = "txtWasted";
+            this.txtWasted.Size = new System.Drawing.Size(561, 160);
+            this.txtWasted.TabIndex = 8;
+            this.txtWasted.Text = "Wasted!";
+            this.txtWasted.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // newStartMenu
+            // 
+            this.newStartMenu.BackgroundImage = global::App05_RPG_Game.Properties.Resources.MenuBackgroundResized;
+            this.newStartMenu.Controls.Add(this.Quit);
+            this.newStartMenu.Controls.Add(this.StartNewGame);
+            this.newStartMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newStartMenu.Location = new System.Drawing.Point(0, 0);
+            this.newStartMenu.Name = "newStartMenu";
+            this.newStartMenu.Size = new System.Drawing.Size(924, 661);
+            this.newStartMenu.TabIndex = 9;
+            // 
+            // Quit
+            // 
+            this.Quit.BackColor = System.Drawing.Color.Transparent;
+            this.Quit.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Quit.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.Quit.FlatAppearance.BorderSize = 0;
+            this.Quit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SeaGreen;
+            this.Quit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.Quit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Quit.Font = new System.Drawing.Font("Pricedown Bl", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Quit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Quit.Location = new System.Drawing.Point(365, 305);
+            this.Quit.Name = "Quit";
+            this.Quit.Size = new System.Drawing.Size(195, 50);
+            this.Quit.TabIndex = 1;
+            this.Quit.Text = "Quit Game";
+            this.Quit.UseVisualStyleBackColor = false;
+            this.Quit.Click += new System.EventHandler(this.Quit_Click);
+            // 
+            // StartNewGame
+            // 
+            this.StartNewGame.BackColor = System.Drawing.Color.Transparent;
+            this.StartNewGame.Cursor = System.Windows.Forms.Cursors.Default;
+            this.StartNewGame.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.StartNewGame.FlatAppearance.BorderSize = 0;
+            this.StartNewGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SeaGreen;
+            this.StartNewGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.StartNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StartNewGame.Font = new System.Drawing.Font("Pricedown Bl", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartNewGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.StartNewGame.Location = new System.Drawing.Point(358, 220);
+            this.StartNewGame.Name = "StartNewGame";
+            this.StartNewGame.Size = new System.Drawing.Size(221, 50);
+            this.StartNewGame.TabIndex = 0;
+            this.StartNewGame.Text = "Start New Game";
+            this.StartNewGame.UseVisualStyleBackColor = false;
+            this.StartNewGame.Click += new System.EventHandler(this.NewGame_Click);
+            // 
+            // txtContinue
+            // 
+            this.txtContinue.AutoSize = true;
+            this.txtContinue.BackColor = System.Drawing.Color.Transparent;
+            this.txtContinue.Font = new System.Drawing.Font("Pricedown Bl", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContinue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txtContinue.Location = new System.Drawing.Point(690, 630);
+            this.txtContinue.Name = "txtContinue";
+            this.txtContinue.Size = new System.Drawing.Size(228, 23);
+            this.txtContinue.TabIndex = 10;
+            this.txtContinue.Text = "Press ENTER to continue...";
+            this.txtContinue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +319,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(924, 661);
             this.Controls.Add(this.startMenu);
+            this.Controls.Add(this.PauseMenu);
+            this.Controls.Add(this.newStartMenu);
+            this.Controls.Add(this.txtContinue);
+            this.Controls.Add(this.txtWasted);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.player);
             this.Controls.Add(this.healthBar);
@@ -179,6 +338,8 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.startMenu.ResumeLayout(false);
+            this.PauseMenu.ResumeLayout(false);
+            this.newStartMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,6 +356,15 @@
         private System.Windows.Forms.Panel startMenu;
         private System.Windows.Forms.Button quitButton;
         private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.Panel PauseMenu;
+        private System.Windows.Forms.Button resumeGame;
+        private System.Windows.Forms.Button QuitGame;
+        private System.Windows.Forms.Button restartButton;
+        private System.Windows.Forms.Label txtWasted;
+        private System.Windows.Forms.Panel newStartMenu;
+        private System.Windows.Forms.Button Quit;
+        private System.Windows.Forms.Button StartNewGame;
+        private System.Windows.Forms.Label txtContinue;
     }
 }
 
