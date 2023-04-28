@@ -89,12 +89,25 @@ namespace App05_RPG_Game
                     }
                 }
 
-                ///<summary>
-                /// A simple AI is applied for the zombie picture box 
-                /// to chase/follow the player.
-                ///</summary>
+                
                 if (x is PictureBox && (string)x.Tag == "zombie")
                 {
+                    /// Collision detection between zombies and player (health reduces).
+                    if (player.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        playerHealth -= 5;
+                        this.Controls.Remove(x);
+                        ((PictureBox)x).Dispose();
+                        zombiesList.Remove((PictureBox)x);
+                        MakeZombies();
+                    }
+
+                    ///<summary>
+                    /// A simple AI is applied for the zombie picture box 
+                    /// to chase/follow the player.
+                    ///</summary>
+
+
                     if (x.Left > player.Left)
                     {
                         x.Left -= zombieSpeed;
@@ -129,6 +142,7 @@ namespace App05_RPG_Game
                 {
                     if (j is PictureBox && (string)j.Tag == "bullet" && x is PictureBox && (string)x.Tag == "zombie")
                     {
+                        /// Collision detection between bullets and zombies
                         if (x.Bounds.IntersectsWith(j.Bounds))
                         {
                             score++;
@@ -155,6 +169,10 @@ namespace App05_RPG_Game
             /// the booleans, facing string, and the player images are changed accordingly.
             /// </summary>
 
+            if (gameOver == true)
+            {
+                return;
+            }
             switch (e.KeyCode)
             {
                 case Keys.Left:
@@ -295,7 +313,7 @@ namespace App05_RPG_Game
             /// and when the ammo count reaches 0, 
             /// an ammo crate is randomly dropped in the screen.
             ///</summary>
-            if (e.KeyCode == Keys.Space && ammo > 0)
+            if (e.KeyCode == Keys.Space && ammo > 0 && gameOver == false)
             {
                 ammo--;
                 ShootBullet(facing);
@@ -305,6 +323,11 @@ namespace App05_RPG_Game
                     DropAmmo();
                 }
 
+            }
+
+            if (e.KeyCode == Keys.Enter && gameOver == true)
+            {
+                RestartGame();
             }
 
         }
@@ -401,6 +424,7 @@ namespace App05_RPG_Game
             goDown = false;
             goRight = false;
             goLeft = false;
+            gameOver = false;
 
             playerHealth = 100;
             score = 0;
