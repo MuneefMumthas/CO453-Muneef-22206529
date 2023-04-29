@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace App05_RPG_Game
     public partial class Form1 : Form
     {
         // Booleans, Constants & Variables
-        bool goLeft, goRight, goUp, goDown, gameOver, gamePaused;
+        bool goLeft, goRight, goUp, goDown, gameOver, gamePaused, startMenuBool, newStartMenuBool, pauseMenuBool;
         string facing = "up";
         int playerHealth = 100;
         int speed = 10;
@@ -33,6 +34,7 @@ namespace App05_RPG_Game
             InitializeComponent();
             PauseMenu.Hide();
             newStartMenu.Hide();
+            confirmationPanel.Hide();
             txtWasted.Hide();
             txtContinue.Hide();
 
@@ -44,16 +46,24 @@ namespace App05_RPG_Game
         private void StartButton_Click(object sender, EventArgs e)
         {
             // Closing the start menu
+            startMenuBool = false;
             startMenu.Dispose();
             // calling methtod to start the game
             RestartGame();
-            
+            // sound effect for when user clicks this choice
+            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+            menuclick.Play();
+
         }
 
         private void QuitButton_Click(object sender, EventArgs e)
         {
-            // Close the application
-            Application.Exit();
+            startMenuBool = true;
+            confirmationPanel.Show();
+            confirmationPanel.BringToFront();
+            // sound effect for when user clicks this choice
+            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+            menuclick.Play();
         }
         
         /// <summary>
@@ -70,24 +80,36 @@ namespace App05_RPG_Game
             gameOver = false;
             gamePaused = false;
             PauseMenu.Hide();
+            pauseMenuBool = false;
             GameTimer.Start();
             this.Focus();
-            
+            // sound effect for when user clicks this choice
+            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+            menuclick.Play();
+
         }
 
         private void restartButton_Click(object sender, EventArgs e)
         {
             // Closing the pause menu
             PauseMenu.Hide();
+            pauseMenuBool = false;
             // calling the method to restart the game
             RestartGame();
             this.Focus();
+            // sound effect for when user clicks this choice
+            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+            menuclick.Play();
         }
 
         private void QuitGame_Click(object sender, EventArgs e)
         {
-            // Close the application
-            Application.Exit();
+            pauseMenuBool = true;
+            confirmationPanel.Show();
+            confirmationPanel.BringToFront();
+            // sound effect for when user clicks this choice
+            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+            menuclick.Play();
         }
 
         /// <summary>
@@ -97,15 +119,71 @@ namespace App05_RPG_Game
         {
             // Closing the new start menu
             newStartMenu.Hide();
+            newStartMenuBool = false;
             // hiding the "died" texts
             txtWasted.Hide();
             txtContinue.Hide();
             // method to restart the game
             RestartGame();
             this.Focus();
+            // sound effect for when user clicks this choice
+            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+            menuclick.Play();
         }
 
         private void Quit_Click(object sender, EventArgs e)
+        {
+            newStartMenuBool = true;
+            confirmationPanel.Show();
+            confirmationPanel.BringToFront();
+            // sound effect for when user clicks this choice
+            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+            menuclick.Play();
+        }
+
+        /// <summary>
+        /// Sound effect for whenever player moves mouse over the menu options
+        /// </summary>
+        private void startButton_MouseEnter(object sender, EventArgs e)
+        {
+            SoundPlayer menuscroll = new SoundPlayer(Properties.Resources.MenuScrollEdited);
+            menuscroll.Play();
+        }
+
+        /// <summary>
+        /// Buttons click method for exit confirmation menu
+        /// </summary>
+        
+        /// "No" Button 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // sound effect for when user clicks this choice
+            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+            menuclick.Play();
+
+            if (startMenuBool == true)
+            {
+                confirmationPanel.Hide();
+                startMenu.Show();
+                startMenu.BringToFront();
+            }
+
+            if (pauseMenuBool == true)
+            {
+                confirmationPanel.Hide();
+                PauseMenu.Show();
+                PauseMenu.BringToFront();
+            }
+
+            if (newStartMenuBool == true)
+            {
+                confirmationPanel.Hide();
+                newStartMenu.Show();
+                newStartMenu.BringToFront();
+            }
+        }
+        /// "Yes" Button
+        private void button1_Click(object sender, EventArgs e)
         {
             // Close the application
             Application.Exit();
@@ -127,6 +205,9 @@ namespace App05_RPG_Game
                 player.Image = Properties.Resources.dead;
                 GameTimer.Stop();
 
+                SoundPlayer death = new SoundPlayer(Properties.Resources.deathsoundedited);
+                death.Play();
+                
                 txtWasted.Show();
                 txtWasted.BringToFront();
                 txtContinue.Show();
@@ -340,6 +421,8 @@ namespace App05_RPG_Game
             
         }
 
+
+
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
 
@@ -413,13 +496,15 @@ namespace App05_RPG_Game
             /// it opens up pause menu
             ///</summary>
 
-            if (e.KeyCode == Keys.Escape && gamePaused == false)
+            if (e.KeyCode == Keys.Escape && gamePaused == false && gameOver == false)
             {
                 gamePaused = true;
                 GameTimer.Stop();
                 PauseMenu.Show();
                 PauseMenu.BringToFront();
-                
+                SoundPlayer pause = new SoundPlayer(Properties.Resources.MenuScrollEdited);
+                pause.Play();
+
             }
             ///<summary>
             /// when the game is over and enter key is pressed it opens up new start menu

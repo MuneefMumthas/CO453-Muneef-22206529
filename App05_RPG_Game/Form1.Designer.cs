@@ -51,10 +51,15 @@
             this.Quit = new System.Windows.Forms.Button();
             this.StartNewGame = new System.Windows.Forms.Button();
             this.txtContinue = new System.Windows.Forms.Label();
+            this.confirmationPanel = new System.Windows.Forms.Panel();
+            this.No = new System.Windows.Forms.Button();
+            this.Yes = new System.Windows.Forms.Button();
+            this.confirmation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.startMenu.SuspendLayout();
             this.PauseMenu.SuspendLayout();
             this.newStartMenu.SuspendLayout();
+            this.confirmationPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtAmmo
@@ -147,6 +152,8 @@
             this.quitButton.Text = "Quit Game";
             this.quitButton.UseVisualStyleBackColor = false;
             this.quitButton.Click += new System.EventHandler(this.QuitButton_Click);
+            this.quitButton.Enter += new System.EventHandler(this.startButton_MouseEnter);
+            this.quitButton.MouseEnter += new System.EventHandler(this.startButton_MouseEnter);
             // 
             // startButton
             // 
@@ -166,6 +173,7 @@
             this.startButton.Text = "Start Game";
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.StartButton_Click);
+            this.startButton.MouseEnter += new System.EventHandler(this.startButton_MouseEnter);
             // 
             // PauseMenu
             // 
@@ -197,6 +205,7 @@
             this.restartButton.Text = "Start New Game";
             this.restartButton.UseVisualStyleBackColor = false;
             this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
+            this.restartButton.MouseEnter += new System.EventHandler(this.startButton_MouseEnter);
             // 
             // QuitGame
             // 
@@ -216,6 +225,7 @@
             this.QuitGame.Text = "Quit Game";
             this.QuitGame.UseVisualStyleBackColor = false;
             this.QuitGame.Click += new System.EventHandler(this.QuitGame_Click);
+            this.QuitGame.MouseEnter += new System.EventHandler(this.startButton_MouseEnter);
             // 
             // resumeGame
             // 
@@ -235,6 +245,7 @@
             this.resumeGame.Text = "Resume Game";
             this.resumeGame.UseVisualStyleBackColor = false;
             this.resumeGame.Click += new System.EventHandler(this.resumeGame_Click);
+            this.resumeGame.MouseEnter += new System.EventHandler(this.startButton_MouseEnter);
             // 
             // txtWasted
             // 
@@ -278,6 +289,8 @@
             this.Quit.Text = "Quit Game";
             this.Quit.UseVisualStyleBackColor = false;
             this.Quit.Click += new System.EventHandler(this.Quit_Click);
+            this.Quit.Enter += new System.EventHandler(this.startButton_MouseEnter);
+            this.Quit.MouseEnter += new System.EventHandler(this.startButton_MouseEnter);
             // 
             // StartNewGame
             // 
@@ -297,6 +310,7 @@
             this.StartNewGame.Text = "Start New Game";
             this.StartNewGame.UseVisualStyleBackColor = false;
             this.StartNewGame.Click += new System.EventHandler(this.NewGame_Click);
+            this.StartNewGame.MouseEnter += new System.EventHandler(this.startButton_MouseEnter);
             // 
             // txtContinue
             // 
@@ -310,6 +324,76 @@
             this.txtContinue.TabIndex = 10;
             this.txtContinue.Text = "Press ENTER to continue...";
             this.txtContinue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // confirmationPanel
+            // 
+            this.confirmationPanel.BackgroundImage = global::App05_RPG_Game.Properties.Resources.MenuBackgroundResized;
+            this.confirmationPanel.Controls.Add(this.No);
+            this.confirmationPanel.Controls.Add(this.Yes);
+            this.confirmationPanel.Controls.Add(this.confirmation);
+            this.confirmationPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.confirmationPanel.Location = new System.Drawing.Point(0, 0);
+            this.confirmationPanel.Name = "confirmationPanel";
+            this.confirmationPanel.Size = new System.Drawing.Size(924, 661);
+            this.confirmationPanel.TabIndex = 11;
+            // 
+            // No
+            // 
+            this.No.BackColor = System.Drawing.Color.Transparent;
+            this.No.Cursor = System.Windows.Forms.Cursors.Default;
+            this.No.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.No.FlatAppearance.BorderSize = 0;
+            this.No.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SeaGreen;
+            this.No.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.No.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.No.Font = new System.Drawing.Font("Pricedown Bl", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.No.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.No.Location = new System.Drawing.Point(560, 317);
+            this.No.Name = "No";
+            this.No.Size = new System.Drawing.Size(113, 50);
+            this.No.TabIndex = 3;
+            this.No.Text = "No";
+            this.No.UseVisualStyleBackColor = false;
+            this.No.Click += new System.EventHandler(this.button4_Click);
+            this.No.MouseEnter += new System.EventHandler(this.startButton_MouseEnter);
+            // 
+            // Yes
+            // 
+            this.Yes.BackColor = System.Drawing.Color.Transparent;
+            this.Yes.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Yes.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.Yes.FlatAppearance.BorderSize = 0;
+            this.Yes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SeaGreen;
+            this.Yes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.Yes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Yes.Font = new System.Drawing.Font("Pricedown Bl", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Yes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.Yes.Location = new System.Drawing.Point(263, 317);
+            this.Yes.Name = "Yes";
+            this.Yes.Size = new System.Drawing.Size(113, 50);
+            this.Yes.TabIndex = 1;
+            this.Yes.Text = "Yes";
+            this.Yes.UseVisualStyleBackColor = false;
+            this.Yes.Click += new System.EventHandler(this.button1_Click);
+            this.Yes.MouseEnter += new System.EventHandler(this.startButton_MouseEnter);
+            // 
+            // confirmation
+            // 
+            this.confirmation.BackColor = System.Drawing.Color.Transparent;
+            this.confirmation.Cursor = System.Windows.Forms.Cursors.Default;
+            this.confirmation.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.confirmation.FlatAppearance.BorderSize = 0;
+            this.confirmation.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.confirmation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.confirmation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmation.Font = new System.Drawing.Font("Pricedown Bl", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.confirmation.Location = new System.Drawing.Point(263, 224);
+            this.confirmation.Name = "confirmation";
+            this.confirmation.Size = new System.Drawing.Size(410, 50);
+            this.confirmation.TabIndex = 0;
+            this.confirmation.Text = "Are you sure you want to quit?";
+            this.confirmation.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -328,6 +412,7 @@
             this.Controls.Add(this.healthBar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtAmmo);
+            this.Controls.Add(this.confirmationPanel);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(940, 700);
@@ -340,6 +425,7 @@
             this.startMenu.ResumeLayout(false);
             this.PauseMenu.ResumeLayout(false);
             this.newStartMenu.ResumeLayout(false);
+            this.confirmationPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,6 +451,10 @@
         private System.Windows.Forms.Button Quit;
         private System.Windows.Forms.Button StartNewGame;
         private System.Windows.Forms.Label txtContinue;
+        private System.Windows.Forms.Panel confirmationPanel;
+        private System.Windows.Forms.Button No;
+        private System.Windows.Forms.Button Yes;
+        private System.Windows.Forms.Button confirmation;
     }
 }
 

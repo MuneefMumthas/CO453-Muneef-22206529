@@ -129,5 +129,26 @@
   <ItemGroup>
     <None Include="Resources\pauseIconResized.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deathSound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuEnter.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuScroll.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Oof.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deathsoundedited.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuScrollEdited.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuEnterEdited.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
