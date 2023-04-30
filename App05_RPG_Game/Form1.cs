@@ -17,7 +17,7 @@ namespace App05_RPG_Game
     public partial class Form1 : Form
     {
         // Booleans, Constants & Variables
-        bool goLeft, goRight, goUp, goDown, gameOver, gamePaused, startMenuBool, newStartMenuBool, pauseMenuBool,restartBool;
+        bool goLeft, goRight, goUp, goDown, gameOver, gamePaused, startMenuBool, newStartMenuBool, pauseMenuBool, restartBool;
         string facing = "up";
         int playerHealth = 100;
         int speed = 10;
@@ -41,7 +41,7 @@ namespace App05_RPG_Game
         }
 
         /// <summary>
-        /// Buttons click method for start menu
+        /// Click event handler for start menu buttons
         /// </summary>
         private void StartButton_Click(object sender, EventArgs e)
         {
@@ -67,7 +67,7 @@ namespace App05_RPG_Game
         }
 
         /// <summary>
-        /// Buttons click method for pause menu
+        /// Click event handler for pause menu buttons
         /// </summary>
         private void resumeGame_Click(object sender, EventArgs e)
         {
@@ -91,6 +91,7 @@ namespace App05_RPG_Game
 
         private void restartButton_Click(object sender, EventArgs e)
         {
+            // calls in confirmation panel
             restartBool = true;
             pauseMenuBool = true;
             confirmationPanel.Show();
@@ -102,6 +103,7 @@ namespace App05_RPG_Game
 
         private void QuitGame_Click(object sender, EventArgs e)
         {
+            // calls in confirmation panel
             pauseMenuBool = true;
             confirmationPanel.Show();
             confirmationPanel.BringToFront();
@@ -111,7 +113,7 @@ namespace App05_RPG_Game
         }
 
         /// <summary>
-        /// Buttons click method for new start menu
+        /// Click event handler for new start menu buttons
         /// </summary>
         private void NewGame_Click(object sender, EventArgs e)
         {
@@ -131,6 +133,7 @@ namespace App05_RPG_Game
 
         private void Quit_Click(object sender, EventArgs e)
         {
+            // calls in confirmation panel
             newStartMenuBool = true;
             confirmationPanel.Show();
             confirmationPanel.BringToFront();
@@ -149,7 +152,7 @@ namespace App05_RPG_Game
         }
 
         /// <summary>
-        /// Buttons click method for exit confirmation menu
+        /// Click event handler for confirmation menu buttons
         /// </summary>
 
         /// "No" Button 
@@ -161,6 +164,7 @@ namespace App05_RPG_Game
 
             if (startMenuBool == true)
             {
+                // brings back start menu
                 confirmationPanel.Hide();
                 startMenu.Show();
                 startMenu.BringToFront();
@@ -168,6 +172,7 @@ namespace App05_RPG_Game
 
             if (pauseMenuBool == true)
             {
+                // brings back pause menu
                 confirmationPanel.Hide();
                 PauseMenu.Show();
                 PauseMenu.BringToFront();
@@ -178,6 +183,7 @@ namespace App05_RPG_Game
 
             if (newStartMenuBool == true)
             {
+                // brings back new start menu
                 confirmationPanel.Hide();
                 newStartMenu.Show();
                 newStartMenu.BringToFront();
@@ -205,9 +211,10 @@ namespace App05_RPG_Game
                 // Close the application
                 Application.Exit();
             }
-            
+
         }
 
+        // Main Game Timer
         private void MainTimerEvent(object sender, EventArgs e)
         {
             ///<summary>
@@ -223,10 +230,10 @@ namespace App05_RPG_Game
                 gameOver = true;
                 player.Image = Properties.Resources.dead;
                 GameTimer.Stop();
-
+                // death sound
                 SoundPlayer death = new SoundPlayer(Properties.Resources.deathsoundedited);
                 death.Play();
-
+                // death and continue messages
                 txtWasted.Show();
                 txtWasted.BringToFront();
                 txtContinue.Show();
@@ -238,8 +245,8 @@ namespace App05_RPG_Game
             txtScore.Text = "Kills: " + score;
 
             ///<summary>
-            ///Movement mechanic and boundries for player movement, 
-            ///when booleans are turned on/ when keys are pressed
+            /// Movement mechanic and boundries for player movement, 
+            /// when booleans are turned on/ when keys are pressed
             ///</summary>
             if (goLeft == true && player.Left > 0)
             {
@@ -320,7 +327,7 @@ namespace App05_RPG_Game
                 ///<summary>
                 /// This foreach loop checks if the bullet made contact with a zombie,
                 /// if it is, then it removes the zombie and the bullet from the frame,
-                /// which increases the score by 1.
+                /// and increases the score by 1.
                 ///</summary>
                 foreach (Control j in this.Controls)
                 {
@@ -345,10 +352,13 @@ namespace App05_RPG_Game
 
         }
 
+        ///<summary>
+        /// This method is used to give appropraite instructions, 
+        /// when keys are pressed.
+        ///</summary>
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
             /// <summary>
-            /// This method is used to give appropriate instructions for movement. 
             /// when Left, Right, Up, Down arrow keys are pressed,
             /// the booleans, facing string, and the player images are changed accordingly.
             /// </summary>
@@ -397,7 +407,6 @@ namespace App05_RPG_Game
 
                 ///<summary>
                 /// Player movement using W,A,S,D Keys
-                /// when W,A,S,D keys are pressed,
                 /// the booleans, facing string, and the player images are changed accordingly.
                 /// </summary>
 
@@ -440,16 +449,18 @@ namespace App05_RPG_Game
 
         }
 
-
-
+        ///<summary>
+        /// This method is used to give appropraite instructions, 
+        /// when keys are released.
+        ///</summary>
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
 
             ///<summary>
-            ///This method is used to give appropraite instructions.
-            ///when Left, Right, Up, Down keys are released, 
-            ///the booleans are set to false, so that player stops moving.
+            /// when Left, Right, Up, Down keys are released, 
+            /// the booleans are set to false, so that player stops moving.
             /// </summary>
+
             if (e.KeyCode == Keys.Left)
             {
                 goLeft = false;
@@ -474,6 +485,7 @@ namespace App05_RPG_Game
             /// When W,A,S,D keys are released,
             /// the booleans are set to false, so that player stops moving.
             ///</summary>
+
             if (e.KeyCode == Keys.A)
             {
                 goLeft = false;
@@ -493,6 +505,7 @@ namespace App05_RPG_Game
             {
                 goDown = false;
             }
+
             ///<summary>
             /// when the space bar is released and the ammo count is greater than 0,
             /// ShootBullet method will be called to shoot bullets.
@@ -510,6 +523,7 @@ namespace App05_RPG_Game
                 }
 
             }
+
             ///<summary>
             /// when the game is not paused and escape key is pressed
             /// it opens up pause menu and pause the game
@@ -517,10 +531,12 @@ namespace App05_RPG_Game
 
             if (e.KeyCode == Keys.Escape && gamePaused == false && gameOver == false)
             {
+                // Pauses the application
                 gamePaused = true;
                 GameTimer.Stop();
                 PauseMenu.Show();
                 PauseMenu.BringToFront();
+                // sound effect 
                 SoundPlayer pause = new SoundPlayer(Properties.Resources.MenuScrollEdited);
                 pause.Play();
 
@@ -530,6 +546,7 @@ namespace App05_RPG_Game
             /// when the game is paused and escape key is pressed
             /// it closes pause menu and resumes the game
             ///</summary>
+
             else if (e.KeyCode == Keys.Escape && gamePaused == true && gameOver == false)
             {
                 // Resumes the application
@@ -543,32 +560,36 @@ namespace App05_RPG_Game
                 pauseMenuBool = false;
                 GameTimer.Start();
                 this.Focus();
-                // sound effect for when user clicks this choice
+                // sound effect 
                 SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
                 menuclick.Play();
 
             }
+
             ///<summary>
             /// when the game is over and enter key is pressed it opens up new start menu
             ///</summary> 
+
             if (e.KeyCode == Keys.Enter && gameOver == true)
             {
+                // Brings up new start men as the first start menu was disposed
                 newStartMenu.Show();
                 newStartMenu.BringToFront();
+                // sound effect 
                 SoundPlayer pause = new SoundPlayer(Properties.Resources.MenuScrollEdited);
                 pause.Play();
             }
 
         }
 
+        ///<summary>
+        /// This method is used to define the point in player image,
+        /// where the bullet should originate from.
+        /// and calls the MakeBullet function from Bullet class to create the bullet. 
+        ///</summary>
+
         private void ShootBullet(string direction)
         {
-            ///<summary>
-            /// This method is used to define the point in player image,
-            /// where the bullet should originate from.
-            /// and calls the MakeBullet function from Bullet class to create the bullet. 
-            ///</summary>
-
             Bullet shootBullet = new Bullet();
             shootBullet.direction = direction;
 
@@ -586,13 +607,13 @@ namespace App05_RPG_Game
             shootBullet.MakeBullet(this);
         }
 
+        ///<summary>
+        /// This method is used to create a picturebox to 
+        /// spawn zombies randomly across the screen
+        ///</summary>
+
         private void MakeZombies()
         {
-            ///<summary>
-            /// This method is used to create a picturebox to 
-            /// spawn zombies randomly across the screen
-            ///</summary>
-
             PictureBox zombie = new PictureBox();
             zombie.Tag = "zombie";
             zombie.Image = Properties.Resources.zombieDown;
@@ -606,14 +627,14 @@ namespace App05_RPG_Game
 
         }
 
+        ///<summary>
+        /// This method is used to create a picturebox to 
+        /// spawn ammo within the range, 
+        /// where player can move to access it
+        ///</summary>
+
         private void DropAmmo()
         {
-            ///<summary>
-            /// This method is used to create a picturebox to 
-            /// spawn ammo within the range, 
-            /// where player can move to access it
-            ///</summary>
-
             PictureBox ammo = new PictureBox();
             ammo.Image = Properties.Resources.ammo_Image;
             ammo.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -627,13 +648,14 @@ namespace App05_RPG_Game
             player.BringToFront();
         }
 
+        ///<summary>
+        /// This method is used to restart the game by setting 
+        /// score, player health and ammo count back to default
+        /// This method also re-position the plaayer and remove the zombie.
+        ///</summary>
+
         private void RestartGame()
         {
-            ///<summary>
-            /// This method is used to restart the game by setting 
-            /// score, player health and ammo count back to default
-            /// This method also re-position the plaayer and remove the zombie.
-            ///</summary>
             player.Image = Properties.Resources.playerUp;
 
             foreach (PictureBox i in zombiesList)
