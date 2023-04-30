@@ -33,6 +33,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtAmmo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.healthBar = new System.Windows.Forms.ProgressBar();
@@ -55,11 +56,13 @@
             this.No = new System.Windows.Forms.Button();
             this.Yes = new System.Windows.Forms.Button();
             this.confirmation = new System.Windows.Forms.Button();
+            this.songPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.startMenu.SuspendLayout();
             this.PauseMenu.SuspendLayout();
             this.newStartMenu.SuspendLayout();
             this.confirmationPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.songPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAmmo
@@ -395,6 +398,16 @@
             this.confirmation.Text = "Are you sure?";
             this.confirmation.UseVisualStyleBackColor = false;
             // 
+            // songPlayer
+            // 
+            this.songPlayer.Enabled = true;
+            this.songPlayer.Location = new System.Drawing.Point(129, 9);
+            this.songPlayer.Name = "songPlayer";
+            this.songPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("songPlayer.OcxState")));
+            this.songPlayer.Size = new System.Drawing.Size(75, 23);
+            this.songPlayer.TabIndex = 12;
+            this.songPlayer.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,6 +415,7 @@
             this.BackgroundImage = global::App05_RPG_Game.Properties.Resources.PlainBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(924, 661);
+            this.Controls.Add(this.songPlayer);
             this.Controls.Add(this.startMenu);
             this.Controls.Add(this.PauseMenu);
             this.Controls.Add(this.newStartMenu);
@@ -426,6 +440,7 @@
             this.PauseMenu.ResumeLayout(false);
             this.newStartMenu.ResumeLayout(false);
             this.confirmationPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.songPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,6 +470,7 @@
         private System.Windows.Forms.Button No;
         private System.Windows.Forms.Button Yes;
         private System.Windows.Forms.Button confirmation;
+        private AxWMPLib.AxWindowsMediaPlayer songPlayer;
     }
 }
 

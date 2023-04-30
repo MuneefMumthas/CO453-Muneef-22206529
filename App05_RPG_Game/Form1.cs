@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AxWMPLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +9,7 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace App05_RPG_Game
 {
@@ -38,6 +40,10 @@ namespace App05_RPG_Game
             txtWasted.Hide();
             txtContinue.Hide();
 
+            songPlayer.URL = @"BackgroundSong.mp3";
+            songPlayer.settings.playCount = 9999;
+            songPlayer.Ctlcontrols.stop();
+
         }
 
         /// <summary>
@@ -50,6 +56,7 @@ namespace App05_RPG_Game
             startMenu.Dispose();
             // calling methtod to start the game
             RestartGame();
+            songPlayer.Ctlcontrols.play();
             // sound effect for when user clicks this choice
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
             menuclick.Play();
@@ -82,6 +89,7 @@ namespace App05_RPG_Game
             PauseMenu.Hide();
             pauseMenuBool = false;
             GameTimer.Start();
+            songPlayer.Ctlcontrols.play();
             this.Focus();
             // sound effect for when user clicks this choice
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
@@ -125,6 +133,7 @@ namespace App05_RPG_Game
             txtContinue.Hide();
             // method to restart the game
             RestartGame();
+            songPlayer.Ctlcontrols.play();
             this.Focus();
             // sound effect for when user clicks this choice
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
@@ -201,6 +210,8 @@ namespace App05_RPG_Game
                 restartBool = false;
                 // calling the method to restart the game
                 RestartGame();
+                songPlayer.Ctlcontrols.stop();
+                songPlayer.Ctlcontrols.play();
                 this.Focus();
                 // sound effect for when user clicks this choice
                 SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
@@ -230,6 +241,7 @@ namespace App05_RPG_Game
                 gameOver = true;
                 player.Image = Properties.Resources.dead;
                 GameTimer.Stop();
+                songPlayer.Ctlcontrols.stop();
                 // death sound
                 SoundPlayer death = new SoundPlayer(Properties.Resources.deathsoundedited);
                 death.Play();
@@ -342,6 +354,11 @@ namespace App05_RPG_Game
                             ((PictureBox)j).Dispose();
                             this.Controls.Remove(x);
                             ((PictureBox)x).Dispose();
+
+                            // sound effect 
+                            SoundPlayer kill = new SoundPlayer(Properties.Resources.KillSound);
+                            kill.Play();
+
                             zombiesList.Remove((PictureBox)x);
                             MakeZombies();
 
@@ -536,9 +553,8 @@ namespace App05_RPG_Game
                 GameTimer.Stop();
                 PauseMenu.Show();
                 PauseMenu.BringToFront();
-                // sound effect 
-                SoundPlayer pause = new SoundPlayer(Properties.Resources.MenuScrollEdited);
-                pause.Play();
+                songPlayer.Ctlcontrols.pause();
+
 
             }
 
@@ -559,6 +575,7 @@ namespace App05_RPG_Game
                 PauseMenu.Hide();
                 pauseMenuBool = false;
                 GameTimer.Start();
+                songPlayer.Ctlcontrols.play();
                 this.Focus();
                 // sound effect 
                 SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
