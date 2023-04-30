@@ -392,7 +392,7 @@
             this.confirmation.Name = "confirmation";
             this.confirmation.Size = new System.Drawing.Size(410, 50);
             this.confirmation.TabIndex = 0;
-            this.confirmation.Text = "Are you sure you want to quit?";
+            this.confirmation.Text = "Are you sure?";
             this.confirmation.UseVisualStyleBackColor = false;
             // 
             // Form1

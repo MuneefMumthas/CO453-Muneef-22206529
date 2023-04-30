@@ -17,7 +17,7 @@ namespace App05_RPG_Game
     public partial class Form1 : Form
     {
         // Booleans, Constants & Variables
-        bool goLeft, goRight, goUp, goDown, gameOver, gamePaused, startMenuBool, newStartMenuBool, pauseMenuBool;
+        bool goLeft, goRight, goUp, goDown, gameOver, gamePaused, startMenuBool, newStartMenuBool, pauseMenuBool,restartBool;
         string facing = "up";
         int playerHealth = 100;
         int speed = 10;
@@ -65,14 +65,14 @@ namespace App05_RPG_Game
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
             menuclick.Play();
         }
-        
+
         /// <summary>
         /// Buttons click method for pause menu
         /// </summary>
         private void resumeGame_Click(object sender, EventArgs e)
         {
             // Resumes the application
-            
+
             goUp = false;
             goDown = false;
             goRight = false;
@@ -91,12 +91,10 @@ namespace App05_RPG_Game
 
         private void restartButton_Click(object sender, EventArgs e)
         {
-            // Closing the pause menu
-            PauseMenu.Hide();
-            pauseMenuBool = false;
-            // calling the method to restart the game
-            RestartGame();
-            this.Focus();
+            restartBool = true;
+            pauseMenuBool = true;
+            confirmationPanel.Show();
+            confirmationPanel.BringToFront();
             // sound effect for when user clicks this choice
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
             menuclick.Play();
@@ -153,7 +151,7 @@ namespace App05_RPG_Game
         /// <summary>
         /// Buttons click method for exit confirmation menu
         /// </summary>
-        
+
         /// "No" Button 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -173,6 +171,9 @@ namespace App05_RPG_Game
                 confirmationPanel.Hide();
                 PauseMenu.Show();
                 PauseMenu.BringToFront();
+                gamePaused = true;
+                restartBool = false;
+                this.Focus();
             }
 
             if (newStartMenuBool == true)
@@ -185,8 +186,26 @@ namespace App05_RPG_Game
         /// "Yes" Button
         private void button1_Click(object sender, EventArgs e)
         {
-            // Close the application
-            Application.Exit();
+            if (pauseMenuBool == true && restartBool == true)
+            {
+                // Closing the pause menu
+                PauseMenu.Hide();
+                confirmationPanel.Hide();
+                pauseMenuBool = false;
+                restartBool = false;
+                // calling the method to restart the game
+                RestartGame();
+                this.Focus();
+                // sound effect for when user clicks this choice
+                SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+                menuclick.Play();
+            }
+            else
+            {
+                // Close the application
+                Application.Exit();
+            }
+            
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
@@ -207,22 +226,22 @@ namespace App05_RPG_Game
 
                 SoundPlayer death = new SoundPlayer(Properties.Resources.deathsoundedited);
                 death.Play();
-                
+
                 txtWasted.Show();
                 txtWasted.BringToFront();
                 txtContinue.Show();
                 txtContinue.BringToFront();
-                
+
             }
 
             txtAmmo.Text = "Ammo: " + ammo;
             txtScore.Text = "Kills: " + score;
-            
+
             ///<summary>
             ///Movement mechanic and boundries for player movement, 
             ///when booleans are turned on/ when keys are pressed
             ///</summary>
-            if (goLeft == true && player.Left >0)
+            if (goLeft == true && player.Left > 0)
             {
                 player.Left -= speed;
             }
@@ -254,7 +273,7 @@ namespace App05_RPG_Game
                     }
                 }
 
-                
+
                 if (x is PictureBox && (string)x.Tag == "zombie")
                 {
                     /// Collision detection between zombies and player (health reduces).
@@ -325,7 +344,7 @@ namespace App05_RPG_Game
             }
 
         }
-        
+
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
             /// <summary>
@@ -381,7 +400,7 @@ namespace App05_RPG_Game
                 /// when W,A,S,D keys are pressed,
                 /// the booleans, facing string, and the player images are changed accordingly.
                 /// </summary>
-                
+
                 case Keys.A:
                     goLeft = true;
                     facing = "left";
@@ -418,7 +437,7 @@ namespace App05_RPG_Game
                     goUp = false;
                     break;
             }
-            
+
         }
 
 
@@ -493,7 +512,7 @@ namespace App05_RPG_Game
             }
             ///<summary>
             /// when the game is not paused and escape key is pressed
-            /// it opens up pause menu
+            /// it opens up pause menu and pause the game
             ///</summary>
 
             if (e.KeyCode == Keys.Escape && gamePaused == false && gameOver == false)
@@ -506,6 +525,29 @@ namespace App05_RPG_Game
                 pause.Play();
 
             }
+
+            ///<summary>
+            /// when the game is paused and escape key is pressed
+            /// it closes pause menu and resumes the game
+            ///</summary>
+            else if (e.KeyCode == Keys.Escape && gamePaused == true && gameOver == false)
+            {
+                // Resumes the application
+                goUp = false;
+                goDown = false;
+                goRight = false;
+                goLeft = false;
+                gameOver = false;
+                gamePaused = false;
+                PauseMenu.Hide();
+                pauseMenuBool = false;
+                GameTimer.Start();
+                this.Focus();
+                // sound effect for when user clicks this choice
+                SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+                menuclick.Play();
+
+            }
             ///<summary>
             /// when the game is over and enter key is pressed it opens up new start menu
             ///</summary> 
@@ -513,6 +555,8 @@ namespace App05_RPG_Game
             {
                 newStartMenu.Show();
                 newStartMenu.BringToFront();
+                SoundPlayer pause = new SoundPlayer(Properties.Resources.MenuScrollEdited);
+                pause.Play();
             }
 
         }
@@ -524,7 +568,7 @@ namespace App05_RPG_Game
             /// where the bullet should originate from.
             /// and calls the MakeBullet function from Bullet class to create the bullet. 
             ///</summary>
-            
+
             Bullet shootBullet = new Bullet();
             shootBullet.direction = direction;
 
@@ -569,7 +613,7 @@ namespace App05_RPG_Game
             /// spawn ammo within the range, 
             /// where player can move to access it
             ///</summary>
-            
+
             PictureBox ammo = new PictureBox();
             ammo.Image = Properties.Resources.ammo_Image;
             ammo.SizeMode = PictureBoxSizeMode.AutoSize;
