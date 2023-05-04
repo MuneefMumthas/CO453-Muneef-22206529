@@ -412,7 +412,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::App05_RPG_Game.Properties.Resources.PlainBackground;
+            this.BackgroundImage = global::App05_RPG_Game.Properties.Resources.FinaleditedBG;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(924, 661);
             this.Controls.Add(this.songPlayer);
@@ -428,11 +428,12 @@
             this.Controls.Add(this.txtAmmo);
             this.Controls.Add(this.confirmationPanel);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(940, 700);
             this.MinimumSize = new System.Drawing.Size(940, 700);
             this.Name = "Form1";
-            this.Text = "Zombie Rush";
+            this.Text = "Chill & Survive";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();

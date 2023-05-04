@@ -90,6 +90,16 @@ namespace App05_RPG_Game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FinaleditedBG {
+            get {
+                object obj = ResourceManager.GetObject("FinaleditedBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream KillSound {
@@ -132,16 +142,6 @@ namespace App05_RPG_Game.Properties {
         internal static System.IO.UnmanagedMemoryStream Oof {
             get {
                 return ResourceManager.GetStream("Oof", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap PlainBackground {
-            get {
-                object obj = ResourceManager.GetObject("PlainBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

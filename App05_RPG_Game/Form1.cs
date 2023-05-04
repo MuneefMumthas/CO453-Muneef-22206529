@@ -9,16 +9,19 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Media;
 
 namespace App05_RPG_Game
 {
     /// <author>
     /// Muneef Mumthas - 22206529
     /// </author>
+
+
     public partial class Form1 : Form
     {
-        // Booleans, Constants & Variables
+        ///<summary>
+        /// Booleans, Constants & Variables 
+        ///</summary>
         bool goLeft, goRight, goUp, goDown, gameOver, gamePaused, startMenuBool, newStartMenuBool, pauseMenuBool, restartBool;
         string facing = "up";
         int playerHealth = 100;
@@ -31,6 +34,11 @@ namespace App05_RPG_Game
 
         List<PictureBox> zombiesList = new List<PictureBox>();
 
+        /// <summary>
+        /// Method to initialise options when the application loads.
+        /// It hides pausemenu, newstartmenu and confirmation panels.
+        /// Also hides wasted & continue texts, and stops background music at the start 
+        /// </summary>
         public Form1()
         {
             InitializeComponent();
@@ -47,39 +55,44 @@ namespace App05_RPG_Game
         }
 
         /// <summary>
-        /// Click event handler for start menu buttons
+        /// Click event handler for Start Game button in startmenu (panel)
+        /// Once clicked, it plays option selected sound,
+        /// Disposes the startmenu (panel) and runs the game.
         /// </summary>
         private void StartButton_Click(object sender, EventArgs e)
         {
-            // Closing the start menu
             startMenuBool = false;
             startMenu.Dispose();
-            // calling methtod to start the game
+
             RestartGame();
             songPlayer.Ctlcontrols.play();
-            // sound effect for when user clicks this choice
-            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
-            menuclick.Play();
 
-        }
-
-        private void QuitButton_Click(object sender, EventArgs e)
-        {
-            startMenuBool = true;
-            confirmationPanel.Show();
-            confirmationPanel.BringToFront();
-            // sound effect for when user clicks this choice
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
             menuclick.Play();
         }
 
         /// <summary>
-        /// Click event handler for pause menu buttons
+        /// Click event handler for Quit Game button in startmenu (panel) 
+        /// Once clicked, it plays option selected sound and
+        /// Shows the confirmationmenu (panel).
+        /// </summary>
+        private void QuitButton_Click(object sender, EventArgs e)
+        {
+            startMenuBool = true;
+            confirmationPanel.Show();
+            confirmationPanel.BringToFront();
+            
+            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+            menuclick.Play();
+        }
+
+        /// <summary>
+        /// Click event handler for Resume Game button in pausemenu (panel) 
+        /// Once clicked, it plays option selected sound,
+        /// hides pausemenu (panel) and resumes the game.
         /// </summary>
         private void resumeGame_Click(object sender, EventArgs e)
         {
-            // Resumes the application
-
             goUp = false;
             goDown = false;
             goRight = false;
@@ -91,68 +104,82 @@ namespace App05_RPG_Game
             GameTimer.Start();
             songPlayer.Ctlcontrols.play();
             this.Focus();
-            // sound effect for when user clicks this choice
+            
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
             menuclick.Play();
-
         }
 
+        /// <summary>
+        /// Click event handler for Restart Game button in pausemenu (panel) 
+        /// Once clicked, it plays option selected sound and
+        /// shows confirmationmenu (panel).
+        /// </summary>
         private void restartButton_Click(object sender, EventArgs e)
         {
-            // calls in confirmation panel
             restartBool = true;
             pauseMenuBool = true;
             confirmationPanel.Show();
             confirmationPanel.BringToFront();
-            // sound effect for when user clicks this choice
+            
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
             menuclick.Play();
         }
 
+        /// <summary>
+        /// Click event handler for Quit Game button in pausemenu (panel) 
+        /// Once clicked, it plays option selected sound and
+        /// Shows the confirmationmenu (panel).
+        /// </summary>
         private void QuitGame_Click(object sender, EventArgs e)
         {
-            // calls in confirmation panel
             pauseMenuBool = true;
             confirmationPanel.Show();
             confirmationPanel.BringToFront();
-            // sound effect for when user clicks this choice
+            
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
             menuclick.Play();
         }
 
         /// <summary>
-        /// Click event handler for new start menu buttons
+        /// Click event handler for Start New Game button in newstartmenu (panel) 
+        /// Once clicked, it plays option selected sound, 
+        /// hides wasted and continue texts,
+        /// hides the newstartmenu (panel) and restarts the game.
         /// </summary>
         private void NewGame_Click(object sender, EventArgs e)
         {
-            // Closing the new start menu
             newStartMenu.Hide();
             newStartMenuBool = false;
-            // hiding the "died" texts
+            
             txtWasted.Hide();
             txtContinue.Hide();
-            // method to restart the game
+            
             RestartGame();
             songPlayer.Ctlcontrols.play();
             this.Focus();
-            // sound effect for when user clicks this choice
-            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
-            menuclick.Play();
-        }
-
-        private void Quit_Click(object sender, EventArgs e)
-        {
-            // calls in confirmation panel
-            newStartMenuBool = true;
-            confirmationPanel.Show();
-            confirmationPanel.BringToFront();
-            // sound effect for when user clicks this choice
+            
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
             menuclick.Play();
         }
 
         /// <summary>
-        /// Sound effect for whenever player moves mouse over the menu options
+        /// Click event handler for Quit Game button in newstartmenu (panel) 
+        /// Once clicked, it plays option selected sound and
+        /// Shows the confirmationmenu (panel).
+        /// </summary>
+        private void Quit_Click(object sender, EventArgs e)
+        {
+            newStartMenuBool = true;
+            confirmationPanel.Show();
+            confirmationPanel.BringToFront();
+            
+            SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
+            menuclick.Play();
+        }
+
+        /// <summary>
+        /// Enter event handler to play scroll sound
+        /// whenever user moves the mouse over the options (buttons)
         /// </summary>
         private void startButton_MouseEnter(object sender, EventArgs e)
         {
@@ -161,19 +188,18 @@ namespace App05_RPG_Game
         }
 
         /// <summary>
-        /// Click event handler for confirmation menu buttons
-        /// </summary>
-
-        /// "No" Button 
+        /// Click event handler for No button in confirmation (panel) 
+        /// Once clicked, it plays option selected sound,
+        /// Hides the confirmation (panel) and displays the menu
+        /// from where the confirmation (panel) was called.
+        /// </summary
         private void button4_Click(object sender, EventArgs e)
         {
-            // sound effect for when user clicks this choice
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
             menuclick.Play();
 
             if (startMenuBool == true)
             {
-                // brings back start menu
                 confirmationPanel.Hide();
                 startMenu.Show();
                 startMenu.BringToFront();
@@ -181,7 +207,6 @@ namespace App05_RPG_Game
 
             if (pauseMenuBool == true)
             {
-                // brings back pause menu
                 confirmationPanel.Hide();
                 PauseMenu.Show();
                 PauseMenu.BringToFront();
@@ -192,40 +217,48 @@ namespace App05_RPG_Game
 
             if (newStartMenuBool == true)
             {
-                // brings back new start menu
                 confirmationPanel.Hide();
                 newStartMenu.Show();
                 newStartMenu.BringToFront();
             }
         }
-        /// "Yes" Button
+
+        /// <summary>
+        /// Click event handler for Yes button in confirmation (panel) 
+        /// Once clicked, it plays option selected sound,
+        /// If it was called from a restart button,
+        /// it hides the pausemenu & confirmation (panels) and restarts the game.
+        /// otherwise (called from quit game options), it exits the application.
+        /// </summary
         private void button1_Click(object sender, EventArgs e)
         {
             if (pauseMenuBool == true && restartBool == true)
             {
-                // Closing the pause menu
                 PauseMenu.Hide();
                 confirmationPanel.Hide();
                 pauseMenuBool = false;
                 restartBool = false;
-                // calling the method to restart the game
+                
                 RestartGame();
                 songPlayer.Ctlcontrols.stop();
                 songPlayer.Ctlcontrols.play();
                 this.Focus();
-                // sound effect for when user clicks this choice
+                
                 SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
                 menuclick.Play();
             }
             else
             {
-                // Close the application
                 Application.Exit();
             }
 
         }
 
-        // Main Game Timer
+        /// <summary>
+        /// Tick event handler for the Game timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainTimerEvent(object sender, EventArgs e)
         {
             ///<summary>
@@ -242,15 +275,14 @@ namespace App05_RPG_Game
                 player.Image = Properties.Resources.dead;
                 GameTimer.Stop();
                 songPlayer.Ctlcontrols.stop();
-                // death sound
+                
                 SoundPlayer death = new SoundPlayer(Properties.Resources.deathsoundedited);
                 death.Play();
-                // death and continue messages
-                txtWasted.Show();
-                txtWasted.BringToFront();
+                
                 txtContinue.Show();
                 txtContinue.BringToFront();
-
+                txtWasted.Show();
+                txtWasted.BringToFront();
             }
 
             txtAmmo.Text = "Ammo: " + ammo;
@@ -295,7 +327,9 @@ namespace App05_RPG_Game
 
                 if (x is PictureBox && (string)x.Tag == "zombie")
                 {
+                    /// <summary>
                     /// Collision detection between zombies and player (health reduces).
+                    /// </summary>
                     if (player.Bounds.IntersectsWith(x.Bounds))
                     {
                         playerHealth -= 5;
@@ -345,7 +379,9 @@ namespace App05_RPG_Game
                 {
                     if (j is PictureBox && (string)j.Tag == "bullet" && x is PictureBox && (string)x.Tag == "zombie")
                     {
+                        /// <summary>
                         /// Collision detection between bullets and zombies
+                        /// </summary>
                         if (x.Bounds.IntersectsWith(j.Bounds))
                         {
                             score++;
@@ -355,13 +391,12 @@ namespace App05_RPG_Game
                             this.Controls.Remove(x);
                             ((PictureBox)x).Dispose();
 
-                            // sound effect 
+                            
                             SoundPlayer kill = new SoundPlayer(Properties.Resources.KillSound);
                             kill.Play();
 
                             zombiesList.Remove((PictureBox)x);
                             MakeZombies();
-
                         }
                     }
                 }
@@ -370,16 +405,12 @@ namespace App05_RPG_Game
         }
 
         ///<summary>
-        /// This method is used to give appropraite instructions, 
-        /// when keys are pressed.
+        /// KeyDown event handler, used to give appropraite instructions
+        /// when Left, Right, Up, Down arrow keys, W,A,S,D keys are pressed.
+        /// the booleans, facing string, and the player images are then changed accordingly
         ///</summary>
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            /// <summary>
-            /// when Left, Right, Up, Down arrow keys are pressed,
-            /// the booleans, facing string, and the player images are changed accordingly.
-            /// </summary>
-
             if (gameOver == true || gamePaused == true)
             {
                 return;
@@ -422,11 +453,6 @@ namespace App05_RPG_Game
                     goUp = false;
                     break;
 
-                ///<summary>
-                /// Player movement using W,A,S,D Keys
-                /// the booleans, facing string, and the player images are changed accordingly.
-                /// </summary>
-
                 case Keys.A:
                     goLeft = true;
                     facing = "left";
@@ -463,21 +489,15 @@ namespace App05_RPG_Game
                     goUp = false;
                     break;
             }
-
         }
 
         ///<summary>
-        /// This method is used to give appropraite instructions, 
-        /// when keys are released.
+        /// KeyUp event handler, used to give appropraite instructions
+        /// when Left, Right, Up, Down arrow keys, W,A,S,D keys are released.
+        /// the booleans are set to false, so that player stops moving.
         ///</summary>
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
-
-            ///<summary>
-            /// when Left, Right, Up, Down keys are released, 
-            /// the booleans are set to false, so that player stops moving.
-            /// </summary>
-
             if (e.KeyCode == Keys.Left)
             {
                 goLeft = false;
@@ -497,11 +517,6 @@ namespace App05_RPG_Game
             {
                 goDown = false;
             }
-
-            ///<summary>
-            /// When W,A,S,D keys are released,
-            /// the booleans are set to false, so that player stops moving.
-            ///</summary>
 
             if (e.KeyCode == Keys.A)
             {
@@ -543,29 +558,23 @@ namespace App05_RPG_Game
 
             ///<summary>
             /// when the game is not paused and escape key is pressed
-            /// it opens up pause menu and pause the game
+            /// it opens up pausemenu (panel) and pauses the game
             ///</summary>
-
             if (e.KeyCode == Keys.Escape && gamePaused == false && gameOver == false)
             {
-                // Pauses the application
                 gamePaused = true;
                 GameTimer.Stop();
                 PauseMenu.Show();
                 PauseMenu.BringToFront();
                 songPlayer.Ctlcontrols.pause();
-
-
             }
 
             ///<summary>
             /// when the game is paused and escape key is pressed
-            /// it closes pause menu and resumes the game
+            /// it closes pausemenu (panel) and resumes the game
             ///</summary>
-
             else if (e.KeyCode == Keys.Escape && gamePaused == true && gameOver == false)
             {
-                // Resumes the application
                 goUp = false;
                 goDown = false;
                 goRight = false;
@@ -577,22 +586,20 @@ namespace App05_RPG_Game
                 GameTimer.Start();
                 songPlayer.Ctlcontrols.play();
                 this.Focus();
-                // sound effect 
+                
                 SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
                 menuclick.Play();
-
             }
 
             ///<summary>
-            /// when the game is over and enter key is pressed it opens up new start menu
+            /// when the game is over and enter key is pressed 
+            /// it opens up newstartmenu (panel)
             ///</summary> 
-
             if (e.KeyCode == Keys.Enter && gameOver == true)
             {
-                // Brings up new start men as the first start menu was disposed
                 newStartMenu.Show();
                 newStartMenu.BringToFront();
-                // sound effect 
+                 
                 SoundPlayer pause = new SoundPlayer(Properties.Resources.MenuScrollEdited);
                 pause.Play();
             }
@@ -604,7 +611,6 @@ namespace App05_RPG_Game
         /// where the bullet should originate from.
         /// and calls the MakeBullet function from Bullet class to create the bullet. 
         ///</summary>
-
         private void ShootBullet(string direction)
         {
             Bullet shootBullet = new Bullet();
@@ -626,9 +632,8 @@ namespace App05_RPG_Game
 
         ///<summary>
         /// This method is used to create a picturebox to 
-        /// spawn zombies randomly across the screen
+        /// spawn zombies randomly across the screen.
         ///</summary>
-
         private void MakeZombies()
         {
             PictureBox zombie = new PictureBox();
@@ -646,10 +651,9 @@ namespace App05_RPG_Game
 
         ///<summary>
         /// This method is used to create a picturebox to 
-        /// spawn ammo within the range, 
+        /// spawn ammo crate within the range, 
         /// where player can move to access it
         ///</summary>
-
         private void DropAmmo()
         {
             PictureBox ammo = new PictureBox();
@@ -668,9 +672,8 @@ namespace App05_RPG_Game
         ///<summary>
         /// This method is used to restart the game by setting 
         /// score, player health and ammo count back to default
-        /// This method also re-position the plaayer and remove the zombie.
+        /// This method also re-position the player and removes the zombie.
         ///</summary>
-
         private void RestartGame()
         {
             player.Image = Properties.Resources.playerUp;

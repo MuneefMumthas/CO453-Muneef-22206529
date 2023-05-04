@@ -12,9 +12,12 @@ namespace App05_RPG_Game
     /// <author>
     /// Muneef Mumthas - 22206529
     /// </author>
+    
     class Bullet
     {
-        //variables and constants
+        ///<summary>
+        /// Constants & Variables 
+        ///</summary>
         public string direction;
         public int bulletLeft;
         public int bulletTop;
@@ -23,13 +26,12 @@ namespace App05_RPG_Game
         private PictureBox bullet = new PictureBox();
         private Timer bulletTimer = new Timer();
 
-
+        ///<summary>
+        /// This method is used to customise and create the bullet and
+        /// add it to the form.
+        ///</summary>
         public void MakeBullet(Form form)
         {
-            ///<summary>
-            /// This method is used to customise and create the bullet,
-            /// and add it to the form.
-            ///</summary>
             bullet.BackColor = Color.White;
             bullet.Size = new Size(5,5);
             bullet.Tag = "bullet";
@@ -45,12 +47,12 @@ namespace App05_RPG_Game
 
         }
 
+        ///<summary>
+        /// Bullet timer event. Defines the direction of the bullet to travel, 
+        /// when the player turns up,down,left & right.
+        ///</summary>
         private void BulletTimerEvent(object sender, EventArgs e)
         {
-            ///<summary>
-            /// Defining the direction of bullet to travel, 
-            /// when the player turns up,down,left & right.
-            ///</summary>
             if (direction == "left")
             {
                 bullet.Left -= speed;
