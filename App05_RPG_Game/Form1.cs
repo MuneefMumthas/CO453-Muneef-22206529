@@ -14,6 +14,7 @@ namespace App05_RPG_Game
 {
     /// <author>
     /// Muneef Mumthas - 22206529
+    /// Game Name: Chill & Survive
     /// </author>
 
 
