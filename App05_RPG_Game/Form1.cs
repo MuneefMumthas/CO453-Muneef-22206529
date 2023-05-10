@@ -30,7 +30,6 @@ namespace App05_RPG_Game
         int ammo = 10;
         int score;
         int zombieSpeed = 3;
-        private int alpha = 0;
         Random randNum = new Random();
 
         List<PictureBox> zombiesList = new List<PictureBox>();
@@ -52,6 +51,8 @@ namespace App05_RPG_Game
             songPlayer.URL = @"BackgroundSong.mp3";
             songPlayer.settings.playCount = 9999;
             songPlayer.Ctlcontrols.stop();
+            gameOver = true;
+            gamePaused = true;
 
         }
 
