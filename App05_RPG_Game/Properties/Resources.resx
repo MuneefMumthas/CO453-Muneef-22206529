@@ -124,14 +124,20 @@
   <data name="dead" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="zombieDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zombieDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ammo-Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ammo-Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FinaleditedBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FinaleditedBG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UpdatedStartMenu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpdatedStartMenu2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="zombieRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zombieRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="playerLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playerLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MenuEnterEdited" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuEnterEdited.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -151,8 +157,8 @@
   <data name="playerDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="zombieDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zombieDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="playerLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playerLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="playerRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,7 +172,7 @@
   <data name="KillSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KillSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="FinaleditedBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FinaleditedBG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="UpdatedMenu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpdatedMenu2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

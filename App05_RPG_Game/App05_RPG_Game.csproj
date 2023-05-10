@@ -152,5 +152,11 @@
   <ItemGroup>
     <None Include="Resources\FinaleditedBG.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpdatedStartMenu2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpdatedMenu2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

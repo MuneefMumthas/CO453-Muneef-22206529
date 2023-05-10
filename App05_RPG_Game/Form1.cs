@@ -81,6 +81,7 @@ namespace App05_RPG_Game
         {
             startMenuBool = true;
             confirmationPanel.Show();
+            confirmationPanel.BackgroundImage = Properties.Resources.UpdatedStartMenu2;
             confirmationPanel.BringToFront();
             
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
@@ -120,6 +121,7 @@ namespace App05_RPG_Game
             restartBool = true;
             pauseMenuBool = true;
             confirmationPanel.Show();
+            confirmationPanel.BackgroundImage = Properties.Resources.UpdatedMenu2;
             confirmationPanel.BringToFront();
             
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
@@ -135,6 +137,7 @@ namespace App05_RPG_Game
         {
             pauseMenuBool = true;
             confirmationPanel.Show();
+            confirmationPanel.BackgroundImage = Properties.Resources.UpdatedMenu2;
             confirmationPanel.BringToFront();
             
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
@@ -172,6 +175,7 @@ namespace App05_RPG_Game
         {
             newStartMenuBool = true;
             confirmationPanel.Show();
+            confirmationPanel.BackgroundImage = Properties.Resources.UpdatedStartMenu2;
             confirmationPanel.BringToFront();
             
             SoundPlayer menuclick = new SoundPlayer(Properties.Resources.MenuEnterEdited);
