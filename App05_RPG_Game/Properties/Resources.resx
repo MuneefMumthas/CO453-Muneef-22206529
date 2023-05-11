@@ -148,11 +148,17 @@
   <data name="zombieLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\zombieLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="UpdatedStartMenu3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpdatedStartMenu3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MenuBackgroundResized" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MenuBackgroundResized.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="deathsoundedited" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deathsoundedited.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UpdatedMenu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpdatedMenu2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="playerDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playerDown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,7 +178,7 @@
   <data name="KillSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KillSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="UpdatedMenu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UpdatedMenu2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="UpdatedMenu3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UpdatedMenu3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

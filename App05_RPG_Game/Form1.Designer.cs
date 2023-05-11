@@ -128,7 +128,7 @@
             // 
             // startMenu
             // 
-            this.startMenu.BackgroundImage = global::App05_RPG_Game.Properties.Resources.UpdatedStartMenu2;
+            this.startMenu.BackgroundImage = global::App05_RPG_Game.Properties.Resources.UpdatedStartMenu3;
             this.startMenu.Controls.Add(this.quitButton);
             this.startMenu.Controls.Add(this.startButton);
             this.startMenu.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -180,7 +180,7 @@
             // 
             // PauseMenu
             // 
-            this.PauseMenu.BackgroundImage = global::App05_RPG_Game.Properties.Resources.UpdatedMenu2;
+            this.PauseMenu.BackgroundImage = global::App05_RPG_Game.Properties.Resources.UpdatedMenu3;
             this.PauseMenu.Controls.Add(this.restartButton);
             this.PauseMenu.Controls.Add(this.QuitGame);
             this.PauseMenu.Controls.Add(this.resumeGame);
@@ -265,7 +265,7 @@
             // 
             // newStartMenu
             // 
-            this.newStartMenu.BackgroundImage = global::App05_RPG_Game.Properties.Resources.UpdatedStartMenu2;
+            this.newStartMenu.BackgroundImage = global::App05_RPG_Game.Properties.Resources.UpdatedStartMenu3;
             this.newStartMenu.Controls.Add(this.Quit);
             this.newStartMenu.Controls.Add(this.StartNewGame);
             this.newStartMenu.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -330,7 +330,7 @@
             // 
             // confirmationPanel
             // 
-            this.confirmationPanel.BackgroundImage = global::App05_RPG_Game.Properties.Resources.UpdatedMenu2;
+            this.confirmationPanel.BackgroundImage = global::App05_RPG_Game.Properties.Resources.UpdatedMenu3;
             this.confirmationPanel.Controls.Add(this.No);
             this.confirmationPanel.Controls.Add(this.Yes);
             this.confirmationPanel.Controls.Add(this.confirmation);

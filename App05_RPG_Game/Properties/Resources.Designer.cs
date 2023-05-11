@@ -198,9 +198,29 @@ namespace App05_RPG_Game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap UpdatedMenu3 {
+            get {
+                object obj = ResourceManager.GetObject("UpdatedMenu3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UpdatedStartMenu2 {
             get {
                 object obj = ResourceManager.GetObject("UpdatedStartMenu2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpdatedStartMenu3 {
+            get {
+                object obj = ResourceManager.GetObject("UpdatedStartMenu3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
